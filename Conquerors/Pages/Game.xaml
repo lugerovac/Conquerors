@@ -1,0 +1,36 @@
+﻿<navigation:Page x:Class="Conquerors.Pages.Game" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:Conquerors="clr-namespace:Conquerors"
+           Height="613" Width="1300"
+           Title="Game Page" Loaded="Page_Loaded">
+
+    <Grid x:Name="LayoutRoot">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="613" VerticalAlignment="Top" Width="1300">
+            <Grid x:Name="stpPlayerControlBar" Width="82" Background="#FFA86767">
+                <Conquerors:ResourceBar x:Name="ctrlResources" Margin="0,10,0,529"/>
+
+                <StackPanel x:Name="stpPlayerControls" Width="80" Orientation="Vertical" Height="400">
+                    <Conquerors:NodeInfo x:Name="NodeInfo" />
+                    <Conquerors:HireArmy x:Name="HireArmy" MouseLeftButtonDown="HireArmy_MouseLeftButtonDown" />
+                    <Conquerors:HireCommander x:Name="HireCommander" MouseLeftButtonDown="HireCommander_MouseLeftButtonDown" />
+                    <Conquerors:HireSteward x:Name="HireSteward" MouseLeftButtonDown="HireSteward_MouseLeftButtonDown" />
+                    <Conquerors:HireAssassin x:Name="HireAssassin" MouseLeftButtonDown="HireAssassin_MouseLeftButtonDown" />
+                    <Conquerors:HireScout x:Name="HireScout" MouseLeftButtonDown="btnHireScout_MouseLeftButtonDown"/>
+                    <Conquerors:HoldingUpgrade x:Name="HoldingUpgrade" MouseLeftButtonDown="HoldingUpgrade_MouseLeftButtonDown"/>
+                </StackPanel>
+                <Button x:Name="btnEndTurn" Content="End Turn" Width="60" Height="30" Margin="10,573,10,10" Click="btnEndTurn_Click"/>
+            </Grid>
+            
+            <Canvas x:Name="cnvMapa" Width="1220" Background="#FFE6CFCF" MouseLeftButtonDown="cnvMapa_MouseLeftButtonDown" MouseRightButtonDown="cnvMapa_MouseRightButtonDown" >
+            </Canvas>
+        </StackPanel>
+
+        <navigation:Frame x:Name="frmDialogue" Height="275" Width="450" Margin="451,169,399,169"/>
+        
+    </Grid>
+</navigation:Page>

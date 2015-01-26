@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E35678EC-8FD6-41C4-A382-3A7A1AC29118}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conquerors</RootNamespace>
+    <AssemblyName>Conquerors</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Conquerors.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Conquerors.App</SilverlightAppEntry>
+    <TestPageFileName>ConquerorsTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Units\Army.cs" />
+    <Compile Include="Classes\Units\Bowmen.cs" />
+    <Compile Include="Classes\Units\CavalryHeavy.cs" />
+    <Compile Include="Classes\Units\CavalryLight.cs" />
+    <Compile Include="Classes\Agents\AgentPlaceholder.cs" />
+    <Compile Include="Classes\Agents\Commander.cs" />
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Controls\AgentControl.xaml.cs">
+      <DependentUpon>AgentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Agents\Assassin.cs" />
+    <Compile Include="Classes\Agents\Agent.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Enumerations.cs" />
+    <Compile Include="Classes\Map.cs" />
+    <Compile Include="Classes\Node.cs" />
+    <Compile Include="Controls\NodeControl.xaml.cs">
+      <DependentUpon>NodeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Edge.cs" />
+    <Compile Include="Controls\EditorResourceBar.xaml.cs">
+      <DependentUpon>EditorResourceBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HireScout.xaml.cs">
+      <DependentUpon>HireScout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HireAssassin.xaml.cs">
+      <DependentUpon>HireAssassin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HireSteward.xaml.cs">
+      <DependentUpon>HireSteward.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HireCommander.xaml.cs">
+      <DependentUpon>HireCommander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HoldingUpgrade.xaml.cs">
+      <DependentUpon>HoldingUpgrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Dijkstra.cs" />
+    <Compile Include="Classes\Units\InfantryLight.cs" />
+    <Compile Include="Classes\Units\InfantryHeavy.cs" />
+    <Compile Include="Controls\HireArmy.xaml.cs">
+      <DependentUpon>HireArmy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NodeInfo.xaml.cs">
+      <DependentUpon>NodeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NodeLevel.xaml.cs">
+      <DependentUpon>NodeLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Units\Musketeer.cs" />
+    <Compile Include="Pages\Editor.xaml.cs">
+      <DependentUpon>Editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Game.xaml.cs">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuAlpha.xaml.cs">
+      <DependentUpon>MainMenuAlpha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Pages\RecruitmentInterface.xaml.cs">
+      <DependentUpon>RecruitmentInterface.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SpriteAgent.xaml.cs">
+      <DependentUpon>SpriteAgent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResourceBar.xaml.cs">
+      <DependentUpon>ResourceBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Agents\Scout.cs" />
+    <Compile Include="Classes\Agents\Steward.cs" />
+    <Compile Include="Classes\Units\Unit.cs" />
+    <Compile Include="Classes\TurnEnder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Controls\AgentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NodeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EditorResourceBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HireScout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HireAssassin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HireSteward.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HireCommander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HoldingUpgrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HireArmy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NodeInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NodeLevel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainMenuAlpha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpriteAgent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ResourceBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RecruitmentInterface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinBlue.png" />
+    <Resource Include="Controls\Agents\SpriteAssassinGreen.png" />
+    <Resource Include="Controls\Agents\SpriteAssassinPurple.png" />
+    <Resource Include="Controls\Agents\SpriteAssassinRed.png" />
+    <Resource Include="Controls\Agents\SpriteCommanderBlue.png" />
+    <Resource Include="Controls\Agents\SpriteCommanderGreen.png" />
+    <Resource Include="Controls\Agents\SpriteCommanderPurple.png" />
+    <Resource Include="Controls\Agents\SpriteCommanderRed.png" />
+    <Resource Include="Controls\Agents\SpriteScoutBlue.png" />
+    <Resource Include="Controls\Agents\SpriteScoutGreen.png" />
+    <Resource Include="Controls\Agents\SpriteScoutPurple.png" />
+    <Resource Include="Controls\Agents\SpriteScoutRed.png" />
+    <Resource Include="Controls\Agents\SpriteStewardBlue.png" />
+    <Resource Include="Controls\Agents\SpriteStewardGreen.png" />
+    <Resource Include="Controls\Agents\SpriteStewardPurple.png" />
+    <Resource Include="Controls\Agents\SpriteStewardRed.png" />
+    <Resource Include="Controls\NodeIcons\Castle.png" />
+    <Resource Include="Controls\NodeIcons\Church.png" />
+    <Resource Include="Controls\NodeIcons\City.png" />
+    <Resource Include="Controls\NodeIcons\Forest.png" />
+    <Resource Include="Controls\NodeIcons\Metropolis.png" />
+    <Resource Include="Controls\NodeIcons\Mine.png" />
+    <Resource Include="Controls\NodeIcons\Mountains.png" />
+    <Resource Include="Controls\NodeIcons\Mountain_Pass.png" />
+    <Resource Include="Controls\NodeIcons\Plain.png" />
+    <Resource Include="Controls\NodeIcons\Riverside.png" />
+    <Resource Include="Controls\NodeIcons\Village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Resources\Food.png" />
+    <Resource Include="Controls\Resources\Gold.png" />
+    <Resource Include="Controls\Resources\Morale.png" />
+    <Resource Include="Controls\Resources\Stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\ButtonStyles\btnPlayerBlue.png" />
+    <Resource Include="Controls\ButtonStyles\btnPlayerGreen.png" />
+    <Resource Include="Controls\ButtonStyles\btnPlayerPurple.png" />
+    <Resource Include="Controls\ButtonStyles\btnPlayerRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteSteward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Resources\Hourglass.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

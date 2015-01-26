@@ -1,0 +1,47 @@
+﻿<navigation:Page x:Class="Conquerors.Pages.Editor" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:Conquerors="clr-namespace:Conquerors"
+           Height="613" Width="1300"
+           Title="Editor Page">
+    <Grid x:Name="LayoutRoot" Background="White" KeyDown="LayoutRoot_KeyDown" KeyUp="LayoutRoot_KeyUp">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="613" VerticalAlignment="Top" Width="1300">
+            <StackPanel x:Name="stpToolbar" Orientation="Vertical" Width="80" Background="DarkGray">
+                <StackPanel.Resources>
+                    <Style x:Key="btnStyleNodeInnactive" TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Ellipse Width="50" Height="50" Stroke="Black" Fill="White"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <Style x:Key="btnStyleNodeActive" TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Ellipse Width="50" Height="50" Stroke="Black" Fill="Gray"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Button x:Name="btnAddNode" Style="{StaticResource btnStyleNodeInnactive}" Margin="0,10,0,0" Width="50" Height="50" Click="btnAddNode_Click"/>
+                <Button x:Name="btnConnect" Content="Connect" Margin="0,10,0,0" Click="btnConnect_Click" FontSize="9"/>
+                <Conquerors:EditorResourceBar x:Name="ctrlResources" Margin="0,10,0,0"/>
+                <Conquerors:NodeLevel x:Name="NodeLevel" Margin="0,10,0,0"/>
+                <Button x:Name="btnSave" Content="Save Map" Margin="0,40,0,0" FontSize="9" Click="btnSave_Click"/>
+                <Button x:Name="btnLoad" Content="Load Map" Margin="0, 5, 0, 0" FontSize="9" Click="btnLoad_Click" />
+            </StackPanel>
+
+            <Canvas x:Name="cnvMapa" Width="1220" Background="LightGray" MouseLeftButtonDown="cnvMapa_MouseLeftButtonDown" MouseRightButtonDown="cnvMapa_MouseRightButtonDown" MouseMove="cnvMapa_MouseMove" MouseWheel="cnvMapa_MouseWheel"/>
+        </StackPanel>
+    </Grid>
+</navigation:Page>

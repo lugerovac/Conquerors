@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Conquerors.HireScout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="50" Width="80">
+
+    <Grid x:Name="ControlRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="50" Stroke="Beige"/>
+        <Image Source="Agents/SpriteScout.png" Margin="0,0,54,0"/>
+        <TextBlock Text="Scout" Foreground="#FFF18E49" Margin="30,0,-19,20" FontSize="11" FontFamily="Times New Roman" />
+        <Image Source="Resources/Gold.png" Margin="26,10,27,11"/>
+        <TextBlock x:Name="txtCostAndUpkeep" Foreground="#FFF18E49" Text="10/1" Margin="26,32,6,0" />
+        <Image x:Name="FoodIcon" Source="Resources/Food.png" Margin="52,11,0,11"/>
+        <TextBlock x:Name="txtFoodUpkeep" Foreground="#FFF18E49" Text="1" Margin="63,32,0,0" />
+    </Grid>
+</UserControl>

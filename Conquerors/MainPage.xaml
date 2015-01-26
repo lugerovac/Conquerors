@@ -1,0 +1,15 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    x:Class="Conquerors.MainPage"
+    mc:Ignorable="d"
+    Height="630" Width="1300">
+
+    <StackPanel x:Name="MainInterface" Background="Black" Orientation="Vertical">
+        <TextBlock x:Name="appTitle" Text="Conquerors 0.2 by Luka Gerovac" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Arial Black" FontSize="12" Foreground="White" />
+        <sdk:Frame x:Name="frameContainer" Content="Frame" Height="613" Width="1300" NavigationFailed="frameContainer_NavigationFailed"/>
+    </StackPanel>
+</UserControl>

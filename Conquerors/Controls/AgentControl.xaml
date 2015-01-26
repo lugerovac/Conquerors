@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Conquerors.AgentControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="25" d:DesignWidth="25">
+
+    <Grid>
+        <Image x:Name="imgSprite" Width="25" Height="25" Canvas.ZIndex="1"/>
+        <Rectangle x:Name="rctSelect" Width="25" Height="25" Stroke="Black" StrokeThickness="0.3"/>
+    </Grid>
+</UserControl>

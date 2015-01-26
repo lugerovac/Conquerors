@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-01-12T18:01:16" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '23831d5c-5c16-4d44-861a-1839bbd0221a' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent::_foodUpkeepCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent::_goldUpkeepCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent::_ID' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent::_location' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Agent::_owner' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::foodUpkeepCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::goldUpkeepCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::ID' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::inheritedSetUp' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::location' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Select' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Sprite' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Agent::Unselect' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::_selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::AgentControl' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::AgentControl::color' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::AgentControl::type' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::imgSprite' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::rctSelect' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::Selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::setIcon' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::setIcon::color' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::AgentControl::setIcon::type' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::_activePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::_mapProperty' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::ActivePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::App' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Exit' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Exit::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Exit::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Startup' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Startup::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_Startup::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_UnhandledException' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_UnhandledException::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::Application_UnhandledException::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::BluePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::GreenPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::MapProperty' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::PurplePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::RedPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::ReportErrorToDOM' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::App::ReportErrorToDOM::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin::foodCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin::goldCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin::ID' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin::location' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::Assassin::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Assassin::inheritedSetUp' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander::foodCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander::goldCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander::ID' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander::location' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::Commander::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Commander::inheritedSetUp' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::connection' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::n1' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::n2' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::x1' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::x2' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::y1' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::Edge::y2' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::nodes' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::redefine' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::redefine::x1' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::redefine::x2' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::redefine::y1' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Edge::redefine::y2' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::_selectedPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::bluePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::btnPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::btnPlayer_Click' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::btnPlayer_Click::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::btnPlayer_Click::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::EditorResourceBar' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::greenPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::imgFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::imgGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::imgStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::purplePlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::redPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::refresh' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::SelectedPlayer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::SelectPlayer' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::SelectPlayer::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::stpFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::stpGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::stpResources' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::stpStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtFood_TextChanged' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtFood_TextChanged::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtFood_TextChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtGold_TextChanged' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtGold_TextChanged::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtGold_TextChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtStone_TextChanged' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtStone_TextChanged::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::EditorResourceBar::txtStone_TextChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType' -  (Enumeration)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Castle' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Church' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::City' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Forest' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Metropolis' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Mine' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::MountainPass' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Mountains' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Plain' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Riverside' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmNodeType::Village' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers' -  (Enumeration)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers::Blue' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers::Green' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers::None' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers::Purple' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmPlayers::Red' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmSpriteType' -  (Enumeration)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmSpriteType::Assassin' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmSpriteType::Commander' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmSpriteType::Scout' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::enmSpriteType::Steward' -  (EnumerationLiteral)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Enumerations' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Enumerations::Enumerations' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::_enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::Enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::FoodIcon' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::FoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::GoldCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::GoldUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::HireAssassin' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::RelatedNodeName' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::showCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::txtCostAndUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireAssassin::txtFoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::_enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::Enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::FoodIcon' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::FoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::GoldCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::GoldUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::HireCommander' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::RelatedNodeName' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::showCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::txtCostAndUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireCommander::txtFoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::_enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::Enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::FoodIcon' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::FoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::GoldCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::GoldUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::HireScout' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::RelatedNodeName' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::showCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::txtCostAndUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireScout::txtFoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::_enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::Enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::FoodIcon' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::FoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::GoldCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::GoldUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::HireSteward' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::RelatedNodeName' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::showCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::txtCostAndUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HireSteward::txtFoodUpkeep' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::_enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::castleGoldCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::castleStoneCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::castleTimeCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::checkUpgrades' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::checkUpgrades::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::churchGoldCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::churchStoneCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::churchTimeCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::cityGoldCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::cityStoneCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::cityTimeCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::Enabled' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getGoldCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getGoldCosts::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getStoneCosts' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getStoneCosts::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getTime' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::getTime::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::HoldingUpgrade' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::imgGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::imgStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::maxCastleDefense' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::maxChurchDefense' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::maxCityDefense' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::maxMetropolisDefense' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::maxVillageDefense' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::metropolisGoldCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::metropolisStoneCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::metropolisTimeCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::show' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::show::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::show::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::show::steward' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::showProgress' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::showProgress::steward' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::txtGoldCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::txtStoneCost' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::txtTime' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::villageGoldCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::villageStoneCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::HoldingUpgrade::villageTimeCosts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::appTitle' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::frameContainer' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::frameContainer_NavigationFailed' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::frameContainer_NavigationFailed::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::frameContainer_NavigationFailed::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::MainInterface' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::MainPage::MainPage' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::level' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::listOfConnections' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::name' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::nodeType' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::owner' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::x' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::AddNodeToList::y' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::Map' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::NodeCount' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Map::nodeList' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::_nodeType' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::_owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::addConnection' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::addConnection::connect' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::arg1' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::beingUpgraded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::changeIcon' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::changeIcon::NodeType' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::changeNodeType' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::changeNodeType::direction' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::cleanConnections' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::darken' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::darkened' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::DefenseLevel' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::isConnectedto' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::isConnectedto::nodeName' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::listOfConnections' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::MAXPLAYERS' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::Name' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::Node' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::nodeControl' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::NodeType' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::Owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::removeConnection' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::removeConnection::connect' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::Selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::setNodeTypeByIndex' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Node::setNodeTypeByIndex::index' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::_owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::_selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::changeNodeType' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::changeNodeType::type' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::darken' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::darkened' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::elpNode' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::imgNodeIcon' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::NodeControl' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::Owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::rctSelect' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeControl::Selected' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::ControlRoot' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::hideNodeGain' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::imgResource' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::NodeInfo' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::showNodeGain' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::showNodeGain::gain' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::showNodeGain::resource' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::showNodeInfo' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::showNodeInfo::node' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::txtLevel' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::txtProfit' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeInfo::txtType' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::_level' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::Level' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::NodeLevel' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::txtNodeLevel' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::txtNodeLevel_TextChanged' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::txtNodeLevel_TextChanged::e' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::NodeLevel::txtNodeLevel_TextChanged::sender' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::_food' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::_gold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::_morale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::_stone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addAssassin' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addAssassin::assassin' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addCommander' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addCommander::commander' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addScout' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addScout::scout' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addSteward' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::addSteward::steward' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::AgentCounter' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Assassins' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::color' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Commanders' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Food' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Gold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Morale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Player' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Player::_color' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Scouts' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Stewards' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Player::Stone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_food' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_foodGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_gold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_goldGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_morale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_stone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::_stoneGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::Food' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::FoodGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::Gold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::GoldGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::imgFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::imgGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::imgMorale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::imgStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::Morale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::ResourceBar' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::Stone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::StoneGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::stpFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::stpGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::stpMorale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::stpStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtFood' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtFoodGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtGold' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtGoldGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtMorale' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtStone' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::ResourceBar::txtStoneGain' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::inheritedSetUp' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout::foodCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout::goldCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout::ID' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout::location' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Scout::Scout::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::_contentLoaded' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::_owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::_type' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::imgSprite' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::InitializeComponent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::Owner' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::setSprite' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::SpriteAgent' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::SpriteAgent::owner' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::SpriteAgent::spriteType' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::SpriteAgent::SpriteType' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Medium" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward' -  (Class)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::inheritedSetUp' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward::foodCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward::goldCost' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward::ID' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward::location' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Steward::player' -  (Parameter)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Working' -  (Property)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::Conquerors::Steward::Works' -  (Operation)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;Assassin‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;Commander‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;Node‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;Scout‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;Steward‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Collections::Generic::List&lt;String‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Double' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::EventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Application' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::ApplicationUnhandledExceptionEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::Button' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::Frame' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::Grid' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::Image' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::StackPanel' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::TextBlock' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::TextBox' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::TextChangedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Controls::UserControl' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Navigation' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Navigation::NavigationFailedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::RoutedEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Shapes' -  (Package)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Shapes::Ellipse' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Shapes::Line' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::Shapes::Rectangle' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Class Diagram 1::System::Windows::StartupEventArgs' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Assassin to Class Diagram 1::Conquerors::Agent (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Commander to Class Diagram 1::Conquerors::Agent (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::EditorResourceBar to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::HireAssassin to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::HireCommander to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::HireScout to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::HireSteward to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::HoldingUpgrade to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::MainPage to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Node to Class Diagram 1::Conquerors::enmNodeType (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Node to Class Diagram 1::Conquerors::enmPlayers (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::NodeControl to Class Diagram 1::Conquerors::enmPlayers (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::NodeControl to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::NodeInfo to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::NodeLevel to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::ResourceBar to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Scout to Class Diagram 1::Conquerors::Agent (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::SpriteAgent to Class Diagram 1::Conquerors::enmPlayers (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::SpriteAgent to Class Diagram 1::Conquerors::enmSpriteType (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::SpriteAgent to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::Steward to Class Diagram 1::Conquerors::Agent (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::AgentControl to Class Diagram 1::System::Windows::Controls::UserControl (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::App to Class Diagram 1::Conquerors::enmPlayers (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::App to Class Diagram 1::Conquerors::Map (Association)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::Conquerors::App to Class Diagram 1::System::Windows::Application (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::System::Windows::RoutedEventArgs to Class Diagram 1::System::EventArgs (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::System::Windows::Controls::TextChangedEventArgs to Class Diagram 1::System::Windows::RoutedEventArgs (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::System::Windows::Navigation::NavigationFailedEventArgs to Class Diagram 1::System::EventArgs (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::System::Windows::StartupEventArgs to Class Diagram 1::System::EventArgs (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Class Diagram 1::System::Windows::ApplicationUnhandledExceptionEventArgs to Class Diagram 1::System::EventArgs (Generalization)" />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="High" Text="(27) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="High" Text="(27) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-01-12T18:01:31" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

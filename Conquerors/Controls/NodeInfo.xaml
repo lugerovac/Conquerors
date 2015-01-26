@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Conquerors.NodeInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="50" Width="80">
+
+    <Grid x:Name="ControlRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="50" Stroke="Beige"/>
+        <TextBlock x:Name="txtType" Foreground="#FFF18E49" Text="Type" Margin="3,0,-10,0"/>
+        <TextBlock x:Name="txtLevel" Foreground="#FFF18E49" Text="Lv. 0" Margin="3,12,-7,-10"/>
+        <Image x:Name="imgResource" Source="Resources/Gold.png" Width="20" Margin="3,10,57,-10"/>
+        <TextBlock x:Name="txtProfit" Foreground="#FFF18E49" Text=" +$$" Margin="23,26,-23,-26"/>
+    </Grid>
+</UserControl>
