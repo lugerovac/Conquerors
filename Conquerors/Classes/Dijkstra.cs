@@ -51,7 +51,7 @@ namespace Conquerors
             }
         }
 
-        public static List<Node> FindPath(List<Node> network, Node startNode, Node endNode)
+        public static List<Node> FindPath(List<Node> network, Node startNode, Node endNode, Player player)
         {
             List<DijkstraNode> DijkstraNetwork = new List<DijkstraNode>();
             DijkstraNode lastAddedNode = new DijkstraNode();
@@ -105,8 +105,15 @@ namespace Conquerors
                     if (closestNode.distance == -1)
                         closestNode = dNode;
 
-                    if (dNode.distance < closestNode.distance && dNode.distance != -1)
+                    if (dNode.distance != -1 && dNode.distance < closestNode.distance)
                         closestNode = dNode;
+                    else if (dNode.distance != -1 && dNode.distance == closestNode.distance)
+                    {
+                        if (dNode.nodeElement.Owner == player.color)
+                            closestNode = dNode;
+                        else if(dNode.nodeElement.Owner == enmPlayers.None)
+                            closestNode = dNode;
+                    }
                 }
                 closestNode.marked = true;
                 lastAddedNode = closestNode;

@@ -243,7 +243,7 @@ namespace Conquerors.Pages
                 if (string.Equals(node.Name, p))
                     endNode = node;
             }
-            selectedAgent.movementRoute = Dijkstra.FindPath(map.nodeList, startNode, endNode);
+            selectedAgent.movementRoute = Dijkstra.FindPath(map.nodeList, startNode, endNode, ActivePlayer);
             selectedAgent.moving = true;
             selectedAgent.Sprite.Opacity = 0.5;
             routeConnect(selectedAgent);
