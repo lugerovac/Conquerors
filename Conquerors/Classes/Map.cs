@@ -22,13 +22,14 @@ namespace Conquerors
             nodeList = new List<Node>();
         }
 
-        public void AddNodeToList(string name, int nodeType, enmPlayers owner, int level, double x, double y, List<String> listOfConnections)
+        public void AddNodeToList(string name, int nodeType, enmPlayers owner, int defenseLevel, int incomeLevel, double x, double y, List<String> listOfConnections)
         {
             Node node = new Node();
             node.Name = name;
             node.setNodeTypeByIndex(nodeType);
             node.Owner = owner;
-            node.DefenseLevel = level;
+            node.DefenseLevel = defenseLevel;
+            node.IncomeLevel = incomeLevel;
             node.nodeControl.SetValue(Canvas.LeftProperty, x);
             node.nodeControl.SetValue(Canvas.TopProperty, y);
 

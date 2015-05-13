@@ -45,6 +45,16 @@ namespace Conquerors
         MountainPass = 10
     } 
 
+    public enum enmUnitType
+    {
+        LightInfantry = 1,
+        HeavyInfantry = 2,
+        LightCavalry = 3,
+        HeavyCavalry = 4,
+        Archers = 5,
+        Musketeers = 6
+    }
+
     public class Enumerations
     {
     }

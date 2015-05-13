@@ -18,6 +18,7 @@ namespace Conquerors
         public int arg1;  //extra argument, in case someone needs it
         public bool beingUpgraded = false;
         public int DefenseLevel = 0;
+        public int IncomeLevel = 0;
 
         public NodeControl nodeControl; //link to the control that will appear on the canvas
         public List<string> listOfConnections;  //list of nodes that this node is connected to

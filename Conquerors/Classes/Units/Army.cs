@@ -15,5 +15,6 @@ namespace Conquerors
     public class Army
     {
         List<Unit> army = new List<Unit>();
+        string location;
     }
 }

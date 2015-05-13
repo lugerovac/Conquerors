@@ -70,7 +70,7 @@ namespace Conquerors.Pages
                         string name = sr.ReadLine();
                         int nodeType = Convert.ToInt32(sr.ReadLine());
                         enmPlayers owner = (enmPlayers)Convert.ToInt32(sr.ReadLine());
-                        int level = Convert.ToInt32(sr.ReadLine());
+                        int defenseLevel = Convert.ToInt32(sr.ReadLine());
                         double x = Convert.ToDouble(sr.ReadLine()) - 80;
                         double y = Convert.ToDouble(sr.ReadLine()) - 17;
 
@@ -84,7 +84,7 @@ namespace Conquerors.Pages
                             else listOfConnections.Add(reader);
                         }  //while (i)
 
-                        map.AddNodeToList(name, nodeType, owner, level, x, y, listOfConnections);
+                        map.AddNodeToList(name, nodeType, owner, defenseLevel, 0, x, y, listOfConnections);  //TODO incomeLevel
 
                         if (sr.EndOfStream) break;
                     } //while (true)
