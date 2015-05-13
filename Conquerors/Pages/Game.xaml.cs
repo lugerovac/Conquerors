@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 
 namespace Conquerors.Pages
 {
-    /*This page handles the whole gameplay component*/
+    
     public partial class Game : Page
     {
         Map map;
@@ -135,8 +135,18 @@ namespace Conquerors.Pages
 
         private void setPlayer()
         {
+            //temp
             App app = (App)Application.Current;
             ActivePlayer = new Player(app.ActivePlayer);
+            Army test = new Army();
+            test.HeavyInfantry = 5;
+            test.HeavyCavalry = 3;
+            test.LightCavalry = 14;
+            test.LightInfantry = 22;
+            test.Archers = 1;
+            test.Musketeers = 44;
+            test.location = "Node='6'";
+            ActivePlayer.Armies.Add(test);
         }
 
         /*This function define the "Fog of War", aka the nodes that the player can see and the nodes that he can't see.
@@ -300,6 +310,7 @@ namespace Conquerors.Pages
                 {
                     node.Selected = true;
                     showNodeControls(node);
+                    btnEndTurn.Content = node.Name;
                     break;
                 }  //if
             }  //foreach
@@ -469,6 +480,7 @@ namespace Conquerors.Pages
         private void unselect()
         {
             frmDialogue.Visibility = Visibility.Collapsed;
+            frmDialogue.Navigate(new Uri("/Pages/ErrorPage.xaml", UriKind.Relative));
             routeUnselect();
             foreach (Node node in map.nodeList)
                 node.Selected = false;
@@ -936,6 +948,17 @@ namespace Conquerors.Pages
         private void HireArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             frmDialogue.Visibility = Visibility.Visible;
+            App app = (App)Application.Current;
+            app.Recruitment_player = ActivePlayer;
+            foreach(Node node in ownedNodes)
+            {
+                if(node.Selected)
+                {
+                    app.Recruitment_node = node.Name;
+                    break;
+                }
+            }
+            
             frmDialogue.Navigate(new Uri("/Pages/RecruitmentInterface.xaml", UriKind.Relative));
         }
 

@@ -45,8 +45,14 @@ namespace Conquerors
         public List<Assassin> Assassins = new List<Assassin>();
         public List<Steward> Stewards = new List<Steward>();
         public List<Commander> Commanders = new List<Commander>();
+        public List<Army> Armies = new List<Army>();
 
         public enmPlayers color;
+
+        public Player()
+        {
+
+        }
 
         public Player(enmPlayers _color)
         {

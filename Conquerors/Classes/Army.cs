@@ -14,7 +14,13 @@ namespace Conquerors
 {
     public class Army
     {
-        List<Unit> army = new List<Unit>();
-        string location;
+        public string location;
+
+        public int LightInfantry;
+        public int HeavyInfantry;
+        public int LightCavalry;
+        public int HeavyCavalry;
+        public int Archers;
+        public int Musketeers;
     }
 }

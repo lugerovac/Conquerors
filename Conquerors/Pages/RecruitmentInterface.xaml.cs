@@ -25,13 +25,27 @@ namespace Conquerors.Pages
             ctrlArmyLightCavalry.Quantity = 2;
             ctrlArmyLightInfantry.Quantity = 0;
             ctrlArmyMusketeers.Quantity = 10;
+            
+            App app = (App)Application.Current;
+            foreach(Army army in app.Recruitment_player.Armies)
+            {
+                if (string.Equals(app.Recruitment_node, army.location))
+                {
+                    ctrlGarrisonArchers.Quantity = army.Archers;
+                    ctrlGarrisonHeavyCavalry.Quantity = army.HeavyCavalry;
+                    ctrlGarrisonHeavyInfantry.Quantity = army.HeavyInfantry;
+                    ctrlGarrisonLightCavalry.Quantity = army.LightCavalry;
+                    ctrlGarrisonHeavyCavalry.Quantity = army.HeavyCavalry;
+                    ctrlGarrisonMusketeers.Quantity = army.Musketeers;
+                }
+            }
 
-            ctrlGarrisonArchers.Quantity = 20;
+            /*ctrlGarrisonArchers.Quantity = 20;
             ctrlGarrisonHeavyCavalry.Quantity = 0;
             ctrlGarrisonHeavyInfantry.Quantity = 5;
             ctrlGarrisonLightCavalry.Quantity = 1;
             ctrlGarrisonLightInfantry.Quantity = 12;
-            ctrlGarrisonMusketeers.Quantity = 0;
+            ctrlGarrisonMusketeers.Quantity = 0;*/
         }
 
         private void setIcons()

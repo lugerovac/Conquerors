@@ -75,10 +75,7 @@
     <Compile Include="Classes\Battle Modes\BattleTerrain.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\BattleReport.cs" />
-    <Compile Include="Classes\Units\Army.cs" />
-    <Compile Include="Classes\Units\Bowmen.cs" />
-    <Compile Include="Classes\Units\CavalryHeavy.cs" />
-    <Compile Include="Classes\Units\CavalryLight.cs" />
+    <Compile Include="Classes\Army.cs" />
     <Compile Include="Classes\Agents\AgentPlaceholder.cs" />
     <Compile Include="Classes\Agents\Commander.cs" />
     <Compile Include="Classes\Constants.cs" />
@@ -116,8 +113,6 @@
       <DependentUpon>HoldingUpgrade.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Dijkstra.cs" />
-    <Compile Include="Classes\Units\InfantryLight.cs" />
-    <Compile Include="Classes\Units\InfantryHeavy.cs" />
     <Compile Include="Controls\HireArmy.xaml.cs">
       <DependentUpon>HireArmy.xaml</DependentUpon>
     </Compile>
@@ -130,7 +125,6 @@
     <Compile Include="Controls\NodeLevel.xaml.cs">
       <DependentUpon>NodeLevel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Units\Musketeer.cs" />
     <Compile Include="Pages\Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -156,7 +150,6 @@
     </Compile>
     <Compile Include="Classes\Agents\Scout.cs" />
     <Compile Include="Classes\Agents\Steward.cs" />
-    <Compile Include="Classes\Units\Unit.cs" />
     <Compile Include="Classes\TurnEnder.cs" />
     <Compile Include="Controls\UnitSlot.xaml.cs">
       <DependentUpon>UnitSlot.xaml</DependentUpon>

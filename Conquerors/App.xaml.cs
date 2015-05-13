@@ -83,5 +83,8 @@ namespace Conquerors
         public Player BluePlayer = new Player(enmPlayers.Blue);
         public Player GreenPlayer = new Player(enmPlayers.Green);
         public Player PurplePlayer = new Player(enmPlayers.Purple);
+
+        public Player Recruitment_player = new Player();
+        public string Recruitment_node;
     }
 }
