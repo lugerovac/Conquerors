@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace Conquerors.Pages
 {
@@ -947,8 +949,16 @@ namespace Conquerors.Pages
 
         private void HireArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            frmDialogue.Visibility = Visibility.Visible;
             App app = (App)Application.Current;
+
+            frmDialogue.Visibility = Visibility.Collapsed;
+            frmDialogue.Navigate(new Uri("/Pages/MainMenuAlpha.xaml", UriKind.Relative));
+            Player rctrPlayer = app.Recruitment_player;
+            if(rctrPlayer != null)
+            {
+                ActivePlayer = rctrPlayer;
+            }
+
             app.Recruitment_player = ActivePlayer;
             foreach(Node node in ownedNodes)
             {
@@ -958,7 +968,8 @@ namespace Conquerors.Pages
                     break;
                 }
             }
-            
+
+            frmDialogue.Visibility = Visibility.Visible;
             frmDialogue.Navigate(new Uri("/Pages/RecruitmentInterface.xaml", UriKind.Relative));
         }
 

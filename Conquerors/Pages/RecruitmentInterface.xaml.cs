@@ -9,30 +9,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
-namespace Conquerors.Pages
-{
-    public partial class RecruitmentInterface : UserControl
+namespace Conquerors.Pages{
+    public partial class RecruitmentInterface : Page
     {
         public RecruitmentInterface()
         {
             InitializeComponent();
             setIcons();
+            setInterface();
+        }
 
-            ctrlArmyArchers.Quantity = 5;
-            ctrlArmyHeavyCavalry.Quantity = 6;
-            ctrlArmyHeavyInfantry.Quantity = 8;
-            ctrlArmyLightCavalry.Quantity = 2;
-            ctrlArmyLightInfantry.Quantity = 0;
-            ctrlArmyMusketeers.Quantity = 10;
-            
+        private void setInterface()
+        {
             App app = (App)Application.Current;
-            foreach(Army army in app.Recruitment_player.Armies)
+            foreach (Army army in app.Recruitment_player.Armies)
             {
                 if (string.Equals(app.Recruitment_node, army.location))
                 {
                     ctrlGarrisonArchers.Quantity = army.Archers;
-                    ctrlGarrisonHeavyCavalry.Quantity = army.HeavyCavalry;
+                    ctrlGarrisonLightInfantry.Quantity = army.LightInfantry;
                     ctrlGarrisonHeavyInfantry.Quantity = army.HeavyInfantry;
                     ctrlGarrisonLightCavalry.Quantity = army.LightCavalry;
                     ctrlGarrisonHeavyCavalry.Quantity = army.HeavyCavalry;
@@ -40,12 +37,32 @@ namespace Conquerors.Pages
                 }
             }
 
-            /*ctrlGarrisonArchers.Quantity = 20;
-            ctrlGarrisonHeavyCavalry.Quantity = 0;
-            ctrlGarrisonHeavyInfantry.Quantity = 5;
-            ctrlGarrisonLightCavalry.Quantity = 1;
-            ctrlGarrisonLightInfantry.Quantity = 12;
-            ctrlGarrisonMusketeers.Quantity = 0;*/
+            //TODO implement army reading
+            ctrlArmyArchers.Quantity = 0;
+            ctrlArmyLightInfantry.Quantity = 0;
+            ctrlArmyHeavyInfantry.Quantity = 0;
+            ctrlArmyLightCavalry.Quantity = 0;
+            ctrlArmyHeavyCavalry.Quantity = 0;
+            ctrlArmyMusketeers.Quantity = 0;
+
+            showResources();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            App app = (App)Application.Current;
+            foreach (Army army in app.Recruitment_player.Armies)
+            {
+                if (string.Equals(app.Recruitment_node, army.location))
+                {
+                    army.Archers = ctrlGarrisonArchers.Quantity;
+                    army.LightInfantry = ctrlGarrisonLightInfantry.Quantity;
+                    army.HeavyInfantry = ctrlGarrisonHeavyInfantry.Quantity;
+                    army.LightCavalry = ctrlGarrisonLightCavalry.Quantity;
+                    army.HeavyCavalry = ctrlGarrisonHeavyCavalry.Quantity;
+                    army.Musketeers = ctrlGarrisonMusketeers.Quantity;
+                }
+            }
         }
 
         private void setIcons()
@@ -68,6 +85,23 @@ namespace Conquerors.Pages
             ctrlArmyMusketeers.setImage(enmUnitType.Musketeers);
             ctrlGarrisonMusketeers.setImage(enmUnitType.Musketeers);
         }
+
+        private void showResources()
+        {
+            calculateResourceGain();
+
+            App app = (App)Application.Current;
+            ctrlResources.Gold = app.Recruitment_player.Gold;
+            ctrlResources.Stone = app.Recruitment_player.Stone;
+            ctrlResources.Food = app.Recruitment_player.Food;
+            ctrlResources.Morale = app.Recruitment_player.Morale;
+        }
+
+        private void calculateResourceGain()
+        {
+
+        }
+
 
         private void btnLIUp_Click(object sender, RoutedEventArgs e)
         {
@@ -176,6 +210,10 @@ namespace Conquerors.Pages
                 ctrlArmyMusketeers.Quantity++;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            setInterface();
+        }
     }
 }
-;

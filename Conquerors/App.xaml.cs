@@ -65,6 +65,7 @@ namespace Conquerors
             }
         }
 
+        /***Player Managment***/
         private Map _mapProperty;
         public Map MapProperty
         {
@@ -79,12 +80,36 @@ namespace Conquerors
             set { _activePlayer = value; }
         }
 
+
         public Player RedPlayer = new Player(enmPlayers.Red);
         public Player BluePlayer = new Player(enmPlayers.Blue);
         public Player GreenPlayer = new Player(enmPlayers.Green);
         public Player PurplePlayer = new Player(enmPlayers.Purple);
 
-        public Player Recruitment_player = new Player();
         public string Recruitment_node;
+        private bool recruitmentCheck = false;
+        private Player _recruitmentPlayer = new Player();
+        public Player Recruitment_player
+        {
+            get 
+            { 
+                if(recruitmentCheck)
+                {
+                    return _recruitmentPlayer;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set 
+            {
+                recruitmentCheck = true;
+                _recruitmentPlayer = value;
+            }
+        }
+
+        /***Resource Managment***/
+
     }
 }
