@@ -14,10 +14,10 @@ namespace Conquerors
     public class Constants
     {
         /*Resource Gains per holding*/
-        public const int CityGoldGain = 3;
-        public const int ChurchMoraleGain = 5;
+        public const int CityGoldGain = 60;
+        public const int VillageFoodGain = 60;
         public const int MineStoneGain = 3;
-        public const int VillageFoodGain = 3;
+        public const int ChurchMoraleGain = 5;
 
         /*Agent Deficits*/
         public const int commanderGoldCost = 20;

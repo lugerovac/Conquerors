@@ -114,6 +114,23 @@ namespace Conquerors.Pages
                 }  //if
             }  //foreach
 
+            foreach (Army army in ActivePlayer.Armies)
+            {
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepBowmen * army.Archers);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryHeavy * army.HeavyCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryLight * army.LightCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryHeavy * army.HeavyInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryLight * army.LightInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepMusketeer * army.Musketeers);
+
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepBowmen * army.Archers);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryHeavy * army.HeavyCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryLight * army.LightCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryHeavy * army.HeavyInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryLight * army.LightInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepMusketeer * army.Musketeers);
+            }
+
             ctrlResources.GoldGain -= (ActivePlayer.Commanders.Count * Constants.commanderGoldUpkeep);
             ctrlResources.GoldGain -= (ActivePlayer.Stewards.Count * Constants.stewardGoldUpkeep);
             ctrlResources.GoldGain -= (ActivePlayer.Assassins.Count * Constants.assassinGoldUpkeep);
@@ -137,7 +154,7 @@ namespace Conquerors.Pages
 
         private void setPlayer()
         {
-            //temp
+            //TODO temp
             App app = (App)Application.Current;
             ActivePlayer = new Player(app.ActivePlayer);
             Army test = new Army();
@@ -146,12 +163,12 @@ namespace Conquerors.Pages
             test.LightCavalry = 14;
             test.LightInfantry = 22;
             test.Archers = 1;
-            test.Musketeers = 44;
+            test.Musketeers = 12;
             test.location = "Node='6'";
             ActivePlayer.Armies.Add(test);
         }
 
-        /*This function define the "Fog of War", aka the nodes that the player can see and the nodes that he can't see.
+        /*This function define the "Fog of War", aka the nodes which the player can see and the nodes which he cannot see.
          That is, enemy armies will only be shown in light-colored nodes*/
         private void setPlayerFOW()
         {
@@ -481,6 +498,11 @@ namespace Conquerors.Pages
 
         private void unselect()
         {
+            if(frmDialogue.Visibility == Visibility.Visible)
+            {
+                //TODO
+            }
+
             frmDialogue.Visibility = Visibility.Collapsed;
             frmDialogue.Navigate(new Uri("/Pages/ErrorPage.xaml", UriKind.Relative));
             routeUnselect();
@@ -969,6 +991,8 @@ namespace Conquerors.Pages
                 }
             }
 
+            hideControls();
+            app.ActivePlayerNodes = ownedNodes;
             frmDialogue.Visibility = Visibility.Visible;
             frmDialogue.Navigate(new Uri("/Pages/RecruitmentInterface.xaml", UriKind.Relative));
         }

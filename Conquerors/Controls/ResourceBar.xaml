@@ -8,25 +8,25 @@
 
     <StackPanel Background="#FFA86767" Orientation="Vertical">
         <StackPanel x:Name="stpGold" Orientation="Horizontal">
-            <Image x:Name="imgGold" Source="Resources/Gold.png" Width="30" Height="18"/>
+            <Image x:Name="imgGold" Source="Resources/Gold.png" Width="20" Height="18"/>
             <TextBlock x:Name="txtGold" Text=" 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49" />
             <TextBlock x:Name="txtGoldGain" Text=" +0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49" />
         </StackPanel>
 
         <StackPanel x:Name="stpFood" Orientation="Horizontal">
-            <Image x:Name="imgFood" Source="Resources/Food.png" Width="30" Height="18"/>
+            <Image x:Name="imgFood" Source="Resources/Food.png" Width="20" Height="18"/>
             <TextBlock x:Name="txtFood" Text=" 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49"/>
             <TextBlock x:Name="txtFoodGain" Text=" +0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49" />
         </StackPanel>
 
         <StackPanel x:Name="stpStone" Orientation="Horizontal">
-            <Image x:Name="imgStone" Source="Resources/Stone.png" Width="30" Height="18"/>
+            <Image x:Name="imgStone" Source="Resources/Stone.png" Width="20" Height="18"/>
             <TextBlock x:Name="txtStone" Text=" 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49"/>
             <TextBlock x:Name="txtStoneGain" Text=" +0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49" />
         </StackPanel>
 
         <StackPanel x:Name="stpMorale" Orientation="Horizontal">
-            <Image x:Name="imgMorale" Source="Resources/Morale.png" Width="30" Height="18"/>
+            <Image x:Name="imgMorale" Source="Resources/Morale.png" Width="20" Height="18"/>
             <TextBlock x:Name="txtMorale" Text=" 0%" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFF18E49"/>
         </StackPanel>
     </StackPanel>

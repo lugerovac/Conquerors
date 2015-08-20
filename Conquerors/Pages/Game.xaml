@@ -30,7 +30,7 @@
             </Canvas>
         </StackPanel>
 
-        <navigation:Frame x:Name="frmDialogue" Height="275" Width="569" Margin="402,139,329,199"/>
+        <navigation:Frame x:Name="frmDialogue" Visibility="Collapsed" Height="275" Width="569" Margin="402,139,329,199"/>
         
     </Grid>
 </navigation:Page>

@@ -9,58 +9,74 @@
            Title="Recruitment Page"
            d:DesignHeight="275" Width="569">
     <Grid x:Name="LayoutRoot" Background="#FFA86767">
-        <Conquerors:UnitSlot x:Name="ctrlArmyLightInfantry" Height="80" Width="60" Margin="50,165,459,30"/>
-        <Conquerors:UnitSlot x:Name="ctrlArmyHeavyInfantry" Height="80" Width="60" Margin="115,165,394,30"/>
-        <Conquerors:UnitSlot x:Name="ctrlArmyLightCavalry" Height="80" Width="60" Margin="180,165,329,30"/>
-        <Conquerors:UnitSlot x:Name="ctrlArmyHeavyCavalry" Height="80" Width="60" Margin="245,165,264,30"/>
-        <Conquerors:UnitSlot x:Name="ctrlArmyArchers" Height="80" Width="60" Margin="310,165,199,30"/>
-        <Conquerors:UnitSlot x:Name="ctrlArmyMusketeers" Height="80" Width="60" Margin="375,165,134,30"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="429*"/>
+        </Grid.ColumnDefinitions>
+        <Conquerors:UnitSlot x:Name="ctrlArmyLightInfantry" Height="80" Width="60" Margin="50,165,30,30"/>
+        <Conquerors:UnitSlot x:Name="ctrlArmyHeavyInfantry" Height="80" Width="60" Margin="115,165,394,30" Grid.ColumnSpan="2"/>
+        <Conquerors:UnitSlot x:Name="ctrlArmyLightCavalry" Height="80" Width="60" Margin="40,165,329,30" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlArmyHeavyCavalry" Height="80" Width="60" Margin="105,165,264,30" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlArmyArchers" Height="80" Width="60" Margin="170,165,199,30" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlArmyMusketeers" Height="80" Width="60" Margin="235,165,134,30" Grid.Column="1"/>
 
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonLightInfantry" Height="80" Width="60" Margin="50,33,459,162"/>
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonHeavyInfantry" Height="80" Width="60" Margin="115,33,394,162"/>
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonLightCavalry" Height="80" Width="60" Margin="180,33,329,162"/>
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonHeavyCavalry" Height="80" Width="60" Margin="245,33,264,162"/>
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonArchers" Height="80" Width="60" Margin="310,33,199,162"/>
-        <Conquerors:UnitSlot x:Name="ctrlGarrisonMusketeers" Height="80" Width="60" Margin="375,33,134,162"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonLightInfantry" Height="80" Width="60" Margin="50,33,30,162"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonHeavyInfantry" Height="80" Width="60" Margin="115,33,394,162" Grid.ColumnSpan="2"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonLightCavalry" Height="80" Width="60" Margin="40,33,329,162" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonHeavyCavalry" Height="80" Width="60" Margin="105,33,264,162" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonArchers" Height="80" Width="60" Margin="170,33,199,162" Grid.Column="1"/>
+        <Conquerors:UnitSlot x:Name="ctrlGarrisonMusketeers" Height="80" Width="60" Margin="235,33,134,162" Grid.Column="1"/>
 
-        <Button x:Name="btnLIUp" Margin="56,120,491,118" Click="btnLIUp_Click" Width="22" Height="37">
+        <Button x:Name="btnLIUp" Margin="56,120,62,118" Click="btnLIUp_Click" Width="22" Height="37">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnLIDown" Margin="83,120,464,118" Click="btnLIDown_Click" Width="22" Height="37">
+        <Button x:Name="btnLIDown" Margin="83,120,35,118" Click="btnLIDown_Click" Width="22" Height="37">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
-        <Button x:Name="btnHIUp" Margin="120,120,427,118" Click="btnHIUp_Click" Width="22" Height="37">
+        <Button x:Name="btnHIUp" Margin="120,120,427,118" Click="btnHIUp_Click" Width="22" Height="37" Grid.ColumnSpan="2">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnHIDown" Margin="147,120,400,118" Click="btnHIDown_Click" Width="22" Height="37">
+        <Button x:Name="btnHIDown" Margin="7,120,400,118" Click="btnHIDown_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
-        <Button x:Name="btnLCUp" Margin="186,120,361,118" Click="btnLCUp_Click" Width="22" Height="37">
+        <Button x:Name="btnLCUp" Margin="46,120,361,118" Click="btnLCUp_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnLCDown" Margin="213,120,334,118" Click="btnLCDown_Click" Width="22" Height="37">
+        <Button x:Name="btnLCDown" Margin="73,120,334,118" Click="btnLCDown_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
-        <Button x:Name="btnHCUp" Margin="250,120,297,118" Click="btnHCUp_Click" Width="22" Height="37">
+        <Button x:Name="btnHCUp" Margin="110,120,297,118" Click="btnHCUp_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnHCDown" Margin="277,120,270,118" Click="btnHCDown_Click" Width="22" Height="37">
+        <Button x:Name="btnHCDown" Margin="137,120,270,118" Click="btnHCDown_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
-        <Button x:Name="btnArUp" Margin="317,120,230,118" Click="btnArUp_Click" Width="22" Height="37">
+        <Button x:Name="btnArUp" Margin="177,120,230,118" Click="btnArUp_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnArDown" Margin="344,120,203,118" Click="btnArDown_Click" Width="22" Height="37">
+        <Button x:Name="btnArDown" Margin="204,120,203,118" Click="btnArDown_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
-        <Button x:Name="btnMuUp" Margin="382,120,165,118" Click="btnMuUp_Click" Width="22" Height="37">
+        <Button x:Name="btnMuUp" Margin="242,120,165,118" Click="btnMuUp_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Up.png" />
         </Button>
-        <Button x:Name="btnMuDown" Margin="409,120,138,118" Click="btnMuDown_Click" Width="22" Height="37">
+        <Button x:Name="btnMuDown" Margin="269,120,138,118" Click="btnMuDown_Click" Width="22" Height="37" Grid.Column="1">
             <Image Source="/Conquerors;component/Controls/Misc/Down.png" />
         </Button>
 
-        <Conquerors:ResourceBar x:Name="ctrlResources" Margin="465,83,24,118" />
-        <Button x:Name="btnReset" Content="Reset changes" Margin="455,183,24,64" Click="Button_Click" />
+        <Conquerors:ResourceBar x:Name="ctrlResources" Margin="325,83,24,118" Grid.Column="1" />
+
+        <Button x:Name="btnAddLI" Content="+" Margin="50,5,62,245" Click="btnAddLI_Click" />
+        <Button x:Name="btnRemoveLI" Content="-" Margin="83,5,29,245" Click="btnRemoveLI_Click"/>
+        <Button x:Name="btnAddHI" Content="+" Margin="115,5,426,245" Grid.ColumnSpan="2" Click="btnAddHI_Click" />
+        <Button x:Name="btnRemoveHI" Content="-" Margin="0,5,393,245" Grid.Column="1" HorizontalAlignment="Right" Width="28" Click="btnRemoveHI_Click" />
+        <Button x:Name="btnAddLC" Content="+" Margin="40,5,361,245" Grid.Column="1" Click="btnAddLC_Click" />
+        <Button x:Name="btnRemoveLC" Content="-" Margin="73,5,328,245" Grid.Column="1" Click="btnRemoveLC_Click" />
+        <Button x:Name="btnAddHC" Content="+" Margin="104,5,297,245" Grid.Column="1" Click="btnAddHC_Click" />
+        <Button x:Name="btnRemoveHC" Content="-" Margin="137,5,264,245" Grid.Column="1" Click="btnRemoveHC_Click" />
+        <Button x:Name="btnAddAR" Content="+" Margin="169,5,232,245" Grid.Column="1" Click="btnAddAR_Click" />
+        <Button x:Name="btnRemoveAR" Content="-" Margin="202,5,199,245" Grid.Column="1" Click="btnRemoveAR_Click" />
+        <Button x:Name="btnAddMU" Content="+" Margin="234,5,167,245" Grid.Column="1" Click="btnAddMU_Click" />
+        <Button x:Name="btnRemoveMU" Content="-" Margin="267,5,134,245" Grid.Column="1" Click="btnRemoveMU_Click" />
     </Grid>
 </navigation:Page>

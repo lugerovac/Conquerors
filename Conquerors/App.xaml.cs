@@ -86,6 +86,7 @@ namespace Conquerors
         public Player GreenPlayer = new Player(enmPlayers.Green);
         public Player PurplePlayer = new Player(enmPlayers.Purple);
 
+        public List<Node> ActivePlayerNodes = new List<Node>();
         public string Recruitment_node;
         private bool recruitmentCheck = false;
         private Player _recruitmentPlayer = new Player();

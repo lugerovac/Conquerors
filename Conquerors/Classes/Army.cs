@@ -16,11 +16,18 @@ namespace Conquerors
     {
         public string location;
 
-        public int LightInfantry;
-        public int HeavyInfantry;
-        public int LightCavalry;
-        public int HeavyCavalry;
-        public int Archers;
-        public int Musketeers;
+        public int LightInfantry = 0;
+        public int HeavyInfantry = 0;
+        public int LightCavalry = 0;
+        public int HeavyCavalry = 0;
+        public int Archers = 0;
+        public int Musketeers = 0;
+
+        public bool isEmpty()
+        {
+            if (LightInfantry == 0 && HeavyInfantry == 0 && LightCavalry == 0 && HeavyCavalry == 0 && Archers == 0 && Musketeers == 0)
+                return true;
+            return false;
+        }
     }
 }
