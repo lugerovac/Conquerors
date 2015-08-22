@@ -15,7 +15,7 @@ namespace Conquerors
     {
         public Army army = new Army();
 
-        public Commander(int ID, int goldCost, int foodCost, string location, enmPlayers player) 
+        public Commander(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
         {
         }

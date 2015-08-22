@@ -35,13 +35,16 @@ namespace Conquerors.Pages
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            loadMap();
+            loadMap(enmPlayers.Red);
         }
 
         /*The following function loads up a file and stores the necessary data intp app.xaml module, from which the next
          page (Game.xaml) will read the data*/
-        private void loadMap()
+        private void loadMap(enmPlayers activePlayer)
         {
+            App app = (App)Application.Current;
+            app.turn = 1;
+            app.ActivePlayer = activePlayer;
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog().Value)
             {
@@ -50,7 +53,6 @@ namespace Conquerors.Pages
                 {
                     map.NodeCount = Convert.ToInt32(sr.ReadLine());
 
-                    App app = (App)Application.Current;
                     app.BluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
                     app.BluePlayer.Food = Convert.ToInt32(sr.ReadLine());
                     app.BluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
@@ -98,7 +100,31 @@ namespace Conquerors.Pages
         {
             App app = (App)Application.Current;
             app.MapProperty = map;
-            app.ActivePlayer = enmPlayers.Red;
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void continueGame(enmPlayers activePlayer)
+        {
+
+        }
+
+        private void btnPlayBlue_Click(object sender, RoutedEventArgs e)
+        {
+            loadMap(enmPlayers.Blue);
+        }
+
+        private void btnPlayGreen_Click(object sender, RoutedEventArgs e)
+        {
+            loadMap(enmPlayers.Green);
+        }
+
+        private void btnPlayPurple_Click(object sender, RoutedEventArgs e)
+        {
+            loadMap(enmPlayers.Purple);
         }
     }
 }

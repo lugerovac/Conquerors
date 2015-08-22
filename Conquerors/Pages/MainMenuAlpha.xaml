@@ -9,8 +9,12 @@
            Title="MainMenuAlpha Page">
 
     <Canvas x:Name="LayoutRoot" Background="#FF6A6666">
-        <Button x:Name="btnPlay" Content="Start a test game" Canvas.Left="546" Canvas.Top="214" Height="40" Width="202" Click="btnPlay_Click" />
-        <Button x:Name="btnLoad" Content="Load a test game" Canvas.Left="546" Canvas.Top="281" Height="40" Width="202" />
-        <Button x:Name="btnEditor" Content="Open the Editor" Canvas.Left="546" Canvas.Top="347" Height="40" Width="202" RenderTransformOrigin="0.248,0.45" Click="btnEditor_Click" />
+        <Button x:Name="btnPlay" Content="Start a test game (Red)" Canvas.Left="440" Canvas.Top="178" Height="40" Width="202" Click="btnPlay_Click" />
+        <Button x:Name="btnLoad" Content="Load a test game" Canvas.Left="546" Canvas.Top="352" Height="40" Width="202" Click="btnLoad_Click" />
+        <Button x:Name="btnEditor" Content="Open the Editor" Canvas.Left="546" Canvas.Top="413" Height="40" Width="202" RenderTransformOrigin="0.248,0.45" Click="btnEditor_Click" />
+        <Button x:Name="btnPlayBlue" Content="Start a test game (Blue)" Canvas.Left="680" Canvas.Top="178" Height="40" Width="202" Click="btnPlayBlue_Click"/>
+        <Button x:Name="btnPlayGreen" Content="Start a test game (Green)" Canvas.Left="440" Canvas.Top="223" Height="40" Width="202" Click="btnPlayGreen_Click"/>
+        <Button x:Name="btnPlayPurple" Content="Start a test game (Purple)" Canvas.Left="680" Canvas.Top="223" Height="40" Width="202" Click="btnPlayPurple_Click"/>
+        <Button x:Name="btnMerge" Content="MergeSaves" Canvas.Left="546" Canvas.Top="289" Height="40" Width="202" />
     </Canvas>
 </navigation:Page>

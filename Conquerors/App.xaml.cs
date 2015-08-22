@@ -80,7 +80,7 @@ namespace Conquerors
             set { _activePlayer = value; }
         }
 
-
+        public int turn = 0;
         public Player RedPlayer = new Player(enmPlayers.Red);
         public Player BluePlayer = new Player(enmPlayers.Blue);
         public Player GreenPlayer = new Player(enmPlayers.Green);
@@ -110,7 +110,69 @@ namespace Conquerors
             }
         }
 
-        /***Resource Managment***/
+        public void setPlayerData(enmPlayers color, int gold, int food, int stone, int agentCounter,
+            List<Scout> Scouts, List<Assassin> Assassins, List<Steward> Stewards, List<Commander> Commanders, List<Army> Armies)
+        {
+            switch (color)
+            {
+                case enmPlayers.Blue:
+                    BluePlayer.Gold = gold;
+                    BluePlayer.Food = food;
+                    BluePlayer.Stone = stone;
+                    BluePlayer.AgentCounter = agentCounter;
+                    BluePlayer.Scouts = Scouts;
+                    BluePlayer.Assassins = Assassins;
+                    BluePlayer.Stewards = Stewards;
+                    BluePlayer.Commanders = Commanders;
+                    BluePlayer.Armies = Armies;
+                    break;
+                case enmPlayers.Green:
+                    GreenPlayer.Gold = gold;
+                    GreenPlayer.Food = food;
+                    GreenPlayer.Stone = stone;
+                    GreenPlayer.AgentCounter = agentCounter;
+                    GreenPlayer.Scouts = Scouts;
+                    GreenPlayer.Assassins = Assassins;
+                    GreenPlayer.Stewards = Stewards;
+                    GreenPlayer.Commanders = Commanders;
+                    GreenPlayer.Armies = Armies;
+                    break;
+                case enmPlayers.Purple:
+                    PurplePlayer.Gold = gold;
+                    PurplePlayer.Food = food;
+                    PurplePlayer.Stone = stone;
+                    PurplePlayer.AgentCounter = agentCounter;
+                    PurplePlayer.Scouts = Scouts;
+                    PurplePlayer.Assassins = Assassins;
+                    PurplePlayer.Stewards = Stewards;
+                    PurplePlayer.Commanders = Commanders;
+                    PurplePlayer.Armies = Armies;
+                    break;
+                case enmPlayers.Red:
+                    RedPlayer.Gold = gold;
+                    RedPlayer.Food = food;
+                    RedPlayer.Stone = stone;
+                    RedPlayer.AgentCounter = agentCounter;
+                    RedPlayer.Scouts = Scouts;
+                    RedPlayer.Assassins = Assassins;
+                    RedPlayer.Stewards = Stewards;
+                    RedPlayer.Commanders = Commanders;
+                    RedPlayer.Armies = Armies;
+                    break;
+            }
+        }
 
+        public void clearData()
+        {
+            turn = 0;
+            _mapProperty = new Map();
+            ActivePlayer = enmPlayers.None;
+            ActivePlayerNodes = new List<Node>();
+            recruitmentCheck = false;
+            RedPlayer = new Player(enmPlayers.Red);
+            BluePlayer = new Player(enmPlayers.Blue);
+            GreenPlayer = new Player(enmPlayers.Green);
+            PurplePlayer = new Player(enmPlayers.Purple);
+        }
     }
 }

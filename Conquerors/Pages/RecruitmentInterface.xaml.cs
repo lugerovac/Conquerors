@@ -580,7 +580,7 @@ namespace Conquerors.Pages{
             }
         }
 
-        private void addUnit(enmUnitType unitType, bool resetInterface)
+        private void addUnit(enmUnitType unitType, bool hiring)
         {
             App app = (App)Application.Current;
             Player ActivePlayer = app.Recruitment_player;
@@ -601,28 +601,52 @@ namespace Conquerors.Pages{
                     {
                         case enmUnitType.Archers:
                             army.Archers++;
+                            if(hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostBowmen;
+                            }
                             break;
                         case enmUnitType.HeavyCavalry:
                             army.HeavyCavalry++;
+                            if (hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostCavalryHeavy;
+                            }
                             break;
                         case enmUnitType.LightCavalry:
                             army.LightCavalry++;
+                            if (hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostCavalryLight;
+                            }
                             break;
                         case enmUnitType.HeavyInfantry:
                             army.HeavyInfantry++;
+                            if (hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostInfantryHeavy;
+                            }
                             break;
                         case enmUnitType.LightInfantry:
                             army.LightInfantry++;
+                            if (hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostInfantryLight;
+                            }
                             break;
                         case enmUnitType.Musketeers:
                             army.Musketeers++;
+                            if (hiring)
+                            {
+                                ActivePlayer.Gold -= Constants.GoldCostMusketeer;
+                            }
                             break;
                     } //switch
                     break;
                 } //if
             }//foreach
 
-            if (resetInterface) setInterface();
+            if (hiring) setInterface();
         }
 
         private void btnAddLI_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,7 @@ namespace Conquerors
 {
     public class Assassin : Agent
     {
-        public Assassin(int ID, int goldCost, int foodCost, string location, enmPlayers player) 
+        public Assassin(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
         {
         }

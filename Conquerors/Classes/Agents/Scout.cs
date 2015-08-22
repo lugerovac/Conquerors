@@ -13,7 +13,7 @@ namespace Conquerors
 {
     public class Scout : Agent
     {
-        public Scout(int ID, int goldCost, int foodCost, string location, enmPlayers player) 
+        public Scout(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
         {
         }

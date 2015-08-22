@@ -15,13 +15,13 @@ namespace Conquerors
 {
     public class TurnEnder
     {
-        Map map;
         Player player;
+        int turn;
 
-        public TurnEnder(Map _map, Player _player)
+        public TurnEnder(Player _player, int _turn)
         {
-            map = _map;
             player = _player;
+            turn = _turn;
         }
 
         public bool Commit()
@@ -35,12 +35,13 @@ namespace Conquerors
                     using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
                     {
                         /*Player Info*/
+                        sw.WriteLine(turn);
                         sw.WriteLine(player.color);
                         sw.WriteLine(player.Gold);
                         sw.WriteLine(player.Food);
                         sw.WriteLine(player.Stone);
 
-                        sw.Write(player.AgentCounter);
+                        sw.WriteLine(player.AgentCounter);
                         foreach(Assassin a in player.Assassins)
                         {
                             sw.WriteLine(a.ID);
@@ -118,30 +119,6 @@ namespace Conquerors
                             sw.WriteLine(army.Musketeers);
                         }
                         sw.WriteLine("/armies");
-
-                        /*Map Info*/
-                        sw.WriteLine(map.NodeCount);
-                        foreach (Node node in map.nodeList)
-                        {
-                            sw.WriteLine(node.Name);
-                            sw.WriteLine((int)node.NodeType);
-                            sw.WriteLine((int)node.Owner);
-                            sw.WriteLine(node.DefenseLevel);
-
-                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                            Point offset = getPosition.Transform(new Point(0, 0));
-                            sw.WriteLine(offset.X.ToString());
-                            sw.WriteLine(offset.Y.ToString());
-
-                            foreach (string connection in node.listOfConnections)
-                                sw.WriteLine(connection);
-                            sw.WriteLine("/connections");
-                        }  //foreach
-
-                        sw.WriteLine("/map");
-
-                        sw.AutoFlush = true;
-                        sw.Flush();
                     }
                 }
 

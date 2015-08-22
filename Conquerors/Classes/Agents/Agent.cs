@@ -23,7 +23,7 @@ namespace Conquerors
         public int foodUpkeepCost;
         public string location;
         public enmPlayers owner;
-        public int ID;
+        public string ID;
         public int movement;
         public bool moving = false;
         public List<Node> movementRoute = new List<Node>();
@@ -35,7 +35,7 @@ namespace Conquerors
         }
 
         /*This constructor gets called whenever an Agent is added to the game, no matter its type*/
-        public Agent(int _ID, int _goldUpkeepCost, int _foodUpkeepCost, string _location, enmPlayers _owner)
+        public Agent(string _ID, int _goldUpkeepCost, int _foodUpkeepCost, string _location, enmPlayers _owner)
         {
             ID = _ID;
             goldUpkeepCost = _goldUpkeepCost;

@@ -32,7 +32,7 @@ namespace Conquerors.Pages
         bool AddNodeActive = false;  //keeps track of the state of btnAddNode
         bool connectNodesActive = false;  //keeps track of the state of btnConnect
         bool MovingNode = false;  //are we moving a node?
-        bool shiftDown = false;
+        bool QDown = false;
         bool ctrlDown = false;
         List<Node> nodeListRemove;
         List<Edge> edgeList;  //list of edges
@@ -406,9 +406,9 @@ namespace Conquerors.Pages
             {
                 loadMap();
             }
-            else if(e.Key == Key.Shift)
+            else if(e.Key == Key.Q)
             {
-                shiftDown = true;
+                QDown = true;
             }
             else if(e.Key == Key.Ctrl)
             {
@@ -419,7 +419,7 @@ namespace Conquerors.Pages
         /*Function that gets called when the user releases a key*/
         private void LayoutRoot_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Shift) shiftDown = false;
+            if (e.Key == Key.Q) QDown = false;
             else if (e.Key == Key.Ctrl) ctrlDown = false;
 
         }  //LayoutRoot_KeyUp
@@ -439,7 +439,7 @@ namespace Conquerors.Pages
         /*Gets called when the user moves the mouse wheel*/
         private void cnvMapa_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (!shiftDown) changeNodeType(e.Delta);
+            if (!QDown) changeNodeType(e.Delta);
             else changeNodeOwner(e.Delta);
         }  //cnvMapa_MouseWheel
 

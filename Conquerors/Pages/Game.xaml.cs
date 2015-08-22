@@ -22,6 +22,7 @@ namespace Conquerors.Pages
         List<Edge> edgeList = new List<Edge>();
         List<Node> ownedNodes = new List<Node>();
         Player ActivePlayer;
+        int turn = 0;
 
         public Game()
         {
@@ -154,18 +155,9 @@ namespace Conquerors.Pages
 
         private void setPlayer()
         {
-            //TODO temp
             App app = (App)Application.Current;
+            turn = app.turn;
             ActivePlayer = new Player(app.ActivePlayer);
-            Army test = new Army();
-            test.HeavyInfantry = 5;
-            test.HeavyCavalry = 3;
-            test.LightCavalry = 14;
-            test.LightInfantry = 22;
-            test.Archers = 1;
-            test.Musketeers = 12;
-            test.location = "Node='6'";
-            ActivePlayer.Armies.Add(test);
         }
 
         /*This function define the "Fog of War", aka the nodes which the player can see and the nodes which he cannot see.
@@ -206,7 +198,7 @@ namespace Conquerors.Pages
         private void moveToNode(object sender, MouseButtonEventArgs e, string p)
         {
             bool wasSelected = false;
-            Agent selectedAgent = new AgentPlaceholder(0, 0, 0, "", enmPlayers.None);
+            Agent selectedAgent = new AgentPlaceholder("0", 0, 0, "", enmPlayers.None);
             foreach (Commander commander in ActivePlayer.Commanders)
             {
                 if (commander.Selected)
@@ -500,7 +492,7 @@ namespace Conquerors.Pages
         {
             if(frmDialogue.Visibility == Visibility.Visible)
             {
-                //TODO
+                showResources();
             }
 
             frmDialogue.Visibility = Visibility.Collapsed;
@@ -620,7 +612,8 @@ namespace Conquerors.Pages
                 }
             }
 
-            Scout newScout = new Scout(ActivePlayer.AgentCounter, Constants.scoutGoldUpkeep, Constants.scoutFoodUpkeep, nodeName, ActivePlayer.color);
+            string ID = ActivePlayer.color.ToString() + "Scout" + ActivePlayer.AgentCounter.ToString();
+            Scout newScout = new Scout(ID, Constants.scoutGoldUpkeep, Constants.scoutFoodUpkeep, nodeName, ActivePlayer.color);
             newScout.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, newScout.ID));
             newScout.Sprite.SetValue(Canvas.LeftProperty, x - 80);
             newScout.Sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -633,11 +626,11 @@ namespace Conquerors.Pages
             showControls();
         }
 
-        private void ScoutSelect(object sender, MouseButtonEventArgs e, int ID)
+        private void ScoutSelect(object sender, MouseButtonEventArgs e, string ID)
         {
             foreach (Scout scout in ActivePlayer.Scouts)
             {
-                if (scout.ID == ID)
+                if (string.Equals(scout.ID, ID))
                 {
                     scout.Select();
                     if (scout.moving) routeConnect(scout);
@@ -669,7 +662,8 @@ namespace Conquerors.Pages
                 }
             }
 
-            Assassin newAssassin = new Assassin(ActivePlayer.AgentCounter, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, nodeName, ActivePlayer.color);
+            string ID = ActivePlayer.color.ToString() + "Assassin" + ActivePlayer.AgentCounter.ToString();
+            Assassin newAssassin = new Assassin(ID, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, nodeName, ActivePlayer.color);
             newAssassin.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, newAssassin.ID));
             newAssassin.Sprite.SetValue(Canvas.LeftProperty, x - 80);
             newAssassin.Sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -682,11 +676,11 @@ namespace Conquerors.Pages
             showControls();
         }
 
-        private void AssassinSelect(object sender, MouseButtonEventArgs e, int ID)
+        private void AssassinSelect(object sender, MouseButtonEventArgs e, string ID)
         {
             foreach (Assassin assassin in ActivePlayer.Assassins)
             {
-                if (assassin.ID == ID)
+                if (string.Equals(assassin.ID, ID))
                 {
                     assassin.Select();
                     if (assassin.moving) routeConnect(assassin);
@@ -719,7 +713,8 @@ namespace Conquerors.Pages
                 }
             }
 
-            Steward newSteward = new Steward(ActivePlayer.AgentCounter, Constants.stewardGoldUpkeep, Constants.stewardFoodUpkeep, nodeName, ActivePlayer.color);
+            string ID = ActivePlayer.color.ToString() + "Steward" + ActivePlayer.AgentCounter.ToString();
+            Steward newSteward = new Steward(ID, Constants.stewardGoldUpkeep, Constants.stewardFoodUpkeep, nodeName, ActivePlayer.color);
             newSteward.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, newSteward.ID));
             newSteward.Sprite.SetValue(Canvas.LeftProperty, x - 80);
             newSteward.Sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -732,11 +727,11 @@ namespace Conquerors.Pages
             showControls();
         }
 
-        private void StewardSelect(object sender, MouseButtonEventArgs e, int ID)
+        private void StewardSelect(object sender, MouseButtonEventArgs e, string ID)
         {
             foreach (Steward steward in ActivePlayer.Stewards)
             {
-                if (steward.ID == ID)
+                if (string.Equals(steward.ID, ID))
                 {
                     steward.Select();
                     if (steward.moving) routeConnect(steward);
@@ -769,7 +764,8 @@ namespace Conquerors.Pages
                 }
             }
 
-            Commander newCommander = new Commander(ActivePlayer.AgentCounter, Constants.commanderGoldUpkeep, Constants.commanderFoodUpkeep, nodeName, ActivePlayer.color);
+            string ID = ActivePlayer.color.ToString() + "Commander" + ActivePlayer.AgentCounter.ToString();
+            Commander newCommander = new Commander(ID, Constants.commanderGoldUpkeep, Constants.commanderFoodUpkeep, nodeName, ActivePlayer.color);
             newCommander.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, newCommander.ID));
             newCommander.Sprite.SetValue(Canvas.LeftProperty, x - 70);
             newCommander.Sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -782,11 +778,11 @@ namespace Conquerors.Pages
             showResources();
         }
 
-        private void CommanderSelect(object sender, MouseButtonEventArgs e, int ID)
+        private void CommanderSelect(object sender, MouseButtonEventArgs e, string ID)
         {
             foreach (Commander commander in ActivePlayer.Commanders)
             {
-                if (commander.ID == ID)
+                if (string.Equals(commander.ID, ID))
                 {
                     commander.Select();
                     if (commander.moving) routeConnect(commander);
@@ -909,7 +905,7 @@ namespace Conquerors.Pages
             e.Handled = true;
 
             bool wasSelected = false;
-            Agent selectedAgent = new AgentPlaceholder(0, 0, 0, "", enmPlayers.None);
+            Agent selectedAgent = new AgentPlaceholder("0", 0, 0, "", enmPlayers.None);
             foreach (Commander commander in ActivePlayer.Commanders)
             {
                 if (commander.Selected)
@@ -999,12 +995,14 @@ namespace Conquerors.Pages
 
         private void btnEndTurn_Click(object sender, RoutedEventArgs e)
         {
-            TurnEnder TE = new TurnEnder(map, ActivePlayer);
+            TurnEnder TE = new TurnEnder(ActivePlayer, turn);
             bool commited = TE.Commit();
 
             if (commited)
             {
                 MessageBox.Show("Everything was committed successfully!");
+                App app = (App)Application.Current;
+                app.clearData();
                 NavigationService.Navigate(new Uri("/Pages/MainMenuAlpha.xaml", UriKind.Relative));
             }
             else
