@@ -13,7 +13,7 @@ namespace Conquerors
 {
     public class Steward : Agent
     {
-        public int Working = 0;
+        public int working = 0;
 
         public Steward(int ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
@@ -28,7 +28,7 @@ namespace Conquerors
 
         public bool Works()
         {
-            if (Working == 0) return false;
+            if (working == 0) return false;
             else return true;
         }
     }

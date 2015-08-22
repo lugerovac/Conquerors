@@ -72,7 +72,7 @@ namespace Conquerors
             imgStone.Visibility = Visibility.Collapsed;
             txtStoneCost.Visibility = Visibility.Collapsed;
 
-            txtTime.Text = steward.Working.ToString();
+            txtTime.Text = steward.working.ToString();
         }
 
         /*The following function checks if the holding can be further upgraded*/
@@ -120,7 +120,7 @@ namespace Conquerors
 
             Enabled = true;
 
-            if(steward.Working != 0)
+            if(steward.working != 0)
                 showProgress(steward);
             else if (node.NodeType == enmNodeType.Metropolis)
             {

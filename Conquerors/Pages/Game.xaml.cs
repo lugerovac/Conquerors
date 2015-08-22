@@ -457,7 +457,7 @@ namespace Conquerors.Pages
                     {
                         if (selectedNode.beingUpgraded)
                         {
-                            if (steward.Working == 0) continue;  //some other steward is upgrading this Holding so ignore this one
+                            if (steward.working == 0) continue;  //some other steward is upgrading this Holding so ignore this one
                             HoldingUpgrade.showProgress(steward);
                         }
                         if (HoldingUpgrade.checkUpgrades(selectedNode))
@@ -891,11 +891,11 @@ namespace Conquerors.Pages
 
             foreach (Steward steward in ActivePlayer.Stewards)
             {
-                if (steward.Working == 0 && steward.location == selectedNode.Name)
+                if (steward.working == 0 && steward.location == selectedNode.Name)
                 {
                     ActivePlayer.Gold -= HoldingUpgrade.getGoldCosts(selectedNode);
                     ActivePlayer.Stone -= HoldingUpgrade.getStoneCosts(selectedNode);
-                    steward.Working = HoldingUpgrade.getTime(selectedNode);
+                    steward.working = HoldingUpgrade.getTime(selectedNode);
                     selectedNode.beingUpgraded = true;
                     steward.Sprite.Opacity = Constants.darkenedSpriteOpacity;
                 }
