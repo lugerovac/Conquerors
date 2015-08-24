@@ -36,7 +36,7 @@ namespace Conquerors
                     {
                         /*Player Info*/
                         sw.WriteLine(turn);
-                        sw.WriteLine(player.color);
+                        sw.WriteLine(Convert.ToInt32(player.color));
                         sw.WriteLine(player.Gold);
                         sw.WriteLine(player.Food);
                         sw.WriteLine(player.Stone);
@@ -72,8 +72,8 @@ namespace Conquerors
                         {
                             sw.WriteLine(a.ID);
                             sw.WriteLine(a.location);
-                            sw.WriteLine(a.moving);
                             sw.WriteLine(a.working);
+                            sw.WriteLine(a.moving);
                             if (a.moving)
                             {
                                 foreach (Node node in a.movementRoute)
@@ -97,7 +97,6 @@ namespace Conquerors
                             sw.WriteLine(a.army.isEmpty());
                             if(!a.army.isEmpty())
                             {
-                                sw.WriteLine(a.army.location);
                                 sw.WriteLine(a.army.LightInfantry);
                                 sw.WriteLine(a.army.HeavyInfantry);
                                 sw.WriteLine(a.army.LightCavalry);

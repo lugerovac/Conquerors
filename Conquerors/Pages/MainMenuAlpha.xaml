@@ -15,6 +15,6 @@
         <Button x:Name="btnPlayBlue" Content="Start a test game (Blue)" Canvas.Left="680" Canvas.Top="178" Height="40" Width="202" Click="btnPlayBlue_Click"/>
         <Button x:Name="btnPlayGreen" Content="Start a test game (Green)" Canvas.Left="440" Canvas.Top="223" Height="40" Width="202" Click="btnPlayGreen_Click"/>
         <Button x:Name="btnPlayPurple" Content="Start a test game (Purple)" Canvas.Left="680" Canvas.Top="223" Height="40" Width="202" Click="btnPlayPurple_Click"/>
-        <Button x:Name="btnMerge" Content="MergeSaves" Canvas.Left="546" Canvas.Top="289" Height="40" Width="202" />
+        <Button x:Name="btnMerge" Content="Merge Saves - upload the map" Canvas.Left="546" Canvas.Top="289" Height="40" Width="202" Click="btnMerge_Click" />
     </Canvas>
 </navigation:Page>

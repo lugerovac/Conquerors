@@ -995,6 +995,9 @@ namespace Conquerors.Pages
 
         private void btnEndTurn_Click(object sender, RoutedEventArgs e)
         {
+            ActivePlayer.Gold += ctrlResources.GoldGain;
+            ActivePlayer.Food += ctrlResources.FoodGain;
+            ActivePlayer.Stone += ctrlResources.StoneGain;
             TurnEnder TE = new TurnEnder(ActivePlayer, turn);
             bool commited = TE.Commit();
 
@@ -1006,7 +1009,12 @@ namespace Conquerors.Pages
                 NavigationService.Navigate(new Uri("/Pages/MainMenuAlpha.xaml", UriKind.Relative));
             }
             else
+            {
                 MessageBox.Show("An error occurred!");
+                ActivePlayer.Gold -= ctrlResources.GoldGain;
+                ActivePlayer.Food -= ctrlResources.FoodGain;
+                ActivePlayer.Stone -= ctrlResources.StoneGain;
+            }
         }
     }
 }
