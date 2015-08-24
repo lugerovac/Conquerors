@@ -54,6 +54,7 @@ namespace Conquerors.Pages
         private void loadMap(enmPlayers activePlayer)
         {
             App app = (App)Application.Current;
+            app.initializePlayers();
             app.turn = 1;
             app.ActivePlayer = activePlayer;
             OpenFileDialog ofd = new OpenFileDialog();
@@ -64,19 +65,27 @@ namespace Conquerors.Pages
                 {
                     map.NodeCount = Convert.ToInt32(sr.ReadLine());
 
-                    app.BluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    app.BluePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    app.BluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.RedPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    app.RedPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    app.RedPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.GreenPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    app.GreenPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    app.GreenPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.PurplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    app.PurplePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    app.PurplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
+                    Player blue = new Player(enmPlayers.Blue);
+                    Player red = new Player(enmPlayers.Red);
+                    Player green = new Player(enmPlayers.Green);
+                    Player purple = new Player(enmPlayers.Purple);
 
+                    blue.Gold = Convert.ToInt32(sr.ReadLine());
+                    blue.Food = Convert.ToInt32(sr.ReadLine());
+                    blue.Stone = Convert.ToInt32(sr.ReadLine());
+                    app.setPlayerData(blue);
+                    red.Gold = Convert.ToInt32(sr.ReadLine());
+                    red.Food = Convert.ToInt32(sr.ReadLine());
+                    red.Stone = Convert.ToInt32(sr.ReadLine());
+                    app.setPlayerData(red);
+                    green.Gold = Convert.ToInt32(sr.ReadLine());
+                    green.Food = Convert.ToInt32(sr.ReadLine());
+                    green.Stone = Convert.ToInt32(sr.ReadLine());
+                    app.setPlayerData(green);
+                    purple.Gold = Convert.ToInt32(sr.ReadLine());
+                    purple.Food = Convert.ToInt32(sr.ReadLine());
+                    purple.Stone = Convert.ToInt32(sr.ReadLine());
+                    app.setPlayerData(purple);
 
                     while (true)
                     {
@@ -152,6 +161,7 @@ namespace Conquerors.Pages
                         map.NodeCount = Convert.ToInt32(sr.ReadLine());
 
                         //we will not be needing the resources, but the data has to be read
+                        /*
                         app.BluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
                         app.BluePlayer.Food = Convert.ToInt32(sr.ReadLine());
                         app.BluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
@@ -164,7 +174,9 @@ namespace Conquerors.Pages
                         app.PurplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
                         app.PurplePlayer.Food = Convert.ToInt32(sr.ReadLine());
                         app.PurplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-
+                         */
+                        for (int i = 0; i < 12; i++)
+                            sr.ReadLine();
 
                         while (true)
                         {
@@ -230,38 +242,7 @@ namespace Conquerors.Pages
                             return false;
                         }
 
-                        Player loadedPlayer = new Player();
-                        switch(playerColor)
-                        {
-                            case enmPlayers.Red:
-                                loadedPlayer = app.RedPlayer;
-                                /*app.RedPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                                app.RedPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                                app.RedPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                                app.RedPlayer.AgentCounter = Convert.ToInt32(sr.ReadLine());*/
-                                break;
-                            case enmPlayers.Blue:
-                                loadedPlayer = app.BluePlayer;
-                                /*app.BluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                                app.BluePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                                app.BluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                                app.BluePlayer.AgentCounter = Convert.ToInt32(sr.ReadLine());*/
-                                break;
-                            case enmPlayers.Green:
-                                loadedPlayer = app.GreenPlayer;
-                                /*app.GreenPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                                app.GreenPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                                app.GreenPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                                app.GreenPlayer.AgentCounter = Convert.ToInt32(sr.ReadLine());*/
-                                break;
-                            case enmPlayers.Purple:
-                                loadedPlayer = app.PurplePlayer;
-                                /*app.PurplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                                app.PurplePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                                app.PurplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                                app.PurplePlayer.AgentCounter = Convert.ToInt32(sr.ReadLine());*/
-                                break;
-                        }
+                        Player loadedPlayer = app.getPlayer(playerColor);
                         loadedPlayer.Gold = Convert.ToInt32(sr.ReadLine());
                         loadedPlayer.Food = Convert.ToInt32(sr.ReadLine());
                         loadedPlayer.Stone = Convert.ToInt32(sr.ReadLine());
@@ -507,29 +488,14 @@ namespace Conquerors.Pages
         {
             App app = (App)Application.Current;
             List<string> nodesToBeupgraded = new List<string>();
-            foreach(Steward s in app.RedPlayer.Stewards)
+            foreach(Player player in app.players)
             {
-                if (s.working == 0) continue;
-                s.working--;
-                if (s.working == 0) nodesToBeupgraded.Add(s.location);
-            }
-            foreach (Steward s in app.BluePlayer.Stewards)
-            {
-                if (s.working == 0) continue;
-                s.working--;
-                if (s.working == 0) nodesToBeupgraded.Add(s.location);
-            }
-            foreach (Steward s in app.GreenPlayer.Stewards)
-            {
-                if (s.working == 0) continue;
-                s.working--;
-                if (s.working == 0) nodesToBeupgraded.Add(s.location);
-            }
-            foreach (Steward s in app.PurplePlayer.Stewards)
-            {
-                if (s.working == 0) continue;
-                s.working--;
-                if (s.working == 0) nodesToBeupgraded.Add(s.location);
+                foreach(Steward s in player.Stewards)
+                {
+                    if(s.working == 0) continue;
+                    s.working--;
+                    if (s.working == 0) nodesToBeupgraded.Add(s.location);
+                }
             }
 
             if (nodesToBeupgraded.Count == 0) return;

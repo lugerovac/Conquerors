@@ -81,10 +81,7 @@ namespace Conquerors
         }
 
         public int turn = 0;
-        public Player RedPlayer = new Player(enmPlayers.Red);
-        public Player BluePlayer = new Player(enmPlayers.Blue);
-        public Player GreenPlayer = new Player(enmPlayers.Green);
-        public Player PurplePlayer = new Player(enmPlayers.Purple);
+        public List<Player> players = new List<Player>();
 
         public List<Node> ActivePlayerNodes = new List<Node>();
         public string Recruitment_node;
@@ -110,56 +107,67 @@ namespace Conquerors
             }
         }
 
+        public Player getPlayer(enmPlayers color)
+        {
+            foreach(Player player in players)
+            {
+                if (player.color == color)
+                    return player;
+            }
+            return null;
+        }
+
+        public Player getPlayer()
+        {
+            foreach (Player player in players)
+            {
+                if (player.color == ActivePlayer)
+                    return player;
+            }
+            return null;
+        }
+
+        public void setPlayerData(Player player)
+        {
+            Player playerToReplace = new Player();
+            foreach(Player pl in players)
+            {
+                if(player.color == pl.color)
+                {
+                    playerToReplace = pl;
+                    break;
+                }
+            }
+            players.Remove(playerToReplace);
+            players.Add(player);
+        }
+
         public void setPlayerData(enmPlayers color, int gold, int food, int stone, int agentCounter,
             List<Scout> Scouts, List<Assassin> Assassins, List<Steward> Stewards, List<Commander> Commanders, List<Army> Armies)
         {
-            switch (color)
+            foreach(Player player in players)
             {
-                case enmPlayers.Blue:
-                    BluePlayer.Gold = gold;
-                    BluePlayer.Food = food;
-                    BluePlayer.Stone = stone;
-                    BluePlayer.AgentCounter = agentCounter;
-                    BluePlayer.Scouts = Scouts;
-                    BluePlayer.Assassins = Assassins;
-                    BluePlayer.Stewards = Stewards;
-                    BluePlayer.Commanders = Commanders;
-                    BluePlayer.Armies = Armies;
-                    break;
-                case enmPlayers.Green:
-                    GreenPlayer.Gold = gold;
-                    GreenPlayer.Food = food;
-                    GreenPlayer.Stone = stone;
-                    GreenPlayer.AgentCounter = agentCounter;
-                    GreenPlayer.Scouts = Scouts;
-                    GreenPlayer.Assassins = Assassins;
-                    GreenPlayer.Stewards = Stewards;
-                    GreenPlayer.Commanders = Commanders;
-                    GreenPlayer.Armies = Armies;
-                    break;
-                case enmPlayers.Purple:
-                    PurplePlayer.Gold = gold;
-                    PurplePlayer.Food = food;
-                    PurplePlayer.Stone = stone;
-                    PurplePlayer.AgentCounter = agentCounter;
-                    PurplePlayer.Scouts = Scouts;
-                    PurplePlayer.Assassins = Assassins;
-                    PurplePlayer.Stewards = Stewards;
-                    PurplePlayer.Commanders = Commanders;
-                    PurplePlayer.Armies = Armies;
-                    break;
-                case enmPlayers.Red:
-                    RedPlayer.Gold = gold;
-                    RedPlayer.Food = food;
-                    RedPlayer.Stone = stone;
-                    RedPlayer.AgentCounter = agentCounter;
-                    RedPlayer.Scouts = Scouts;
-                    RedPlayer.Assassins = Assassins;
-                    RedPlayer.Stewards = Stewards;
-                    RedPlayer.Commanders = Commanders;
-                    RedPlayer.Armies = Armies;
-                    break;
+                if (player.color != color) continue;
+                player.Gold = gold;
+                player.Food = food;
+                player.Stone = stone;
+                player.AgentCounter = agentCounter;
+                player.Scouts = Scouts;
+                player.Assassins = Assassins;
+                player.Stewards = Stewards;
+                player.Commanders = Commanders;
+                player.Armies = Armies;
+                break;
             }
+        }
+
+        public void initializePlayers()
+        {
+            players.Clear();
+            players.Add(new Player(enmPlayers.Red));
+            players.Add(new Player(enmPlayers.Blue));
+            players.Add(new Player(enmPlayers.Green));
+            players.Add(new Player(enmPlayers.Purple));
         }
 
         public void clearData()
@@ -169,10 +177,7 @@ namespace Conquerors
             ActivePlayer = enmPlayers.None;
             ActivePlayerNodes = new List<Node>();
             recruitmentCheck = false;
-            RedPlayer = new Player(enmPlayers.Red);
-            BluePlayer = new Player(enmPlayers.Blue);
-            GreenPlayer = new Player(enmPlayers.Green);
-            PurplePlayer = new Player(enmPlayers.Purple);
+            initializePlayers();
         }
     }
 }

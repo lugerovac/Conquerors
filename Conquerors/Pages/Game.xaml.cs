@@ -40,7 +40,7 @@ namespace Conquerors.Pages
             /*Set up the interface for the player when the page loads*/
             setPlayer();
             setTheMap();
-            gainResources();
+            showResources();
             hideControls();
         }
 
@@ -54,43 +54,6 @@ namespace Conquerors.Pages
             HireScout.Visibility = Visibility.Collapsed;
             HoldingUpgrade.Visibility = Visibility.Collapsed;
         }
-
-        /*The following function calculates the amount of resources the player has to receive in this turn and gives them to him*/
-        private void gainResources()
-        {
-            App app = (App)Application.Current;
-            switch (ActivePlayer.color)
-            {
-                case enmPlayers.Blue:
-                    ActivePlayer.Gold = app.BluePlayer.Gold;
-                    ActivePlayer.Food = app.BluePlayer.Food;
-                    ActivePlayer.Stone = app.BluePlayer.Stone;
-                    break;
-                case enmPlayers.Red:
-                    ActivePlayer.Gold = app.RedPlayer.Gold;
-                    ActivePlayer.Food = app.RedPlayer.Food;
-                    ActivePlayer.Stone = app.RedPlayer.Stone;
-                    break;
-                case enmPlayers.Green:
-                    ActivePlayer.Gold = app.GreenPlayer.Gold;
-                    ActivePlayer.Food = app.GreenPlayer.Food;
-                    ActivePlayer.Stone = app.GreenPlayer.Stone;
-                    break;
-                case enmPlayers.Purple:
-                    ActivePlayer.Gold = app.PurplePlayer.Gold;
-                    ActivePlayer.Food = app.PurplePlayer.Food;
-                    ActivePlayer.Stone = app.PurplePlayer.Stone;
-                    break;
-            }  //Switch
-
-            calculateResourceGain();
-
-            ActivePlayer.Gold += ctrlResources.GoldGain;
-            ActivePlayer.Stone += ctrlResources.StoneGain;
-            ActivePlayer.Food += ctrlResources.FoodGain;
-            showResources();
-        }
-
         void calculateResourceGain()
         {
             ctrlResources.GoldGain = ctrlResources.FoodGain = ctrlResources.StoneGain = ctrlResources.Morale = 0;
@@ -157,7 +120,7 @@ namespace Conquerors.Pages
         {
             App app = (App)Application.Current;
             turn = app.turn;
-            ActivePlayer = new Player(app.ActivePlayer);
+            ActivePlayer = app.getPlayer();
         }
 
         /*This function define the "Fog of War", aka the nodes which the player can see and the nodes which he cannot see.
