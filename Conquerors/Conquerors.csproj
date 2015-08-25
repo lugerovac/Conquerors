@@ -125,6 +125,7 @@
     <Compile Include="Controls\NodeLevel.xaml.cs">
       <DependentUpon>NodeLevel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\OccupationHandler.cs" />
     <Compile Include="Pages\Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>

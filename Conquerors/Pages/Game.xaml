@@ -21,7 +21,7 @@
                     <Conquerors:HireSteward x:Name="HireSteward" MouseLeftButtonDown="HireSteward_MouseLeftButtonDown" />
                     <Conquerors:HireAssassin x:Name="HireAssassin" MouseLeftButtonDown="HireAssassin_MouseLeftButtonDown" />
                     <Conquerors:HireScout x:Name="HireScout" MouseLeftButtonDown="btnHireScout_MouseLeftButtonDown"/>
-                    <Conquerors:HoldingUpgrade x:Name="HoldingUpgrade" MouseLeftButtonDown="HoldingUpgrade_MouseLeftButtonDown"/>
+                    <Conquerors:HoldingUpgrade x:Name="HoldingUpgrade" MouseLeftButtonDown="HoldingUpgrade_MouseLeftButtonDown" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <Button x:Name="btnEndTurn" Content="End Turn" Width="60" Height="30" Margin="10,573,10,10" Click="btnEndTurn_Click"/>
             </Grid>

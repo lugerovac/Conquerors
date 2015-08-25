@@ -40,8 +40,106 @@ namespace Conquerors.Pages
             /*Set up the interface for the player when the page loads*/
             setPlayer();
             setTheMap();
+            showAgents();
             showResources();
             hideControls();
+        }
+
+        public void showAgents()
+        {
+            foreach(Commander a in ActivePlayer.Commanders)
+            {
+                double x = 0, y = 0;
+                foreach (Node node in map.nodeList)
+                {
+                    if(string.Equals(a.location, node.Name))
+                    {
+                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                        Point offset = getPosition.Transform(new Point(0, 0));
+                        x = offset.X;
+                        y = offset.Y;
+                        break;
+                    }
+                }
+
+                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, a.ID));
+                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.Sprite);
+                setSpritePositionsOnANode(a.location);
+                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+            }  //Commanders
+
+            foreach (Steward a in ActivePlayer.Stewards)
+            {
+                double x = 0, y = 0;
+                foreach (Node node in map.nodeList)
+                {
+                    if (string.Equals(a.location, node.Name))
+                    {
+                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                        Point offset = getPosition.Transform(new Point(0, 0));
+                        x = offset.X;
+                        y = offset.Y;
+                        break;
+                    }
+                }
+
+                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
+                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.Sprite);
+                setSpritePositionsOnANode(a.location);
+                if(a.Works() || a.moving)
+                    a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+
+            }  //Stewards
+
+            foreach (Assassin a in ActivePlayer.Assassins)
+            {
+                double x = 0, y = 0;
+                foreach (Node node in map.nodeList)
+                {
+                    if (string.Equals(a.location, node.Name))
+                    {
+                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                        Point offset = getPosition.Transform(new Point(0, 0));
+                        x = offset.X;
+                        y = offset.Y;
+                        break;
+                    }
+                }
+
+                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
+                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.Sprite);
+                setSpritePositionsOnANode(a.location);
+                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+            }  //Assassins
+
+            foreach (Scout a in ActivePlayer.Scouts)
+            {
+                double x = 0, y = 0;
+                foreach (Node node in map.nodeList)
+                {
+                    if (string.Equals(a.location, node.Name))
+                    {
+                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                        Point offset = getPosition.Transform(new Point(0, 0));
+                        x = offset.X;
+                        y = offset.Y;
+                        break;
+                    }
+                }
+
+                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
+                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.Sprite);
+                setSpritePositionsOnANode(a.location);
+                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+            }  //Scouts
         }
 
         private void hideControls()

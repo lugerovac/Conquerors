@@ -53,84 +53,214 @@ namespace Conquerors.Pages
          page (Game.xaml) will read the data*/
         private void loadMap(enmPlayers activePlayer)
         {
-            App app = (App)Application.Current;
-            app.initializePlayers();
-            app.turn = 1;
-            app.ActivePlayer = activePlayer;
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog().Value)
+            try
             {
+                App app = (App)Application.Current;
                 map = new Map();
-                using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
+                app.initializePlayers();
+                app.ActivePlayer = activePlayer;
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog().Value)
                 {
-                    map.NodeCount = Convert.ToInt32(sr.ReadLine());
-
-                    Player blue = new Player(enmPlayers.Blue);
-                    Player red = new Player(enmPlayers.Red);
-                    Player green = new Player(enmPlayers.Green);
-                    Player purple = new Player(enmPlayers.Purple);
-
-                    blue.Gold = Convert.ToInt32(sr.ReadLine());
-                    blue.Food = Convert.ToInt32(sr.ReadLine());
-                    blue.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.setPlayerData(blue);
-                    red.Gold = Convert.ToInt32(sr.ReadLine());
-                    red.Food = Convert.ToInt32(sr.ReadLine());
-                    red.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.setPlayerData(red);
-                    green.Gold = Convert.ToInt32(sr.ReadLine());
-                    green.Food = Convert.ToInt32(sr.ReadLine());
-                    green.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.setPlayerData(green);
-                    purple.Gold = Convert.ToInt32(sr.ReadLine());
-                    purple.Food = Convert.ToInt32(sr.ReadLine());
-                    purple.Stone = Convert.ToInt32(sr.ReadLine());
-                    app.setPlayerData(purple);
-
-                    while (true)
+                    map = new Map();
+                    using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
                     {
-                        string name = sr.ReadLine();
-                        int nodeType = Convert.ToInt32(sr.ReadLine());
-                        enmPlayers owner = (enmPlayers)Convert.ToInt32(sr.ReadLine());
-                        int defenseLevel = Convert.ToInt32(sr.ReadLine());
-                        double x = Convert.ToDouble(sr.ReadLine()) - 80;
-                        double y = Convert.ToDouble(sr.ReadLine()) - 17;
+                        app.turn = Convert.ToInt32(sr.ReadLine());
+                        map.NodeCount = Convert.ToInt32(sr.ReadLine());
 
-                        List<string> listOfConnections = new List<string>();
-                        bool i = true;
-                        while (i)
+                        while (true)
                         {
-                            string reader = sr.ReadLine();
-                            if (string.Equals(reader, "/connections")) //with this we will know until when we have to read the connections
-                                i = false;
-                            else listOfConnections.Add(reader);
-                        }  //while (i)
+                            string name = sr.ReadLine();
+                            if (string.Equals(name, "/map")) break;
+                            int nodeType = Convert.ToInt32(sr.ReadLine());
+                            enmPlayers owner = (enmPlayers)Convert.ToInt32(sr.ReadLine());
+                            int defenseLevel = Convert.ToInt32(sr.ReadLine());
+                            double x = Convert.ToDouble(sr.ReadLine()) - 80;
+                            double y = Convert.ToDouble(sr.ReadLine()) - 17;
 
-                        map.AddNodeToList(name, nodeType, owner, defenseLevel, 0, x, y, listOfConnections);
+                            List<string> listOfConnections = new List<string>();
+                            bool i = true;
+                            while (i)
+                            {
+                                string reader = sr.ReadLine();
+                                if (string.Equals(reader, "/connections")) //with this we will know until when we have to read the connections
+                                    i = false;
+                                else listOfConnections.Add(reader);
+                            }  //while (i)
 
-                        if (sr.EndOfStream) break;
-                    } //while (true)
-                }  //using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
-                NavigationService.Navigate(new Uri("/Pages/Game.xaml", UriKind.Relative));
-            }  //if (ofd.ShowDialog().Value)
+                            map.AddNodeToList(name, nodeType, owner, defenseLevel, 0, x, y, listOfConnections);
+                        } //while (true)
+
+                        while(true)
+                        {
+                            string color = sr.ReadLine();
+                            if (string.Equals(color, "/players")) break;
+
+                            enmPlayers playerColor = (enmPlayers)Convert.ToInt32(color);
+                            Player player = new Player(playerColor);
+                            player.Gold = Convert.ToInt32(sr.ReadLine());
+                            player.Food = Convert.ToInt32(sr.ReadLine());
+                            player.Stone = Convert.ToInt32(sr.ReadLine());
+                            player.AgentCounter = Convert.ToInt32(sr.ReadLine());
+
+                            //read assassins
+                            while(true)
+                            {
+                                string id = sr.ReadLine();
+                                if (string.Equals(id, "/assassins")) break;
+                                string loc = sr.ReadLine();
+                                Assassin a = new Assassin(id, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, loc, playerColor);
+                                
+                                string moving = sr.ReadLine();
+                                if (string.Equals(moving, "True")) a.moving = true;
+                                else a.moving = false;
+                                while (a.moving)
+                                {
+                                    string nodeName = sr.ReadLine();
+                                    if (string.Equals(nodeName, "/movement")) break;
+                                    foreach (Node node in app.MapProperty.nodeList)
+                                    {
+                                        if (string.Equals(nodeName, node.Name))
+                                        {
+                                            a.movementRoute.Add(node);
+                                            break;
+                                        }  //if(string.Equals(nodeName, node.Name))
+                                    }  //foreach(Node node in app.MapProperty.nodeList)
+                                }  //while(a.moving)
+                                player.Assassins.Add(a);
+                            } //while(true)
+
+                            //Read Scouts
+                            while (true)
+                            {
+                                string id = sr.ReadLine();
+                                if (string.Equals(id, "/scouts")) break;
+                                string loc = sr.ReadLine();
+                                Scout a = new Scout(id, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, loc, playerColor);
+
+                                string moving = sr.ReadLine();
+                                if (string.Equals(moving, "True")) a.moving = true;
+                                else a.moving = false;
+
+                                while (a.moving)
+                                {
+                                    string nodeName = sr.ReadLine();
+                                    if (string.Equals(nodeName, "/movement")) break;
+                                    foreach (Node node in app.MapProperty.nodeList)
+                                    {
+                                        if (string.Equals(nodeName, node.Name))
+                                        {
+                                            a.movementRoute.Add(node);
+                                            break;
+                                        }  //if(string.Equals(nodeName, node.Name))
+                                    }  //foreach(Node node in app.MapProperty.nodeList)
+                                }  //while(a.moving)
+                                player.Scouts.Add(a);
+                            }  //while(true)
+
+                            //Read Stewards
+                            while (true)
+                            {
+                                string id = sr.ReadLine();
+                                if (string.Equals(id, "/stewards")) break;
+                                string loc = sr.ReadLine();
+                                Steward a = new Steward(id, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, loc, playerColor);
+                                a.working = Convert.ToInt32(sr.ReadLine());
+
+                                string moving = sr.ReadLine();
+                                if (string.Equals(moving, "True")) a.moving = true;
+                                else a.moving = false;
+
+                                while (a.moving)
+                                {
+                                    string nodeName = sr.ReadLine();
+                                    if (string.Equals(nodeName, "/movement")) break;
+                                    foreach (Node node in app.MapProperty.nodeList)
+                                    {
+                                        if (string.Equals(nodeName, node.Name))
+                                        {
+                                            a.movementRoute.Add(node);
+                                            break;
+                                        }  //if(string.Equals(nodeName, node.Name))
+                                    }  //foreach(Node node in app.MapProperty.nodeList)
+                                }  //while(a.moving)
+                                player.Stewards.Add(a);
+                            }  //while(true)
+
+                            //Read Commanders
+                            while (true)
+                            {
+                                string id = sr.ReadLine();
+                                if (string.Equals(id, "/commanders")) break;
+                                string loc = sr.ReadLine();
+                                Commander a = new Commander(id, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, loc, playerColor);
+
+                                string moving = sr.ReadLine();
+                                if (string.Equals(moving, "True")) a.moving = true;
+                                else a.moving = false;
+
+                                while (a.moving)
+                                {
+                                    string nodeName = sr.ReadLine();
+                                    if (string.Equals(nodeName, "/movement")) break;
+                                    foreach (Node node in app.MapProperty.nodeList)
+                                    {
+                                        if (string.Equals(nodeName, node.Name))
+                                        {
+                                            a.movementRoute.Add(node);
+                                            break;
+                                        }  //if(string.Equals(nodeName, node.Name))
+                                    }  //foreach(Node node in app.MapProperty.nodeList)
+                                }  //while(a.moving)
+
+                                string lacksArmy = sr.ReadLine();
+                                if (string.Equals(lacksArmy, "False"))
+                                {
+                                    a.army.LightInfantry = Convert.ToInt32(sr.ReadLine());
+                                    a.army.HeavyInfantry = Convert.ToInt32(sr.ReadLine());
+                                    a.army.LightCavalry = Convert.ToInt32(sr.ReadLine());
+                                    a.army.HeavyCavalry = Convert.ToInt32(sr.ReadLine());
+                                    a.army.Archers = Convert.ToInt32(sr.ReadLine());
+                                    a.army.Musketeers = Convert.ToInt32(sr.ReadLine());
+                                }
+                                player.Commanders.Add(a);
+                            }  //while(true)
+
+                            //Read armies
+                            while (true)
+                            {
+                                Army army = new Army();
+                                army.location = sr.ReadLine();
+                                if (string.Equals(army.location, "/armies")) break;
+
+                                army.LightInfantry = Convert.ToInt32(sr.ReadLine());
+                                army.HeavyInfantry = Convert.ToInt32(sr.ReadLine());
+                                army.LightCavalry = Convert.ToInt32(sr.ReadLine());
+                                army.HeavyCavalry = Convert.ToInt32(sr.ReadLine());
+                                army.Archers = Convert.ToInt32(sr.ReadLine());
+                                army.Musketeers = Convert.ToInt32(sr.ReadLine());
+
+                                player.Armies.Add(army);
+                            }
+                            app.setPlayerData(player);
+                        }
+                    }  //using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
+                    NavigationService.Navigate(new Uri("/Pages/Game.xaml", UriKind.Relative));
+                }  //if (ofd.ShowDialog().Value)
+            }catch
+            {
+                MessageBox.Show("A problem occurred or the file is invalid!");
+            }
         }  //private void loadMap()
 
         /*This function stored necessary data into the app.xaml module, through which the next page will be able to read the data*/
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             App app = (App)Application.Current;
+            app.turn++;
             app.MapProperty = map;
         }
-
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void continueGame(enmPlayers activePlayer)
-        {
-
-        }
+        
 
         private void btnPlayBlue_Click(object sender, RoutedEventArgs e)
         {
@@ -158,34 +288,19 @@ namespace Conquerors.Pages
                     map = new Map();
                     using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
                     {
+                        app.turn = Convert.ToInt32(sr.ReadLine());
+                        app.turn++;
                         map.NodeCount = Convert.ToInt32(sr.ReadLine());
-
-                        //we will not be needing the resources, but the data has to be read
-                        /*
-                        app.BluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                        app.BluePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                        app.BluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                        app.RedPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                        app.RedPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                        app.RedPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                        app.GreenPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                        app.GreenPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                        app.GreenPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                        app.PurplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                        app.PurplePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                        app.PurplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                         */
-                        for (int i = 0; i < 12; i++)
-                            sr.ReadLine();
 
                         while (true)
                         {
                             string name = sr.ReadLine();
+                            if (string.Equals(name, "/map")) break;
                             int nodeType = Convert.ToInt32(sr.ReadLine());
                             enmPlayers owner = (enmPlayers)Convert.ToInt32(sr.ReadLine());
                             int defenseLevel = Convert.ToInt32(sr.ReadLine());
-                            double x = Convert.ToDouble(sr.ReadLine()) - 80;
-                            double y = Convert.ToDouble(sr.ReadLine()) - 17;
+                            double x = Convert.ToDouble(sr.ReadLine());
+                            double y = Convert.ToDouble(sr.ReadLine());
 
                             List<string> listOfConnections = new List<string>();
                             bool i = true;
@@ -198,10 +313,9 @@ namespace Conquerors.Pages
                             }  //while (i)
 
                             map.AddNodeToList(name, nodeType, owner, defenseLevel, 0, x, y, listOfConnections);
-
-                            if (sr.EndOfStream) break;
                         } //while (true)
                     }  //using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
+                    app.MapProperty = map;
                     return true;
                 }
                 else
@@ -226,10 +340,7 @@ namespace Conquerors.Pages
                     using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
                     {
                         int turn = Convert.ToInt32(sr.ReadLine());
-                        if (app.turn == 0)
-                        {
-                            app.turn = turn;
-                        }else if(app.turn != turn)
+                        if(app.turn != turn)
                         {
                             MessageBox.Show("The save file is incompatible with earlier uploaded ones!");
                             return false;
@@ -266,7 +377,6 @@ namespace Conquerors.Pages
                                 if (string.Equals(nodeName, "/movement")) break;
                                 foreach(Node node in app.MapProperty.nodeList)
                                 {
-                                    if (node.Owner != playerColor) continue;
                                     if(string.Equals(nodeName, node.Name))
                                     {
                                         a.movementRoute.Add(node);
@@ -295,7 +405,6 @@ namespace Conquerors.Pages
                                 if (string.Equals(nodeName, "/movement")) break;
                                 foreach (Node node in app.MapProperty.nodeList)
                                 {
-                                    if (node.Owner != playerColor) continue;
                                     if (string.Equals(nodeName, node.Name))
                                     {
                                         a.movementRoute.Add(node);
@@ -326,7 +435,6 @@ namespace Conquerors.Pages
                                 if (string.Equals(nodeName, "/movement")) break;
                                 foreach (Node node in app.MapProperty.nodeList)
                                 {
-                                    if (node.Owner != playerColor) continue;
                                     if (string.Equals(nodeName, node.Name))
                                     {
                                         a.movementRoute.Add(node);
@@ -356,7 +464,6 @@ namespace Conquerors.Pages
                                 if (string.Equals(nodeName, "/movement")) break;
                                 foreach (Node node in app.MapProperty.nodeList)
                                 {
-                                    if (node.Owner != playerColor) continue;
                                     if (string.Equals(nodeName, node.Name))
                                     {
                                         a.movementRoute.Add(node);
@@ -416,6 +523,7 @@ namespace Conquerors.Pages
             {
                 case enmMergeState.Unloaded:
                     app.clearData();
+                    map = new Map();
                     bool mapLoaded = saveMergeMapUpload();
                     if(mapLoaded)
                     {
@@ -471,6 +579,7 @@ namespace Conquerors.Pages
             {
                 progressHoldingUpgrades();
                 moveAgents();
+                createMapFile();
                 return true;
             }catch
             {
@@ -479,9 +588,280 @@ namespace Conquerors.Pages
             }
         }
 
+        private void createMapFile()
+        {
+            App app = (App)Application.Current;
+            Player blue = app.getPlayer(enmPlayers.Blue);
+            Player red = app.getPlayer(enmPlayers.Red);
+            Player green = app.getPlayer(enmPlayers.Green);
+            Player purple = app.getPlayer(enmPlayers.Purple);
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Text File|*.txt";
+                if (sfd.ShowDialog().Value)
+                {
+                    using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
+                    {
+                        sw.WriteLine(app.turn.ToString());
+                        sw.WriteLine(app.MapProperty.NodeCount);
+
+                        foreach (Node node in app.MapProperty.nodeList)
+                        {
+                            sw.WriteLine(node.Name);
+                            sw.WriteLine((int)node.NodeType);
+                            sw.WriteLine((int)node.Owner);
+                            sw.WriteLine(node.DefenseLevel);
+
+                            sw.WriteLine(node.nodeControl.GetValue(Canvas.LeftProperty).ToString());
+                            sw.WriteLine(node.nodeControl.GetValue(Canvas.TopProperty).ToString());
+
+                            foreach (string connection in node.listOfConnections)
+                                sw.WriteLine(connection);
+                            sw.WriteLine("/connections");
+                        }
+
+                        sw.WriteLine("/map");
+
+                        foreach(Player player in app.players)
+                        {
+                            sw.WriteLine((int)player.color);
+                            sw.WriteLine(player.Gold.ToString());
+                            sw.WriteLine(player.Food.ToString());
+                            sw.WriteLine(player.Stone.ToString());
+                            sw.WriteLine(player.AgentCounter.ToString());
+
+                            foreach(Assassin a in player.Assassins)
+                            {
+                                sw.WriteLine(a.ID);
+                                sw.WriteLine(a.location);
+                                sw.WriteLine(a.moving);
+                                if (a.moving)
+                                {
+                                    foreach (Node node in a.movementRoute)
+                                        sw.WriteLine(node.Name);
+                                    sw.WriteLine("/movement");
+                                }
+                            }
+                            sw.WriteLine("/assassins");
+                            foreach (Scout a in player.Scouts)
+                            {
+                                sw.WriteLine(a.ID);
+                                sw.WriteLine(a.location);
+                                sw.WriteLine(a.moving);
+                                if (a.moving)
+                                {
+                                    foreach (Node node in a.movementRoute)
+                                        sw.WriteLine(node.Name);
+                                    sw.WriteLine("/movement");
+                                }
+                            }
+                            sw.WriteLine("/scouts");
+                            foreach (Steward a in player.Stewards)
+                            {
+                                sw.WriteLine(a.ID);
+                                sw.WriteLine(a.location);
+                                sw.WriteLine(a.working);
+                                sw.WriteLine(a.moving);
+                                if (a.moving)
+                                {
+                                    foreach (Node node in a.movementRoute)
+                                        sw.WriteLine(node.Name);
+                                    sw.WriteLine("/movement");
+                                }
+                            }
+                            sw.WriteLine("/stewards");
+                            foreach (Commander a in player.Commanders)
+                            {
+                                sw.WriteLine(a.ID);
+                                sw.WriteLine(a.location);
+                                sw.WriteLine(a.moving);
+                                if (a.moving)
+                                {
+                                    foreach (Node node in a.movementRoute)
+                                        sw.WriteLine(node.Name);
+                                    sw.WriteLine("/movement");
+                                }
+
+                                sw.WriteLine(a.army.isEmpty());
+                                if (!a.army.isEmpty())
+                                {
+                                    sw.WriteLine(a.army.LightInfantry);
+                                    sw.WriteLine(a.army.HeavyInfantry);
+                                    sw.WriteLine(a.army.LightCavalry);
+                                    sw.WriteLine(a.army.HeavyCavalry);
+                                    sw.WriteLine(a.army.Archers);
+                                    sw.WriteLine(a.army.Musketeers);
+                                }
+                            }
+                            sw.WriteLine("/commanders");
+
+                            foreach (Army army in player.Armies)
+                            {
+                                sw.WriteLine(army.location);
+                                sw.WriteLine(army.LightInfantry);
+                                sw.WriteLine(army.HeavyInfantry);
+                                sw.WriteLine(army.LightCavalry);
+                                sw.WriteLine(army.HeavyCavalry);
+                                sw.WriteLine(army.Archers);
+                                sw.WriteLine(army.Musketeers);
+                            }
+                            sw.WriteLine("/armies");
+                        }
+                        sw.WriteLine("/players");
+                        sw.AutoFlush = true;
+                        sw.Flush();
+                    }  //using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
+                }
+            }catch
+            {
+                MessageBox.Show("A problem occurred during saving!");
+            }
+        }
+
         private void moveAgents()
         {
+            App app = (App)Application.Current;
+            OccupationHandler occupations = new OccupationHandler();
+            int collisionOccurred = 0;
+            bool movesRemain = false;
 
+            foreach(Player player in app.players)
+            {
+                enmPlayers color = player.color;
+                foreach(Commander commander in player.Commanders)
+                {
+                    if(commander.moving)
+                    {
+                        Node destination = commander.movementRoute.First();
+                        commander.location = destination.Name;
+                        commander.movementRoute.Remove(destination);
+                        commander.movement--;
+                        if (commander.movement == 0)
+                        {
+                            commander.movement = Constants.commanderMovement;
+                            commander.moving = false;
+                        }
+                        else if (commander.movementRoute.Count == 0)
+                        {
+                            commander.movement = Constants.scoutMovement;
+                            commander.moving = false;
+                        }
+                        else movesRemain = true;
+
+                        occupations.Add(destination.Name, color);
+                        if (occupations.collides(destination.Name, color))
+                            collisionOccurred++;
+                    }else
+                    {
+                        occupations.Add(commander.location, color);
+                        if (occupations.collides(commander.location, color))
+                            collisionOccurred++;
+                    }
+                }  //foreach(Commander commander in player.Commanders)
+                foreach (Steward steward in player.Stewards)
+                {
+                    if (steward.moving)
+                    {
+                        Node destination = steward.movementRoute.First();
+                        steward.location = destination.Name;
+                        steward.movementRoute.Remove(destination);
+                        steward.movement--;
+                        if (steward.movement == 0)
+                        {
+                            steward.movement = Constants.stewardMovement;
+                            steward.moving = false;
+                        }
+                        else if (steward.movementRoute.Count == 0)
+                        {
+                            steward.movement = Constants.scoutMovement;
+                            steward.moving = false;
+                        }
+                        else movesRemain = true;
+
+                        occupations.Add(destination.Name, color);
+                        if (occupations.collides(destination.Name, color))
+                            collisionOccurred++;
+                    }
+                    else
+                    {
+                        occupations.Add(steward.location, color);
+                        if (occupations.collides(steward.location, color))
+                            collisionOccurred++;
+                    }
+                }  //foreach (Steward steward in player.Stewards)
+
+                foreach (Scout scout in player.Scouts)
+                {
+                    if (scout.moving)
+                    {
+                        Node destination = scout.movementRoute.First();
+                        scout.location = destination.Name;
+                        scout.movementRoute.Remove(destination);
+                        scout.movement--;
+                        if (scout.movement == 0)
+                        {
+                            scout.movement = Constants.scoutMovement;
+                            scout.moving = false;
+                        }
+                        else if (scout.movementRoute.Count == 0)
+                        {
+                            scout.movement = Constants.scoutMovement;
+                            scout.moving = false;
+                        }
+                        else movesRemain = true;
+
+                        occupations.Add(destination.Name, color);
+                        if (occupations.collides(destination.Name, color))
+                            collisionOccurred++;
+                    }
+                    else
+                    {
+                        occupations.Add(scout.location, color);
+                        if (occupations.collides(scout.location, color))
+                            collisionOccurred++;
+                    }
+                }  //foreach (Scout scout in player.Scouts)
+
+                foreach (Assassin assassin in player.Assassins)
+                {
+                    if (assassin.moving)
+                    {
+                        Node destination = assassin.movementRoute.First();
+                        assassin.location = destination.Name;
+                        assassin.movementRoute.Remove(destination);
+                        assassin.movement--;
+                        if (assassin.movement == 0)
+                        {
+                            assassin.movement = Constants.assassinMovement;
+                            assassin.moving = false;
+                        } else if (assassin.movementRoute.Count == 0)
+                        {
+                            assassin.movement = Constants.assassinMovement;
+                            assassin.moving = false;
+                        }
+                        else movesRemain = true;
+
+                        occupations.Add(destination.Name, color);
+                        if (occupations.collides(destination.Name, color))
+                            collisionOccurred++;
+                    }
+                    else
+                    {
+                        occupations.Add(assassin.location, color);
+                        if (occupations.collides(assassin.location, color))
+                            collisionOccurred++;
+                    }
+                }  //foreach (Assassin assassin in player.Assassins)
+            }  //foreach(Player player in app.players)
+
+            if (collisionOccurred != 0) handleCollissions(occupations, collisionOccurred);
+            if (movesRemain) moveAgents();
+        }  //private void moveAgents()
+
+        private void handleCollissions(OccupationHandler occupations, int collisionsOccurred)
+        {
+            //TODO
         }
 
         private void progressHoldingUpgrades()
@@ -499,7 +879,7 @@ namespace Conquerors.Pages
             }
 
             if (nodesToBeupgraded.Count == 0) return;
-            foreach(Node node in map.nodeList)
+            foreach(Node node in app.MapProperty.nodeList)
             {
                 if(nodesToBeupgraded.Contains(node.Name))
                 {

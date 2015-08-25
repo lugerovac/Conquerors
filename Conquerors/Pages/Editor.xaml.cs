@@ -480,19 +480,8 @@ namespace Conquerors.Pages
             {
                 using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
                 {
+                    sw.WriteLine("0"); //turn
                     sw.WriteLine(map.NodeCount);
-                    sw.WriteLine(ctrlResources.bluePlayer.Gold.ToString());
-                    sw.WriteLine(ctrlResources.bluePlayer.Food.ToString());
-                    sw.WriteLine(ctrlResources.bluePlayer.Stone.ToString());
-                    sw.WriteLine(ctrlResources.redPlayer.Gold.ToString());
-                    sw.WriteLine(ctrlResources.redPlayer.Food.ToString());
-                    sw.WriteLine(ctrlResources.redPlayer.Stone.ToString());
-                    sw.WriteLine(ctrlResources.greenPlayer.Gold.ToString());
-                    sw.WriteLine(ctrlResources.greenPlayer.Food.ToString());
-                    sw.WriteLine(ctrlResources.greenPlayer.Stone.ToString());
-                    sw.WriteLine(ctrlResources.purplePlayer.Gold.ToString());
-                    sw.WriteLine(ctrlResources.purplePlayer.Food.ToString());
-                    sw.WriteLine(ctrlResources.purplePlayer.Stone.ToString());
 
                     foreach (Node node in map.nodeList)
                     {
@@ -510,6 +499,54 @@ namespace Conquerors.Pages
                             sw.WriteLine(connection);
                         sw.WriteLine("/connections");
                     }  //foreach
+
+                    sw.WriteLine("/map");
+
+                    sw.WriteLine((int) enmPlayers.Blue);
+                    sw.WriteLine(ctrlResources.bluePlayer.Gold.ToString());
+                    sw.WriteLine(ctrlResources.bluePlayer.Food.ToString());
+                    sw.WriteLine(ctrlResources.bluePlayer.Stone.ToString());
+                    sw.WriteLine("0");
+                    sw.WriteLine("/assassins");
+                    sw.WriteLine("/scouts");
+                    sw.WriteLine("/stewards");
+                    sw.WriteLine("/commanders");
+                    sw.WriteLine("/armies");
+
+                    sw.WriteLine((int)enmPlayers.Red);
+                    sw.WriteLine(ctrlResources.redPlayer.Gold.ToString());
+                    sw.WriteLine(ctrlResources.redPlayer.Food.ToString());
+                    sw.WriteLine(ctrlResources.redPlayer.Stone.ToString());
+                    sw.WriteLine("0");
+                    sw.WriteLine("/assassins");
+                    sw.WriteLine("/scouts");
+                    sw.WriteLine("/stewards");
+                    sw.WriteLine("/commanders");
+                    sw.WriteLine("/armies");
+
+                    sw.WriteLine((int)enmPlayers.Green);
+                    sw.WriteLine(ctrlResources.greenPlayer.Gold.ToString());
+                    sw.WriteLine(ctrlResources.greenPlayer.Food.ToString());
+                    sw.WriteLine(ctrlResources.greenPlayer.Stone.ToString());
+                    sw.WriteLine("0");
+                    sw.WriteLine("/assassins");
+                    sw.WriteLine("/scouts");
+                    sw.WriteLine("/stewards");
+                    sw.WriteLine("/commanders");
+                    sw.WriteLine("/armies");
+
+                    sw.WriteLine((int)enmPlayers.Purple);
+                    sw.WriteLine(ctrlResources.purplePlayer.Gold.ToString());
+                    sw.WriteLine(ctrlResources.purplePlayer.Food.ToString());
+                    sw.WriteLine(ctrlResources.purplePlayer.Stone.ToString());
+                    sw.WriteLine("0");
+                    sw.WriteLine("/assassins");
+                    sw.WriteLine("/scouts");
+                    sw.WriteLine("/stewards");
+                    sw.WriteLine("/commanders");
+                    sw.WriteLine("/armies");
+
+                    sw.WriteLine("/players");
 
                     sw.AutoFlush = true;
                     sw.Flush();
@@ -531,26 +568,14 @@ namespace Conquerors.Pages
                 resetState();  //in case we are loadign a file, clean the canvas and the Database
                 using (StreamReader sr = new StreamReader(ofd.File.OpenRead()))
                 {
+                    string turn = sr.ReadLine();  //redundant, but data has to be read
                     map.NodeCount = Convert.ToInt32(sr.ReadLine());
-
-                    ctrlResources.bluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.bluePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.bluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.redPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.redPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.redPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.greenPlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.greenPlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.greenPlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.purplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.purplePlayer.Food = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.purplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
-                    ctrlResources.refresh();
 
                     while (true)
                     {
                         Node newNode = new Node();
                         newNode.Name = sr.ReadLine();
+                        if (string.Equals(newNode.Name, "/map")) break;
                         newNode.setNodeTypeByIndex(Convert.ToInt32(sr.ReadLine()));
                         newNode.Owner = (enmPlayers) Convert.ToInt32(sr.ReadLine());
                         newNode.DefenseLevel = Convert.ToInt32(sr.ReadLine());
@@ -572,10 +597,37 @@ namespace Conquerors.Pages
                         newNode.nodeControl.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => NodeSelect(sender, e, newNode.nodeControl.Name));
                         newNode.nodeControl.MouseLeftButtonDown += new MouseButtonEventHandler((sender, e) => NodeMoveActivate(sender, e, newNode.nodeControl.Name));
                         map.nodeList.Add(newNode);
-
-                        if (sr.EndOfStream) break;
                     }
+
+                    string ignore = sr.ReadLine();
+                    ctrlResources.bluePlayer.Gold = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.bluePlayer.Food = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.bluePlayer.Stone = Convert.ToInt32(sr.ReadLine());
+                    for(int i = 0; i < 6; i++)
+                        ignore = sr.ReadLine();
+
+                    ignore = sr.ReadLine();
+                    ctrlResources.redPlayer.Gold = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.redPlayer.Food = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.redPlayer.Stone = Convert.ToInt32(sr.ReadLine());
+                    for (int i = 0; i < 6; i++)
+                        ignore = sr.ReadLine();
+
+                    ignore = sr.ReadLine();
+                    ctrlResources.greenPlayer.Gold = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.greenPlayer.Food = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.greenPlayer.Stone = Convert.ToInt32(sr.ReadLine());
+                    for (int i = 0; i < 6; i++)
+                        ignore = sr.ReadLine();
+
+                    ignore = sr.ReadLine();
+                    ctrlResources.purplePlayer.Gold = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.purplePlayer.Food = Convert.ToInt32(sr.ReadLine());
+                    ctrlResources.purplePlayer.Stone = Convert.ToInt32(sr.ReadLine());
+                    for (int i = 0; i < 6; i++)
+                        ignore = sr.ReadLine();
                 }  //using file
+                ctrlResources.refresh();
                 connectAllNodes();
             }  //if
         }

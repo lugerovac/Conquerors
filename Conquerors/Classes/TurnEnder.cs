@@ -49,6 +49,7 @@ namespace Conquerors
                             sw.WriteLine(a.moving);
                             if(a.moving)
                             {
+                                a.movementRoute.Remove(a.movementRoute[0]); //so that the location doesn't end up being the first destination
                                 foreach(Node node in a.movementRoute)
                                     sw.WriteLine(node.Name);
                                 sw.WriteLine("/movement");
@@ -62,6 +63,7 @@ namespace Conquerors
                             sw.WriteLine(a.moving);
                             if (a.moving)
                             {
+                                a.movementRoute.Remove(a.movementRoute[0]);
                                 foreach (Node node in a.movementRoute)
                                     sw.WriteLine(node.Name);
                                 sw.WriteLine("/movement");
@@ -76,6 +78,7 @@ namespace Conquerors
                             sw.WriteLine(a.moving);
                             if (a.moving)
                             {
+                                a.movementRoute.Remove(a.movementRoute[0]);
                                 foreach (Node node in a.movementRoute)
                                     sw.WriteLine(node.Name);
                                 sw.WriteLine("/movement");
@@ -89,6 +92,7 @@ namespace Conquerors
                             sw.WriteLine(a.moving);
                             if (a.moving)
                             {
+                                a.movementRoute.Remove(a.movementRoute[0]);
                                 foreach (Node node in a.movementRoute)
                                     sw.WriteLine(node.Name);
                                 sw.WriteLine("/movement");
