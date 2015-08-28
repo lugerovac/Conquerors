@@ -38,5 +38,15 @@ namespace Conquerors
 
             nodeList.Add(node);
         }
+
+        public Node findNode(string nodeName)
+        {
+            foreach (Node node in nodeList)
+            {
+                if (string.Equals(node.Name, nodeName))
+                    return node;
+            }
+            return null;
+        }
     }
 }

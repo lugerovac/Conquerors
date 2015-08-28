@@ -37,6 +37,7 @@ namespace Conquerors
                     occupation.collidedWith = agent.ID;
                     addition.collided = true;
                     addition.collidedWith = occupation.agentName;
+                    collissionsOccurred++;
                     break;
                 }
             }

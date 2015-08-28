@@ -21,6 +21,7 @@ namespace Conquerors.Pages
         Map map;
         List<Edge> edgeList = new List<Edge>();
         List<Node> ownedNodes = new List<Node>();
+        List<Agent> visibleEnemies = new List<Agent>();
         Player ActivePlayer;
         int turn = 0;
 
@@ -40,106 +41,192 @@ namespace Conquerors.Pages
             /*Set up the interface for the player when the page loads*/
             setPlayer();
             setTheMap();
+            setPlayerFOW();
             showAgents();
             showResources();
             hideControls();
+            unselect();
+        }
+
+        private void enemyCommanderSelect(object sender, MouseButtonEventArgs e, string ID, enmPlayers owner)
+        {
+            App app = (App)Application.Current;
+            foreach(Player player in app.players)
+            {
+                if (player.color == owner)
+                {
+                    foreach (Commander commander in player.Commanders)
+                    {
+                        if (string.Equals(commander.ID, ID))
+                        {
+                            commander.Select();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private List<string> giveSurveiledNodes()
+        {
+            List<string> output = new List<string>();
+            foreach(Node node in map.nodeList)
+            {
+                if (!node.darkened)
+                    output.Add(node.Name);
+            }
+            return output;
         }
 
         public void showAgents()
         {
-            foreach(Commander a in ActivePlayer.Commanders)
+            App app = (App)Application.Current;
+            List<string> surveiledNodes = giveSurveiledNodes();
+            foreach(Player player in app.players)
             {
-                double x = 0, y = 0;
-                foreach (Node node in map.nodeList)
+                foreach(Commander a in player.Commanders)
                 {
-                    if(string.Equals(a.location, node.Name))
+                    if (player.color != ActivePlayer.color)
                     {
-                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                        Point offset = getPosition.Transform(new Point(0, 0));
-                        x = offset.X;
-                        y = offset.Y;
-                        break;
+                        if (!surveiledNodes.Contains(a.location)) continue;
+                        double x = 0, y = 0;
+                        foreach (Node node in map.nodeList)
+                        {
+                            if (string.Equals(a.location, node.Name))
+                            {
+                                GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                                Point offset = getPosition.Transform(new Point(0, 0));
+                                x = offset.X;
+                                y = offset.Y;
+                                break;
+                            }
+                        }
+
+                        a.visible = true;
+                        a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => enemyCommanderSelect(sender, e, a.ID, player.color));
+                        a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                        a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                        cnvMapa.Children.Add(a.sprite);
+                        if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                        visibleEnemies.Add(a);
                     }
-                }
+                    else
+                    {
+                        double x = 0, y = 0;
+                        foreach (Node node in map.nodeList)
+                        {
+                            if (string.Equals(a.location, node.Name))
+                            {
+                                GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                                Point offset = getPosition.Transform(new Point(0, 0));
+                                x = offset.X;
+                                y = offset.Y;
+                                break;
+                            }
+                        }
 
-                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, a.ID));
-                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.sprite);
-                setSpritePositionsOnANode(a.location);
-                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
-            }  //Commanders
+                        a.visible = true;
+                        a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, a.ID));
+                        a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                        a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                        cnvMapa.Children.Add(a.sprite);
+                        if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    }
+                }  //Commanders
 
-            foreach (Steward a in ActivePlayer.Stewards)
+                foreach (Steward a in player.Stewards)
+                {
+                    if (player.color != ActivePlayer.color)
+                    {
+                        //for now don't show enemy stewards
+                        continue;
+                    }
+                    double x = 0, y = 0;
+                    foreach (Node node in map.nodeList)
+                    {
+                        if (string.Equals(a.location, node.Name))
+                        {
+                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                            Point offset = getPosition.Transform(new Point(0, 0));
+                            x = offset.X;
+                            y = offset.Y;
+                            break;
+                        }
+                    }
+
+                    a.visible = true;
+                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
+                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                    cnvMapa.Children.Add(a.sprite);
+                    if (a.Works() || a.moving)
+                        a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                }  //Stewards
+
+                foreach (Assassin a in player.Assassins)
+                {
+                    if (player.color != ActivePlayer.color)
+                    {
+                        //for now don't show enemy assassins
+                        continue;
+                    }
+
+                    double x = 0, y = 0;
+                    foreach (Node node in map.nodeList)
+                    {
+                        if (string.Equals(a.location, node.Name))
+                        {
+                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                            Point offset = getPosition.Transform(new Point(0, 0));
+                            x = offset.X;
+                            y = offset.Y;
+                            break;
+                        }
+                    }
+
+                    a.visible = true;
+                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
+                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                    cnvMapa.Children.Add(a.sprite);
+                    if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                }  //Assassins
+
+                foreach (Scout a in ActivePlayer.Scouts)
+                {
+                    if (player.color != ActivePlayer.color)
+                    {
+                        //for now don't show enemy assassins
+                        continue;
+                    }
+
+                    double x = 0, y = 0;
+                    foreach (Node node in map.nodeList)
+                    {
+                        if (string.Equals(a.location, node.Name))
+                        {
+                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                            Point offset = getPosition.Transform(new Point(0, 0));
+                            x = offset.X;
+                            y = offset.Y;
+                            break;
+                        }
+                    }
+
+                    a.visible = true;
+                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
+                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                    cnvMapa.Children.Add(a.sprite);
+                    if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                }  //Scouts
+            }
+
+            foreach(Node node in map.nodeList)
             {
-                double x = 0, y = 0;
-                foreach (Node node in map.nodeList)
-                {
-                    if (string.Equals(a.location, node.Name))
-                    {
-                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                        Point offset = getPosition.Transform(new Point(0, 0));
-                        x = offset.X;
-                        y = offset.Y;
-                        break;
-                    }
-                }
-
-                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
-                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.sprite);
-                setSpritePositionsOnANode(a.location);
-                if(a.Works() || a.moving)
-                    a.sprite.Opacity = Constants.darkenedSpriteOpacity;
-
-            }  //Stewards
-
-            foreach (Assassin a in ActivePlayer.Assassins)
-            {
-                double x = 0, y = 0;
-                foreach (Node node in map.nodeList)
-                {
-                    if (string.Equals(a.location, node.Name))
-                    {
-                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                        Point offset = getPosition.Transform(new Point(0, 0));
-                        x = offset.X;
-                        y = offset.Y;
-                        break;
-                    }
-                }
-
-                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
-                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.sprite);
-                setSpritePositionsOnANode(a.location);
-                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
-            }  //Assassins
-
-            foreach (Scout a in ActivePlayer.Scouts)
-            {
-                double x = 0, y = 0;
-                foreach (Node node in map.nodeList)
-                {
-                    if (string.Equals(a.location, node.Name))
-                    {
-                        GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                        Point offset = getPosition.Transform(new Point(0, 0));
-                        x = offset.X;
-                        y = offset.Y;
-                        break;
-                    }
-                }
-
-                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
-                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.sprite);
-                setSpritePositionsOnANode(a.location);
-                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
-            }  //Scouts
+                if (node.darkened) continue;
+                setSpritePositionsOnANode(node.Name);
+            }
         }
 
         private void hideControls()
@@ -225,12 +312,55 @@ namespace Conquerors.Pages
          That is, enemy armies will only be shown in light-colored nodes*/
         private void setPlayerFOW()
         {
+            List<string> visitedNodes = new List<string>();
+            List<string> scoutingNodes = new List<string>();
+            foreach (Commander a in ActivePlayer.Commanders)
+                if (!visitedNodes.Contains(a.location)) visitedNodes.Add(a.location);
+            foreach (Steward a in ActivePlayer.Stewards)
+                if (!visitedNodes.Contains(a.location)) visitedNodes.Add(a.location);
+            foreach (Assassin a in ActivePlayer.Assassins)
+                if (!visitedNodes.Contains(a.location)) visitedNodes.Add(a.location);
+            foreach (Scout a in ActivePlayer.Scouts)
+            {
+                if (!visitedNodes.Contains(a.location)) visitedNodes.Add(a.location);
+                if (!scoutingNodes.Contains(a.location)) scoutingNodes.Add(a.location);
+            }
+
+            foreach (Node node in map.nodeList)
+            {
+                string nodeToRmove = "";
+                foreach(string sn in scoutingNodes)
+                {
+                    if(node.isConnectedto(sn))
+                    {
+                        if (!visitedNodes.Contains(node.Name))
+                            visitedNodes.Add(node.Name);
+                        nodeToRmove = sn;
+                        break;
+                    }
+                }
+                if (string.Equals(nodeToRmove, ""))
+                    scoutingNodes.Remove(nodeToRmove);
+            }
+
             foreach (Node node in map.nodeList)
             {
                 if (node.Owner == ActivePlayer.color) continue;
 
                 bool z = true;
-                foreach (Node ownedNode in ownedNodes) if (node.isConnectedto(ownedNode.Name)) z = false;
+                if (visitedNodes.Contains(node.Name)) z = false;
+                if (z)
+                {
+                    foreach (string vn in visitedNodes)
+                        if (node.isConnectedto(vn)) z = false;
+                }
+
+                if (z)
+                {
+                    foreach (Node ownedNode in ownedNodes)
+                        if (node.isConnectedto(ownedNode.Name)) z = false;
+                }
+
                 if (z)
                 {
                     node.darken();
@@ -252,7 +382,6 @@ namespace Conquerors.Pages
                 if (node.Owner == ActivePlayer.color) ownedNodes.Add(node);
             }
 
-            setPlayerFOW();
             connectNodes();
         }
 
@@ -568,6 +697,8 @@ namespace Conquerors.Pages
                 scout.Unselect();
             foreach (Assassin assassin in ActivePlayer.Assassins)
                 assassin.Unselect();
+            foreach (Agent agent in visibleEnemies)
+                agent.Unselect();
             hideControls();
             spriteRefresh();
         }
@@ -590,6 +721,11 @@ namespace Conquerors.Pages
                 cnvMapa.Children.Add(agent.sprite);
             }
             foreach (Agent agent in ActivePlayer.Assassins)
+            {
+                cnvMapa.Children.Remove(agent.sprite);
+                cnvMapa.Children.Add(agent.sprite);
+            }
+            foreach(Agent agent in visibleEnemies)
             {
                 cnvMapa.Children.Remove(agent.sprite);
                 cnvMapa.Children.Add(agent.sprite);
@@ -674,6 +810,7 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Scout" + ActivePlayer.AgentCounter.ToString();
             Scout newScout = new Scout(ID, Constants.scoutGoldUpkeep, Constants.scoutFoodUpkeep, nodeName, ActivePlayer.color);
+            newScout.visible = true;
             newScout.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, newScout.ID));
             newScout.sprite.SetValue(Canvas.LeftProperty, x - 80);
             newScout.sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -724,6 +861,7 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Assassin" + ActivePlayer.AgentCounter.ToString();
             Assassin newAssassin = new Assassin(ID, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, nodeName, ActivePlayer.color);
+            newAssassin.visible = true;
             newAssassin.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, newAssassin.ID));
             newAssassin.sprite.SetValue(Canvas.LeftProperty, x - 80);
             newAssassin.sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -775,6 +913,7 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Steward" + ActivePlayer.AgentCounter.ToString();
             Steward newSteward = new Steward(ID, Constants.stewardGoldUpkeep, Constants.stewardFoodUpkeep, nodeName, ActivePlayer.color);
+            newSteward.visible = true;
             newSteward.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, newSteward.ID));
             newSteward.sprite.SetValue(Canvas.LeftProperty, x - 80);
             newSteward.sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -826,6 +965,7 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Commander" + ActivePlayer.AgentCounter.ToString();
             Commander newCommander = new Commander(ID, Constants.commanderGoldUpkeep, Constants.commanderFoodUpkeep, nodeName, ActivePlayer.color);
+            newCommander.visible = true;
             newCommander.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, newCommander.ID));
             newCommander.sprite.SetValue(Canvas.LeftProperty, x - 70);
             newCommander.sprite.SetValue(Canvas.TopProperty, y + 10);
@@ -866,43 +1006,47 @@ namespace Conquerors.Pages
             int counter = 0;
             List<Agent> agents = new List<Agent>();
 
-            foreach (Commander commander in ActivePlayer.Commanders)
+            App app = (App)Application.Current;
+            foreach (Player player in app.players)
             {
-                if (string.Equals(commander.location, node.Name))
+                foreach (Commander commander in player.Commanders)
                 {
-                    counter++;
-                    agents.Add(commander);
-                    cnvMapa.Children.Remove(commander.sprite);
+                    if (commander.visible && string.Equals(commander.location, node.Name))
+                    {
+                        counter++;
+                        agents.Add(commander);
+                        cnvMapa.Children.Remove(commander.sprite);
+                    }
                 }
-            }
 
-            foreach (Steward steward in ActivePlayer.Stewards)
-            {
-                if (string.Equals(steward.location, node.Name))
+                foreach (Steward steward in player.Stewards)
                 {
-                    counter++;
-                    agents.Add(steward);
-                    cnvMapa.Children.Remove(steward.sprite);
+                    if (steward.visible && string.Equals(steward.location, node.Name))
+                    {
+                        counter++;
+                        agents.Add(steward);
+                        cnvMapa.Children.Remove(steward.sprite);
+                    }
                 }
-            }
 
-            foreach (Scout scout in ActivePlayer.Scouts)
-            {
-                if (string.Equals(scout.location, node.Name))
+                foreach (Scout scout in player.Scouts)
                 {
-                    counter++;
-                    agents.Add(scout);
-                    cnvMapa.Children.Remove(scout.sprite);
+                    if (scout.visible && string.Equals(scout.location, node.Name))
+                    {
+                        counter++;
+                        agents.Add(scout);
+                        cnvMapa.Children.Remove(scout.sprite);
+                    }
                 }
-            }
 
-            foreach (Assassin assassin in ActivePlayer.Assassins)
-            {
-                if (string.Equals(assassin.location, node.Name))
+                foreach (Assassin assassin in player.Assassins)
                 {
-                    counter++;
-                    agents.Add(assassin);
-                    cnvMapa.Children.Remove(assassin.sprite);
+                    if (assassin.visible && string.Equals(assassin.location, node.Name))
+                    {
+                        counter++;
+                        agents.Add(assassin);
+                        cnvMapa.Children.Remove(assassin.sprite);
+                    }
                 }
             }
 
@@ -913,7 +1057,6 @@ namespace Conquerors.Pages
             Point offset = getPosition.Transform(new Point(0, 0));
             x = offset.X;
 
-            //double distances = 40 / (counter + 1);
             double distances = 15;
             double xPos = 90;
 

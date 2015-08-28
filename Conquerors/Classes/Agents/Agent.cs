@@ -27,6 +27,7 @@ namespace Conquerors
         public int movement;
         public bool moving = false;
         public List<Node> movementRoute = new List<Node>();
+        public bool visible = false;
 
         public bool Selected
         {

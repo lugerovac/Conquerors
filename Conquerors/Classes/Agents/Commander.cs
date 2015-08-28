@@ -14,6 +14,21 @@ namespace Conquerors
     public class Commander : Agent
     {
         public Army army = new Army();
+        private bool _inBattle;
+        public bool inBattle
+        {
+            get { return _inBattle; }
+            set 
+            {
+                _inBattle = value;
+                if (inBattle)
+                {
+                    moving = false;
+                    movementRoute.Clear();
+                }
+            }
+        }
+        public string battling;
 
         public Commander(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
@@ -24,6 +39,7 @@ namespace Conquerors
         {
             sprite = new AgentControl(owner, enmAgentType.Commander);
             movement = Constants.commanderMovement;
+            inBattle = false;
         }
 
         public void addUnit(enmUnitType unit)

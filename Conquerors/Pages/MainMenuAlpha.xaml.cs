@@ -850,13 +850,13 @@ namespace Conquerors.Pages
             bool agent1Found = false;
             foreach(CollissionHandler occupation in occupations.occupations)
             {
+                if (!occupation.collided) continue;
                 if (!agent1Found)
                 {
-                    if (!occupation.collided) continue;
                     agent1 = occupation;
                     agent1Found = true;
                 }
-                else if (string.Equals(occupation.agentName, agent1.agentName))
+                else if (string.Equals(occupation.agentName, agent1.collidedWith))
                 {
                     agent2 = occupation;
                     break;
@@ -869,7 +869,8 @@ namespace Conquerors.Pages
                 case enmAgentType.Commander:
                     if(agent2.agentType == enmAgentType.Commander)
                     {
-                        //agents stop moving and are forced into a battle
+                        //the two commanders prepare to battle one another
+                        commenceBattle(agent1.agentName, agent2.agentName);
                     }
                     if(agent2.agentType == enmAgentType.Steward)
                     {
@@ -970,6 +971,37 @@ namespace Conquerors.Pages
 
             occupations.collissionsOccurred--;
             if (occupations.collissionsOccurred != 0) handleCollissions(occupations);
+        }
+
+        private void commenceBattle(string name1, string name2)
+        {
+            App app = (App)Application.Current;
+            string battlefield = "";
+            int counter = 2;
+            foreach(Player player in app.players)
+            {
+                foreach(Commander commander in player.Commanders)
+                {
+                    if(string.Equals(commander.ID, name1))
+                    {
+                        commander.inBattle = true;
+                        commander.battling = name2;
+                        if (counter == 2) battlefield = commander.location;
+                        else if (counter == 1) commander.location = battlefield;
+                        counter--;
+                        break;
+                    } else if(string.Equals(commander.ID, name2))
+                    {
+                        commander.inBattle = true;
+                        commander.battling = name1;
+                        if (counter == 2) battlefield = commander.location;
+                        else if (counter == 1) commander.location = battlefield;
+                        counter--;
+                        break;
+                    }
+                }
+                if (counter == 0) break;
+            }
         }
 
         private void progressHoldingUpgrades()
