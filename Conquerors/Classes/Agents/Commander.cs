@@ -22,7 +22,7 @@ namespace Conquerors
 
         public override void inheritedSetUp()
         {
-            Sprite = new AgentControl(owner, enmSpriteType.Commander);
+            sprite = new AgentControl(owner, enmAgentType.Commander);
             movement = Constants.commanderMovement;
         }
 

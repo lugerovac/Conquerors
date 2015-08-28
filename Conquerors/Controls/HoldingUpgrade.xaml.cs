@@ -126,6 +126,7 @@ namespace Conquerors
             {
                 txtGoldCost.Text = metropolisGoldCosts[node.DefenseLevel].ToString();
                 txtStoneCost.Text = metropolisStoneCosts[node.DefenseLevel].ToString();
+                txtTime.Text = metropolisTimeCosts[node.DefenseLevel].ToString();
 
                 if (player.Gold < metropolisGoldCosts[node.DefenseLevel] || player.Stone < metropolisStoneCosts[node.DefenseLevel])
                     Enabled = false;
@@ -134,6 +135,7 @@ namespace Conquerors
             {
                 txtGoldCost.Text = castleGoldCosts[node.DefenseLevel].ToString();
                 txtStoneCost.Text = castleStoneCosts[node.DefenseLevel].ToString();
+                txtTime.Text = castleTimeCosts[node.DefenseLevel].ToString();
 
                 if (player.Gold < castleGoldCosts[node.DefenseLevel] || player.Stone < castleStoneCosts[node.DefenseLevel])
                     Enabled = false;
@@ -142,6 +144,7 @@ namespace Conquerors
             {
                 txtGoldCost.Text = cityGoldCosts[node.DefenseLevel].ToString();
                 txtStoneCost.Text = cityStoneCosts[node.DefenseLevel].ToString();
+                txtTime.Text = cityTimeCosts[node.DefenseLevel].ToString();
 
                 if (player.Gold < cityGoldCosts[node.DefenseLevel] || player.Stone < cityStoneCosts[node.DefenseLevel])
                     Enabled = false;
@@ -150,6 +153,7 @@ namespace Conquerors
             {
                 txtGoldCost.Text = churchGoldCosts[node.DefenseLevel].ToString();
                 txtStoneCost.Text = churchStoneCosts[node.DefenseLevel].ToString();
+                txtTime.Text = churchTimeCosts[node.DefenseLevel].ToString();
 
                 if (player.Gold < churchGoldCosts[node.DefenseLevel] || player.Stone < churchStoneCosts[node.DefenseLevel])
                     Enabled = false;
@@ -158,6 +162,7 @@ namespace Conquerors
             {
                 txtGoldCost.Text = villageGoldCosts[node.DefenseLevel].ToString();
                 txtStoneCost.Text = villageStoneCosts[node.DefenseLevel].ToString();
+                txtTime.Text = villageTimeCosts[node.DefenseLevel].ToString();
 
                 if (player.Gold < villageGoldCosts[node.DefenseLevel] || player.Stone < villageStoneCosts[node.DefenseLevel])
                     Enabled = false;

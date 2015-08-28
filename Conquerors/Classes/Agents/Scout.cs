@@ -13,6 +13,8 @@ namespace Conquerors
 {
     public class Scout : Agent
     {
+        public bool ignoreEnemies;
+
         public Scout(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
         {
@@ -20,8 +22,9 @@ namespace Conquerors
 
         public override void inheritedSetUp()
         {
-            Sprite = new AgentControl(owner, enmSpriteType.Scout);
+            sprite = new AgentControl(owner, enmAgentType.Scout);
             movement = Constants.scoutMovement;
+            ignoreEnemies = false;
         }
     }
 }

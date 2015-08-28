@@ -18,7 +18,7 @@ namespace Conquerors
         /*This is an abstract class from which all Agents inherit and defines the Agent's Sprite, upkeep costs,
          location, owner and the ID*/
 
-        public AgentControl Sprite;
+        public AgentControl sprite;
         public int goldUpkeepCost;
         public int foodUpkeepCost;
         public string location;
@@ -30,8 +30,8 @@ namespace Conquerors
 
         public bool Selected
         {
-            get { return Sprite.Selected; }
-            set { Sprite.Selected = value; }
+            get { return sprite.Selected; }
+            set { sprite.Selected = value; }
         }
 
         /*This constructor gets called whenever an Agent is added to the game, no matter its type*/

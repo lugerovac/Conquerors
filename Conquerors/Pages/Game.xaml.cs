@@ -62,12 +62,12 @@ namespace Conquerors.Pages
                     }
                 }
 
-                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, a.ID));
-                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.Sprite);
+                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, a.ID));
+                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.sprite);
                 setSpritePositionsOnANode(a.location);
-                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
             }  //Commanders
 
             foreach (Steward a in ActivePlayer.Stewards)
@@ -85,13 +85,13 @@ namespace Conquerors.Pages
                     }
                 }
 
-                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
-                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.Sprite);
+                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
+                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.sprite);
                 setSpritePositionsOnANode(a.location);
                 if(a.Works() || a.moving)
-                    a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    a.sprite.Opacity = Constants.darkenedSpriteOpacity;
 
             }  //Stewards
 
@@ -110,12 +110,12 @@ namespace Conquerors.Pages
                     }
                 }
 
-                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
-                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.Sprite);
+                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
+                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.sprite);
                 setSpritePositionsOnANode(a.location);
-                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
             }  //Assassins
 
             foreach (Scout a in ActivePlayer.Scouts)
@@ -133,12 +133,12 @@ namespace Conquerors.Pages
                     }
                 }
 
-                a.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
-                a.Sprite.SetValue(Canvas.LeftProperty, x - 70);
-                a.Sprite.SetValue(Canvas.TopProperty, y + 10);
-                cnvMapa.Children.Add(a.Sprite);
+                a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
+                a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                cnvMapa.Children.Add(a.sprite);
                 setSpritePositionsOnANode(a.location);
-                if (a.moving) a.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+                if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
             }  //Scouts
         }
 
@@ -314,7 +314,7 @@ namespace Conquerors.Pages
 
             selectedAgent.movementRoute.Clear();
             selectedAgent.moving = false;
-            selectedAgent.Sprite.Opacity = 1;
+            selectedAgent.sprite.Opacity = 1;
 
             Node startNode = new Node();
             Node endNode = new Node();
@@ -327,7 +327,7 @@ namespace Conquerors.Pages
             }
             selectedAgent.movementRoute = Dijkstra.FindPath(map.nodeList, startNode, endNode, ActivePlayer);
             selectedAgent.moving = true;
-            selectedAgent.Sprite.Opacity = 0.5;
+            selectedAgent.sprite.Opacity = 0.5;
             routeConnect(selectedAgent);
         }
 
@@ -386,13 +386,12 @@ namespace Conquerors.Pages
                     break;
                 }  //if
             }  //foreach
-        } //NodeSelect
+        } //NodeSelect()
 
         /*Each node has its own set of controls that can be used on it. The following function checks which are those controls
          and makes them visible on the side-bar*/
         private void showNodeControls(Node selectedNode)
         {
-            /*Show info about the node*/
             NodeInfo.Visibility = Visibility.Visible;
             NodeInfo.showNodeInfo(selectedNode, selectedNode.darkened);
             switch (selectedNode.NodeType)
@@ -577,23 +576,23 @@ namespace Conquerors.Pages
         {
             foreach (Agent agent in ActivePlayer.Commanders)
             {
-                cnvMapa.Children.Remove(agent.Sprite);
-                cnvMapa.Children.Add(agent.Sprite);
+                cnvMapa.Children.Remove(agent.sprite);
+                cnvMapa.Children.Add(agent.sprite);
             }
             foreach (Agent agent in ActivePlayer.Stewards)
             {
-                cnvMapa.Children.Remove(agent.Sprite);
-                cnvMapa.Children.Add(agent.Sprite);
+                cnvMapa.Children.Remove(agent.sprite);
+                cnvMapa.Children.Add(agent.sprite);
             }
             foreach (Agent agent in ActivePlayer.Scouts)
             {
-                cnvMapa.Children.Remove(agent.Sprite);
-                cnvMapa.Children.Add(agent.Sprite);
+                cnvMapa.Children.Remove(agent.sprite);
+                cnvMapa.Children.Add(agent.sprite);
             }
             foreach (Agent agent in ActivePlayer.Assassins)
             {
-                cnvMapa.Children.Remove(agent.Sprite);
-                cnvMapa.Children.Add(agent.Sprite);
+                cnvMapa.Children.Remove(agent.sprite);
+                cnvMapa.Children.Add(agent.sprite);
             }
         }
 
@@ -675,11 +674,11 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Scout" + ActivePlayer.AgentCounter.ToString();
             Scout newScout = new Scout(ID, Constants.scoutGoldUpkeep, Constants.scoutFoodUpkeep, nodeName, ActivePlayer.color);
-            newScout.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, newScout.ID));
-            newScout.Sprite.SetValue(Canvas.LeftProperty, x - 80);
-            newScout.Sprite.SetValue(Canvas.TopProperty, y + 10);
+            newScout.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, newScout.ID));
+            newScout.sprite.SetValue(Canvas.LeftProperty, x - 80);
+            newScout.sprite.SetValue(Canvas.TopProperty, y + 10);
             ActivePlayer.addScout(newScout);
-            cnvMapa.Children.Add(newScout.Sprite);
+            cnvMapa.Children.Add(newScout.sprite);
             setSpritePositionsOnANode(nodeName);
 
             ActivePlayer.Gold -= Constants.scoutGoldCost;
@@ -725,11 +724,11 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Assassin" + ActivePlayer.AgentCounter.ToString();
             Assassin newAssassin = new Assassin(ID, Constants.assassinGoldUpkeep, Constants.assassinFoodUpkeep, nodeName, ActivePlayer.color);
-            newAssassin.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, newAssassin.ID));
-            newAssassin.Sprite.SetValue(Canvas.LeftProperty, x - 80);
-            newAssassin.Sprite.SetValue(Canvas.TopProperty, y + 10);
+            newAssassin.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, newAssassin.ID));
+            newAssassin.sprite.SetValue(Canvas.LeftProperty, x - 80);
+            newAssassin.sprite.SetValue(Canvas.TopProperty, y + 10);
             ActivePlayer.addAssassin(newAssassin);
-            cnvMapa.Children.Add(newAssassin.Sprite);
+            cnvMapa.Children.Add(newAssassin.sprite);
             setSpritePositionsOnANode(nodeName);
 
             ActivePlayer.Gold -= Constants.assassinGoldCost;
@@ -776,11 +775,11 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Steward" + ActivePlayer.AgentCounter.ToString();
             Steward newSteward = new Steward(ID, Constants.stewardGoldUpkeep, Constants.stewardFoodUpkeep, nodeName, ActivePlayer.color);
-            newSteward.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, newSteward.ID));
-            newSteward.Sprite.SetValue(Canvas.LeftProperty, x - 80);
-            newSteward.Sprite.SetValue(Canvas.TopProperty, y + 10);
+            newSteward.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, newSteward.ID));
+            newSteward.sprite.SetValue(Canvas.LeftProperty, x - 80);
+            newSteward.sprite.SetValue(Canvas.TopProperty, y + 10);
             ActivePlayer.addSteward(newSteward);
-            cnvMapa.Children.Add(newSteward.Sprite);
+            cnvMapa.Children.Add(newSteward.sprite);
             setSpritePositionsOnANode(nodeName);
 
             ActivePlayer.Gold -= Constants.stewardGoldCost;
@@ -827,11 +826,11 @@ namespace Conquerors.Pages
 
             string ID = ActivePlayer.color.ToString() + "Commander" + ActivePlayer.AgentCounter.ToString();
             Commander newCommander = new Commander(ID, Constants.commanderGoldUpkeep, Constants.commanderFoodUpkeep, nodeName, ActivePlayer.color);
-            newCommander.Sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, newCommander.ID));
-            newCommander.Sprite.SetValue(Canvas.LeftProperty, x - 70);
-            newCommander.Sprite.SetValue(Canvas.TopProperty, y + 10);
+            newCommander.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => CommanderSelect(sender, e, newCommander.ID));
+            newCommander.sprite.SetValue(Canvas.LeftProperty, x - 70);
+            newCommander.sprite.SetValue(Canvas.TopProperty, y + 10);
             ActivePlayer.addCommander(newCommander);
-            cnvMapa.Children.Add(newCommander.Sprite);
+            cnvMapa.Children.Add(newCommander.sprite);
             setSpritePositionsOnANode(nodeName);
 
             ActivePlayer.Gold -= Constants.commanderGoldCost;
@@ -873,7 +872,7 @@ namespace Conquerors.Pages
                 {
                     counter++;
                     agents.Add(commander);
-                    cnvMapa.Children.Remove(commander.Sprite);
+                    cnvMapa.Children.Remove(commander.sprite);
                 }
             }
 
@@ -883,7 +882,7 @@ namespace Conquerors.Pages
                 {
                     counter++;
                     agents.Add(steward);
-                    cnvMapa.Children.Remove(steward.Sprite);
+                    cnvMapa.Children.Remove(steward.sprite);
                 }
             }
 
@@ -893,7 +892,7 @@ namespace Conquerors.Pages
                 {
                     counter++;
                     agents.Add(scout);
-                    cnvMapa.Children.Remove(scout.Sprite);
+                    cnvMapa.Children.Remove(scout.sprite);
                 }
             }
 
@@ -903,7 +902,7 @@ namespace Conquerors.Pages
                 {
                     counter++;
                     agents.Add(assassin);
-                    cnvMapa.Children.Remove(assassin.Sprite);
+                    cnvMapa.Children.Remove(assassin.sprite);
                 }
             }
 
@@ -920,8 +919,8 @@ namespace Conquerors.Pages
 
             foreach (Agent agent in agents)
             {
-                agent.Sprite.SetValue(Canvas.LeftProperty, x - xPos);
-                cnvMapa.Children.Add(agent.Sprite);
+                agent.sprite.SetValue(Canvas.LeftProperty, x - xPos);
+                cnvMapa.Children.Add(agent.sprite);
                 xPos -= distances;
             }
         }
@@ -954,7 +953,7 @@ namespace Conquerors.Pages
                     ActivePlayer.Stone -= HoldingUpgrade.getStoneCosts(selectedNode);
                     steward.working = HoldingUpgrade.getTime(selectedNode);
                     selectedNode.beingUpgraded = true;
-                    steward.Sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    steward.sprite.Opacity = Constants.darkenedSpriteOpacity;
                 }
             }
             showResources();
@@ -1021,7 +1020,7 @@ namespace Conquerors.Pages
 
             selectedAgent.movementRoute.Clear();
             selectedAgent.moving = false;
-            selectedAgent.Sprite.Opacity = 1;
+            selectedAgent.sprite.Opacity = 1;
             routeUnselect();
             spriteRefresh();
         }

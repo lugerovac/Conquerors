@@ -14,49 +14,34 @@ namespace Conquerors
 {
     public class OccupationHandler
     {
-        List<string> blueOccupation;
-        List<string> redOccupation;
-        List<string> greenOccupation;
-        List<string> purpleOccupation;
+        public List<CollissionHandler> occupations;
+        public int collissionsOccurred;
 
         public OccupationHandler()
         {
-            blueOccupation = new List<string>();
-            redOccupation = new List<string>();
-            greenOccupation = new List<string>();
-            purpleOccupation = new List<string>();
+            occupations = new List<CollissionHandler>();
+            collissionsOccurred = 0;
         }
 
-        public void Add(string nodeName, enmPlayers playerColor)
+        public void Add(Agent agent, enmAgentType type)
         {
-            switch (playerColor)
+            CollissionHandler addition = new CollissionHandler(agent, type);
+
+            //check for collissions
+            foreach (CollissionHandler occupation in occupations)
             {
-                case enmPlayers.Blue:
-                    blueOccupation.Add(nodeName);
+                if (agent.owner == occupation.owner) continue;
+                if(string.Equals(agent.location, occupation.location))
+                {
+                    occupation.collided = true;
+                    occupation.collidedWith = agent.ID;
+                    addition.collided = true;
+                    addition.collidedWith = occupation.agentName;
                     break;
-                case enmPlayers.Red:
-                    redOccupation.Add(nodeName);
-                    break;
-                case enmPlayers.Green:
-                    greenOccupation.Add(nodeName);
-                    break;
-                case enmPlayers.Purple:
-                    purpleOccupation.Add(nodeName);
-                    break;
+                }
             }
-        }
 
-        public bool collides(string nodeName, enmPlayers playerColor)
-        {
-            if (playerColor != enmPlayers.Blue && blueOccupation.Contains(nodeName))
-                return true;
-            if (playerColor != enmPlayers.Red && redOccupation.Contains(nodeName))
-                return true;
-            if (playerColor != enmPlayers.Green && greenOccupation.Contains(nodeName))
-                return true;
-            if (playerColor != enmPlayers.Purple && purpleOccupation.Contains(nodeName))
-                return true;
-            return false;
+            occupations.Add(addition);
         }
     }
 }

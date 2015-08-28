@@ -26,8 +26,8 @@ namespace Conquerors
             }
         }
 
-        private enmSpriteType _type;
-        public enmSpriteType SpriteType
+        private enmAgentType _type;
+        public enmAgentType SpriteType
         {
             get { return SpriteType; }
             set
@@ -37,7 +37,7 @@ namespace Conquerors
             }
         }
 
-        public SpriteAgent(enmPlayers owner, enmSpriteType spriteType)
+        public SpriteAgent(enmPlayers owner, enmAgentType spriteType)
         {
             InitializeComponent();
 
@@ -53,16 +53,16 @@ namespace Conquerors
 
             switch(SpriteType)
             {
-                case enmSpriteType.Commander:
+                case enmAgentType.Commander:
                     type = "Commander";
                     break;
-                case enmSpriteType.Steward:
+                case enmAgentType.Steward:
                     type = "Steward";
                     break;
-                case enmSpriteType.Assassin:
+                case enmAgentType.Assassin:
                     type = "Assassin";
                     break;
-                case enmSpriteType.Scout:
+                case enmAgentType.Scout:
                     type = "Scout";
                     break;
             }

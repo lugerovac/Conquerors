@@ -29,7 +29,7 @@ namespace Conquerors
             }
         }
 
-        public AgentControl(enmPlayers color, enmSpriteType type)
+        public AgentControl(enmPlayers color, enmAgentType type)
         {
             InitializeComponent();
             Selected = false;
@@ -38,7 +38,7 @@ namespace Conquerors
 
         /*The following function sets up the icon of the selected agent. By using the ability to convert an enumeration into a
          string, the number of lines of code is greatly reduced and all conditionals are unnecessary*/
-        public void setIcon(enmPlayers color, enmSpriteType type)
+        public void setIcon(enmPlayers color, enmAgentType type)
         {
             imgSprite.Source = new BitmapImage(new Uri("Agents/Sprite" + type.ToString() + color.ToString() + ".png", UriKind.RelativeOrAbsolute));
         }

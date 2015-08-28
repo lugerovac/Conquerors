@@ -79,6 +79,7 @@
     <Compile Include="Classes\Agents\AgentPlaceholder.cs" />
     <Compile Include="Classes\Agents\Commander.cs" />
     <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\CollissionHandler.cs" />
     <Compile Include="Controls\AgentControl.xaml.cs">
       <DependentUpon>AgentControl.xaml</DependentUpon>
     </Compile>

@@ -13,7 +13,7 @@ namespace Conquerors
 {
     /*This is an empty class where enumerations are declared to make it easier to keep a track of them*/
 
-    public enum enmSpriteType  //defines the type of the agent
+    public enum enmAgentType  //defines the type of the agent
     {
         Commander = 1,
         Steward = 2,

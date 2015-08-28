@@ -723,7 +723,6 @@ namespace Conquerors.Pages
         {
             App app = (App)Application.Current;
             OccupationHandler occupations = new OccupationHandler();
-            int collisionOccurred = 0;
             bool movesRemain = false;
 
             foreach(Player player in app.players)
@@ -749,14 +748,10 @@ namespace Conquerors.Pages
                         }
                         else movesRemain = true;
 
-                        occupations.Add(destination.Name, color);
-                        if (occupations.collides(destination.Name, color))
-                            collisionOccurred++;
+                        occupations.Add(commander, enmAgentType.Commander);
                     }else
                     {
-                        occupations.Add(commander.location, color);
-                        if (occupations.collides(commander.location, color))
-                            collisionOccurred++;
+                        occupations.Add(commander, enmAgentType.Commander);
                     }
                 }  //foreach(Commander commander in player.Commanders)
                 foreach (Steward steward in player.Stewards)
@@ -779,15 +774,11 @@ namespace Conquerors.Pages
                         }
                         else movesRemain = true;
 
-                        occupations.Add(destination.Name, color);
-                        if (occupations.collides(destination.Name, color))
-                            collisionOccurred++;
+                        occupations.Add(steward, enmAgentType.Steward);
                     }
                     else
                     {
-                        occupations.Add(steward.location, color);
-                        if (occupations.collides(steward.location, color))
-                            collisionOccurred++;
+                        occupations.Add(steward, enmAgentType.Steward);
                     }
                 }  //foreach (Steward steward in player.Stewards)
 
@@ -811,15 +802,11 @@ namespace Conquerors.Pages
                         }
                         else movesRemain = true;
 
-                        occupations.Add(destination.Name, color);
-                        if (occupations.collides(destination.Name, color))
-                            collisionOccurred++;
+                        occupations.Add(scout, enmAgentType.Scout);
                     }
                     else
                     {
-                        occupations.Add(scout.location, color);
-                        if (occupations.collides(scout.location, color))
-                            collisionOccurred++;
+                        occupations.Add(scout, enmAgentType.Scout);
                     }
                 }  //foreach (Scout scout in player.Scouts)
 
@@ -842,26 +829,147 @@ namespace Conquerors.Pages
                         }
                         else movesRemain = true;
 
-                        occupations.Add(destination.Name, color);
-                        if (occupations.collides(destination.Name, color))
-                            collisionOccurred++;
+                        occupations.Add(assassin, enmAgentType.Assassin);
                     }
                     else
                     {
-                        occupations.Add(assassin.location, color);
-                        if (occupations.collides(assassin.location, color))
-                            collisionOccurred++;
+                        occupations.Add(assassin, enmAgentType.Assassin);
                     }
                 }  //foreach (Assassin assassin in player.Assassins)
             }  //foreach(Player player in app.players)
 
-            if (collisionOccurred != 0) handleCollissions(occupations, collisionOccurred);
+            if (occupations.collissionsOccurred != 0) handleCollissions(occupations);
             if (movesRemain) moveAgents();
         }  //private void moveAgents()
 
-        private void handleCollissions(OccupationHandler occupations, int collisionsOccurred)
+        private void handleCollissions(OccupationHandler occupations)
         {
-            //TODO
+            App app = (App)Application.Current;
+            CollissionHandler agent1 = new CollissionHandler();
+            CollissionHandler agent2 = new CollissionHandler();
+            bool agent1Found = false;
+            foreach(CollissionHandler occupation in occupations.occupations)
+            {
+                if (!agent1Found)
+                {
+                    if (!occupation.collided) continue;
+                    agent1 = occupation;
+                    agent1Found = true;
+                }
+                else if (string.Equals(occupation.agentName, agent1.agentName))
+                {
+                    agent2 = occupation;
+                    break;
+                }
+            }
+
+            //check the rules for collissions
+            switch(agent1.agentType)
+            {
+                case enmAgentType.Commander:
+                    if(agent2.agentType == enmAgentType.Commander)
+                    {
+                        //agents stop moving and are forced into a battle
+                    }
+                    if(agent2.agentType == enmAgentType.Steward)
+                    {
+                        //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
+                        //...from moving and upgrading
+                    }
+                    if(agent2.agentType == enmAgentType.Assassin)
+                    {
+                        //if the commander has his own assassin attached to his army, there is a chance enemy is detected
+                        //else the assassin attaches intself to the enemy commander and the player can in next turn order the execution
+                        //if the player has ordered his assassin to not attach himself anywhere, the collission is ignored
+                    }
+                    if(agent2.agentType == enmAgentType.Scout)
+                    {
+                        //a dice is cast to check if the enemy commander detected the scout. If detected, the scout is killed
+                        //if not detected and the player told his scout to follow an enemy army, he is attacked to the enemy commander
+                        //else, the collission is ignored
+                    }
+                    break;
+                case enmAgentType.Steward:
+                    if (agent2.agentType == enmAgentType.Commander)
+                    {
+                        //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
+                        //...from moving and upgrading
+                    }
+                    if (agent2.agentType == enmAgentType.Steward)
+                    {
+                        //the collission is ignored
+                    }
+                    if (agent2.agentType == enmAgentType.Assassin)
+                    {
+                        //a dice is cast and the assassin can
+                        //- kill the steward
+                        //- get killed by the steward
+                        //- start following the steward until he kills him
+                        //all above are ignored if the assassin was ordered to ignore others
+                    }
+                    if (agent2.agentType == enmAgentType.Scout)
+                    {
+                        //the collission is ignored
+                    }
+                    break;
+                case enmAgentType.Assassin:
+                    if (agent2.agentType == enmAgentType.Commander)
+                    {
+                        //if the commander has his own assassin attached to his army, there is a chance enemy is detected
+                        //else the assassin attaches intself to the enemy commander and the player can in next turn order the execution
+                        //if the player has ordered his assassin to not attach himself anywhere, the collission is ignored
+                    }
+                    if (agent2.agentType == enmAgentType.Steward)
+                    {
+                        //a dice is cast and the assassin can
+                        //- kill the steward
+                        //- get killed by the steward
+                        //- start following the steward until he kills him
+                        //all above are ignored if the assassin was ordered to ignore others
+                    }
+                    if (agent2.agentType == enmAgentType.Assassin)
+                    {
+                        //a dice is cast and one of the assassins is killed
+                    }
+                    if (agent2.agentType == enmAgentType.Scout)
+                    {
+                        //a dice is cast and the assassin can
+                        //- kill the scout
+                        //- get killed by the scout
+                        //- start following the steward until he kills him
+                        //- the two don't notice one another
+                        //all above are ignored if the assassin was ordered to ignore others
+                    }
+                    break;
+                case enmAgentType.Scout:
+                    if (agent2.agentType == enmAgentType.Commander)
+                    {
+                        //a dice is cast to check if the enemy commander detected the scout. If detected, the scout is killed
+                        //if not detected and the player told his scout to follow an enemy army, he is attacked to the enemy commander
+                        //else, the collission is ignored
+                    }
+                    if (agent2.agentType == enmAgentType.Steward)
+                    {
+                        //the collission is ignored
+                    }
+                    if (agent2.agentType == enmAgentType.Assassin)
+                    {
+                        //a dice is cast and the assassin can
+                        //- kill the scout
+                        //- get killed by the scout
+                        //- start following the steward until he kills him
+                        //- the two don't notice one another
+                        //all above are ignored if the assassin was ordered to ignore others
+                    }
+                    if (agent2.agentType == enmAgentType.Scout)
+                    {
+                        //a dice is cast and one of the scouts die or they don't notice one another
+                    }
+                    break;
+            }
+
+            occupations.collissionsOccurred--;
+            if (occupations.collissionsOccurred != 0) handleCollissions(occupations);
         }
 
         private void progressHoldingUpgrades()
