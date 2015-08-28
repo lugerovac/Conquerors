@@ -463,7 +463,6 @@ namespace Conquerors.Pages
         void routeConnect(Agent agent)
         {
             routeUnselect();
-
             int movementCounter = agent.getMovementValue();
             bool farAway = false;
             Node formerNode = new Node();

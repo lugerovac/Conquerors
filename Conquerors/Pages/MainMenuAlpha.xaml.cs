@@ -16,6 +16,11 @@ namespace Conquerors.Pages
 {
     public partial class MainMenuAlpha : Page
     {
+        /*
+         * New save and Load elements to implement:
+         * - Commanders battling states
+         */
+
         enum enmMergeState
         {
             Unloaded = 1,
@@ -46,6 +51,7 @@ namespace Conquerors.Pages
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            resetMerging();
             loadMap(enmPlayers.Red);
         }
 
@@ -198,12 +204,11 @@ namespace Conquerors.Pages
                                 string moving = sr.ReadLine();
                                 if (string.Equals(moving, "True")) a.moving = true;
                                 else a.moving = false;
-
                                 while (a.moving)
                                 {
                                     string nodeName = sr.ReadLine();
                                     if (string.Equals(nodeName, "/movement")) break;
-                                    foreach (Node node in app.MapProperty.nodeList)
+                                    foreach (Node node in map.nodeList)
                                     {
                                         if (string.Equals(nodeName, node.Name))
                                         {
@@ -264,16 +269,19 @@ namespace Conquerors.Pages
 
         private void btnPlayBlue_Click(object sender, RoutedEventArgs e)
         {
+            resetMerging();
             loadMap(enmPlayers.Blue);
         }
 
         private void btnPlayGreen_Click(object sender, RoutedEventArgs e)
         {
+            resetMerging();
             loadMap(enmPlayers.Green);
         }
 
         private void btnPlayPurple_Click(object sender, RoutedEventArgs e)
         {
+            resetMerging();
             loadMap(enmPlayers.Purple);
         }
 
@@ -579,12 +587,88 @@ namespace Conquerors.Pages
             {
                 progressHoldingUpgrades();
                 moveAgents();
+                resetMovements();
+                killAgents();
                 createMapFile();
                 return true;
             }catch
             {
                 MessageBox.Show("A problem occured and the saves could not be proccessed!");
                 return false;
+            }
+        }
+
+        private void resetMovements()
+        {
+            App app = (App)Application.Current;
+            foreach(Player player in app.players)
+            {
+                foreach(Commander a in player.Commanders)
+                {
+                    if (a.movementRoute.Count != 0)
+                    {
+                        List<Node> route = new List<Node>();
+                        route.Add(app.MapProperty.findNode(a.location));
+                        foreach (Node n in a.movementRoute)
+                            route.Add(n);
+                        a.moving = true;
+                        a.movementRoute = route;
+                    }
+                }
+                foreach (Scout a in player.Scouts)
+                {
+                    if (a.movementRoute.Count != 0)
+                    {
+                        List<Node> route = new List<Node>();
+                        route.Add(app.MapProperty.findNode(a.location));
+                        foreach (Node n in a.movementRoute)
+                            route.Add(n);
+                        a.moving = true;
+                        a.movementRoute = route;
+                    }
+                }
+                foreach (Steward a in player.Stewards)
+                {
+                    if (a.movementRoute.Count != 0)
+                    {
+                        List<Node> route = new List<Node>();
+                        route.Add(app.MapProperty.findNode(a.location));
+                        foreach (Node n in a.movementRoute)
+                            route.Add(n);
+                        a.moving = true;
+                        a.movementRoute = route;
+                    }
+                }
+                foreach (Assassin a in player.Assassins)
+                {
+                    if (a.movementRoute.Count != 0)
+                    {
+                        List<Node> route = new List<Node>();
+                        route.Add(app.MapProperty.findNode(a.location));
+                        foreach (Node n in a.movementRoute)
+                            route.Add(n);
+                        a.moving = true;
+                        a.movementRoute = route;
+                    }
+                }
+            }
+        }
+
+        private void killAgents()
+        {
+            App app = (App)Application.Current;
+            if (app.KilledAgents.Count == 0) return;
+            foreach(Player player in app.players)
+            {
+                foreach(Steward a in player.Stewards)
+                {
+                    if(app.KilledAgents.Contains(a.ID))
+                    {
+                        app.KilledAgents.Remove(a.ID);
+                        player.Stewards.Remove(a);
+                    }
+                    if (app.KilledAgents.Count == 0) return;
+                }
             }
         }
 
@@ -876,6 +960,9 @@ namespace Conquerors.Pages
                     {
                         //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
                         //...from moving and upgrading
+                        Node loc = app.MapProperty.findNode(agent2.location);
+                        if (loc.Owner != agent2.owner)
+                            app.KilledAgents.Add(agent2.agentName);
                     }
                     if(agent2.agentType == enmAgentType.Assassin)
                     {
@@ -895,6 +982,9 @@ namespace Conquerors.Pages
                     {
                         //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
                         //...from moving and upgrading
+                        Node loc = app.MapProperty.findNode(agent1.location);
+                        if (loc.Owner != agent1.owner)
+                            app.KilledAgents.Add(agent1.agentName);
                     }
                     if (agent2.agentType == enmAgentType.Steward)
                     {

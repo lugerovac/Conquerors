@@ -82,8 +82,8 @@ namespace Conquerors
 
         public int turn = 0;
         public List<Player> players = new List<Player>();
-
         public List<Node> ActivePlayerNodes = new List<Node>();
+        public List<string> KilledAgents = new List<string>();
         public string Recruitment_node;
         private bool recruitmentCheck = false;
         private Player _recruitmentPlayer = new Player();
@@ -178,6 +178,7 @@ namespace Conquerors
             ActivePlayerNodes = new List<Node>();
             recruitmentCheck = false;
             initializePlayers();
+            KilledAgents.Clear();
         }
     }
 }
