@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Conquerors.ArmyInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="80">
+
+    <Grid x:Name="ControlRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="300" Stroke="Beige"/>
+        <Image Source="UnitImages/Unit_LI.png" Width="40" Height="40" Margin="0,5,40,255"/>
+        <Image Source="UnitImages/Unit_HI.png" Width="40" Height="40" Margin="0,55,40,205"/>
+        <Image Source="UnitImages/Unit_LC.png" Width="40" Height="40" Margin="0,105,40,155"/>
+        <Image Source="UnitImages/Unit_HC.png" Width="40" Height="40" Margin="0,155,40,105"/>
+        <Image Source="UnitImages/Unit_Ar.png" Width="40" Height="40" Margin="0,205,40,55"/>
+        <Image Source="UnitImages/Unit_Mu.png" Width="40" Height="40" Margin="0,255,40,5"/>
+        <TextBlock x:Name="txtLIquantity" HorizontalAlignment="Left" Margin="40,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+        <TextBlock x:Name="txtHIquantity" HorizontalAlignment="Left" Margin="40,60,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+        <TextBlock x:Name="txtLCquantity" HorizontalAlignment="Left" Margin="40,110,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+        <TextBlock x:Name="txtHCquantity" HorizontalAlignment="Left" Margin="40,160,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+        <TextBlock x:Name="txtARquantity" HorizontalAlignment="Left" Margin="40,210,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+        <TextBlock x:Name="txtMUquantity" HorizontalAlignment="Left" Margin="40,260,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20" Width="30" Foreground="#FFF18E49"/>
+    </Grid>
+</UserControl>

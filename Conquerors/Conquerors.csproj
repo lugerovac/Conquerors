@@ -72,6 +72,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ArmyInfo.xaml.cs">
+      <DependentUpon>ArmyInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Battle Modes\BattleTerrain.cs" />
     <Compile Include="Classes\Battle.cs" />
     <Compile Include="Classes\BattleReport.cs" />
@@ -162,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\ArmyInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\AgentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

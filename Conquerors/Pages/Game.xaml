@@ -14,7 +14,7 @@
             <Grid x:Name="stpPlayerControlBar" Width="82" Background="#FFA86767">
                 <Conquerors:ResourceBar x:Name="ctrlResources" Margin="0,10,0,529"/>
 
-                <StackPanel x:Name="stpPlayerControls" Width="80" Orientation="Vertical" Height="400">
+                <StackPanel x:Name="stpPlayerControls" Width="80" Orientation="Vertical" Margin="1,107,1,45">
                     <Conquerors:NodeInfo x:Name="NodeInfo" />
                     <Conquerors:HireArmy x:Name="HireArmy" MouseLeftButtonDown="HireArmy_MouseLeftButtonDown" />
                     <Conquerors:HireCommander x:Name="HireCommander" MouseLeftButtonDown="HireCommander_MouseLeftButtonDown" />
@@ -22,6 +22,7 @@
                     <Conquerors:HireAssassin x:Name="HireAssassin" MouseLeftButtonDown="HireAssassin_MouseLeftButtonDown" />
                     <Conquerors:HireScout x:Name="HireScout" MouseLeftButtonDown="btnHireScout_MouseLeftButtonDown"/>
                     <Conquerors:HoldingUpgrade x:Name="HoldingUpgrade" MouseLeftButtonDown="HoldingUpgrade_MouseLeftButtonDown" HorizontalAlignment="Left"/>
+                    <Conquerors:ArmyInfo x:Name="ArmyInfo" />
                 </StackPanel>
                 <Button x:Name="btnEndTurn" Content="End Turn" Width="60" Height="30" Margin="10,573,10,10" Click="btnEndTurn_Click"/>
             </Grid>

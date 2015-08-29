@@ -238,6 +238,7 @@ namespace Conquerors.Pages
             HireAssassin.Visibility = Visibility.Collapsed;
             HireScout.Visibility = Visibility.Collapsed;
             HoldingUpgrade.Visibility = Visibility.Collapsed;
+            ArmyInfo.Visibility = Visibility.Collapsed;
         }
         void calculateResourceGain()
         {
@@ -667,6 +668,13 @@ namespace Conquerors.Pages
                 return;
             }
 
+            foreach(Commander commander in ActivePlayer.Commanders)
+            {
+                if (!commander.Selected) continue;
+                ArmyInfo.Visibility = Visibility.Visible;
+                return;
+            }
+
             foreach (Steward steward in ActivePlayer.Stewards)
             {
                 if (!steward.Selected) continue;
@@ -983,6 +991,8 @@ namespace Conquerors.Pages
                 if (string.Equals(commander.ID, ID))
                 {
                     commander.Select();
+                    ArmyInfo.showArmyInfo(commander);
+                    ArmyInfo.Visibility = Visibility.Visible;
                     if (commander.moving) routeConnect(commander);
                     break;
                 }
