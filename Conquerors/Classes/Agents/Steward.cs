@@ -14,6 +14,7 @@ namespace Conquerors
     public class Steward : Agent
     {
         public int working = 0;
+        public bool blocked;
 
         public Steward(string ID, int goldCost, int foodCost, string location, enmPlayers player) 
             : base(ID, goldCost, foodCost, location, player)
@@ -24,6 +25,7 @@ namespace Conquerors
         {
             sprite = new AgentControl(owner, enmAgentType.Steward);
             movement = Constants.stewardMovement;
+            blocked = false;
         }
 
         public bool Works()

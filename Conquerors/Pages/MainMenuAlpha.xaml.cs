@@ -19,6 +19,7 @@ namespace Conquerors.Pages
         /*
          * New save and Load elements to implement:
          * - Commanders battling states
+         * - Blocking Stewards
          */
 
         enum enmMergeState
@@ -918,6 +919,21 @@ namespace Conquerors.Pages
             if (occupations.collissionsOccurred != 0) handleCollissions(occupations);
             if (movesRemain) moveAgents();
         }  //private void moveAgents()
+        
+        private void blockSteward(string name)
+        {
+            foreach(Player player in app.players)
+            {
+                foreach(Steward steward in player.Stewards)
+                {
+                    if(string.Equals(steward.ID, name))
+                    {
+                        steward.blocked = true;
+                        return;
+                    }
+                }
+            }
+        }
 
         private void handleCollissions(OccupationHandler occupations)
         {
@@ -951,10 +967,12 @@ namespace Conquerors.Pages
                     if(agent2.agentType == enmAgentType.Steward)
                     {
                         //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
-                        //...from moving and upgrading
+                        //from moving and upgrading
                         Node loc = app.MapProperty.findNode(agent2.location);
                         if (loc.Owner != agent2.owner)
                             app.KilledAgents.Add(agent2.agentName);
+                        else
+                            blockSteward(agent2.agentName);
                     }
                     if(agent2.agentType == enmAgentType.Assassin)
                     {
@@ -973,10 +991,12 @@ namespace Conquerors.Pages
                     if (agent2.agentType == enmAgentType.Commander)
                     {
                         //steward is killed by the commander unless the steward is in his owner's node in which case he is blocked
-                        //...from moving and upgrading
+                        //from moving and upgrading
                         Node loc = app.MapProperty.findNode(agent1.location);
                         if (loc.Owner != agent1.owner)
                             app.KilledAgents.Add(agent1.agentName);
+                        else
+                            blockSteward(agent1.agentName);
                     }
                     if (agent2.agentType == enmAgentType.Steward)
                     {
