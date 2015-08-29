@@ -18,6 +18,7 @@ namespace Conquerors.Pages
     
     public partial class Game : Page
     {
+        App app;
         Map map;
         List<Edge> edgeList = new List<Edge>();
         List<Node> ownedNodes = new List<Node>();
@@ -39,6 +40,7 @@ namespace Conquerors.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             /*Set up the interface for the player when the page loads*/
+            app = (App)Application.Current;
             setPlayer();
             setTheMap();
             setPlayerFOW();
@@ -50,7 +52,6 @@ namespace Conquerors.Pages
 
         private void enemyCommanderSelect(object sender, MouseButtonEventArgs e, string ID, enmPlayers owner)
         {
-            App app = (App)Application.Current;
             foreach(Player player in app.players)
             {
                 if (player.color == owner)
@@ -80,7 +81,6 @@ namespace Conquerors.Pages
 
         public void showAgents()
         {
-            App app = (App)Application.Current;
             List<string> surveiledNodes = giveSurveiledNodes();
             foreach(Player player in app.players)
             {
@@ -303,7 +303,6 @@ namespace Conquerors.Pages
 
         private void setPlayer()
         {
-            App app = (App)Application.Current;
             turn = app.turn;
             ActivePlayer = app.getPlayer();
         }
@@ -371,7 +370,6 @@ namespace Conquerors.Pages
 
         void setTheMap()
         {
-            App app = (App)Application.Current;
             map = app.MapProperty;
 
             foreach (Node node in map.nodeList)
@@ -454,6 +452,7 @@ namespace Conquerors.Pages
                 if (string.Equals(node.Name, p))
                     endNode = node;
             }
+            if (string.Equals(startNode.Name, endNode.Name)) return;
             selectedAgent.movementRoute = Dijkstra.FindPath(map.nodeList, startNode, endNode, ActivePlayer);
             selectedAgent.moving = true;
             selectedAgent.sprite.Opacity = 0.5;
@@ -1005,7 +1004,6 @@ namespace Conquerors.Pages
             int counter = 0;
             List<Agent> agents = new List<Agent>();
 
-            App app = (App)Application.Current;
             foreach (Player player in app.players)
             {
                 foreach (Commander commander in player.Commanders)
@@ -1169,8 +1167,6 @@ namespace Conquerors.Pages
 
         private void HireArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            App app = (App)Application.Current;
-
             frmDialogue.Visibility = Visibility.Collapsed;
             frmDialogue.Navigate(new Uri("/Pages/MainMenuAlpha.xaml", UriKind.Relative));
             Player rctrPlayer = app.Recruitment_player;
@@ -1206,7 +1202,6 @@ namespace Conquerors.Pages
             if (commited)
             {
                 MessageBox.Show("Everything was committed successfully!");
-                App app = (App)Application.Current;
                 app.clearData();
                 NavigationService.Navigate(new Uri("/Pages/MainMenuAlpha.xaml", UriKind.Relative));
             }

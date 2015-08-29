@@ -32,11 +32,13 @@ namespace Conquerors.Pages
         }
         enmMergeState mergeState = enmMergeState.Unloaded;
 
+        App app;
         Map map;
 
         public MainMenuAlpha()
         {
             InitializeComponent();
+            app = (App)Application.Current;
         }
 
         // Executes when the user navigates to this page.
@@ -61,7 +63,6 @@ namespace Conquerors.Pages
         {
             try
             {
-                App app = (App)Application.Current;
                 map = new Map();
                 app.initializePlayers();
                 app.ActivePlayer = activePlayer;
@@ -261,7 +262,6 @@ namespace Conquerors.Pages
         /*This function stored necessary data into the app.xaml module, through which the next page will be able to read the data*/
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            App app = (App)Application.Current;
             app.turn++;
             app.MapProperty = map;
         }
@@ -289,7 +289,6 @@ namespace Conquerors.Pages
         {
             try
             {
-                App app = (App)Application.Current;
                 OpenFileDialog ofd = new OpenFileDialog();
                 if (ofd.ShowDialog().Value)
                 {
@@ -339,7 +338,6 @@ namespace Conquerors.Pages
 
         private bool saveMergeSaveUpload(enmPlayers playerColor)
         {
-            App app = (App)Application.Current;
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
@@ -526,7 +524,6 @@ namespace Conquerors.Pages
 
         private void btnMerge_Click(object sender, RoutedEventArgs e)
         {
-            App app = (App)Application.Current;
             switch(mergeState)
             {
                 case enmMergeState.Unloaded:
@@ -600,7 +597,6 @@ namespace Conquerors.Pages
 
         private void resetMovements()
         {
-            App app = (App)Application.Current;
             foreach(Player player in app.players)
             {
                 foreach(Commander a in player.Commanders)
@@ -656,7 +652,6 @@ namespace Conquerors.Pages
 
         private void killAgents()
         {
-            App app = (App)Application.Current;
             if (app.KilledAgents.Count == 0) return;
             foreach(Player player in app.players)
             {
@@ -674,7 +669,6 @@ namespace Conquerors.Pages
 
         private void createMapFile()
         {
-            App app = (App)Application.Current;
             Player blue = app.getPlayer(enmPlayers.Blue);
             Player red = app.getPlayer(enmPlayers.Red);
             Player green = app.getPlayer(enmPlayers.Green);
@@ -805,7 +799,6 @@ namespace Conquerors.Pages
 
         private void moveAgents()
         {
-            App app = (App)Application.Current;
             OccupationHandler occupations = new OccupationHandler();
             bool movesRemain = false;
 
@@ -928,7 +921,6 @@ namespace Conquerors.Pages
 
         private void handleCollissions(OccupationHandler occupations)
         {
-            App app = (App)Application.Current;
             CollissionHandler agent1 = new CollissionHandler();
             CollissionHandler agent2 = new CollissionHandler();
             bool agent1Found = false;
@@ -1065,7 +1057,6 @@ namespace Conquerors.Pages
 
         private void commenceBattle(string name1, string name2)
         {
-            App app = (App)Application.Current;
             string battlefield = "";
             int counter = 2;
             foreach(Player player in app.players)
@@ -1096,7 +1087,6 @@ namespace Conquerors.Pages
 
         private void progressHoldingUpgrades()
         {
-            App app = (App)Application.Current;
             List<string> nodesToBeupgraded = new List<string>();
             foreach(Player player in app.players)
             {
@@ -1122,7 +1112,6 @@ namespace Conquerors.Pages
 
         private void resetMerging()
         {
-            App app = (App)Application.Current;
             app.clearData();
             mergeState = enmMergeState.Unloaded;
             btnMerge.Content = "Merge Saves - upload the map";

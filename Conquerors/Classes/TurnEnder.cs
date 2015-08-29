@@ -123,9 +123,10 @@ namespace Conquerors
                         }
                         sw.WriteLine("/armies");
                     }
+                    return true;
                 }
 
-                return true;
+                return false;
             }
             catch
             {
