@@ -14,6 +14,9 @@ namespace Conquerors
 {
     public class OccupationHandler
     {
+        /*This class handles agent occupations of nodes. Alongside the CollissionHandler class, it serves the purpose of
+         detecting collissions between agents*/
+
         public List<CollissionHandler> occupations;
         public int collissionsOccurred;
 

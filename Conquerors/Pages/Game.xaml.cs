@@ -31,16 +31,19 @@ namespace Conquerors.Pages
             InitializeComponent();
         }
 
-        // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// The function that is called when the page loads. It sets up the game for the player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             /*Set up the interface for the player when the page loads*/
-            app = (App)Application.Current;
             setPlayer();
             setTheMap();
             setPlayerFOW();
@@ -50,6 +53,13 @@ namespace Conquerors.Pages
             unselect();
         }
 
+        /// <summary>
+        /// This function handles selection of enemy commanders
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="ID">Enemy commander's ID</param>
+        /// <param name="owner">Enemy commander's owner</param>
         private void enemyCommanderSelect(object sender, MouseButtonEventArgs e, string ID, enmPlayers owner)
         {
             foreach(Player player in app.players)
@@ -68,6 +78,10 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// This function searches for nodes that are visible to the player, aka not hidden by the Fog of War
+        /// </summary>
+        /// <returns>List of nodes that are fully visible to the player</returns>
         private List<string> giveSurveiledNodes()
         {
             List<string> output = new List<string>();
@@ -79,6 +93,9 @@ namespace Conquerors.Pages
             return output;
         }
 
+        /// <summary>
+        /// Shows the agents that are added by loading a saved game
+        /// </summary>
         public void showAgents()
         {
             List<string> surveiledNodes = giveSurveiledNodes();
@@ -229,6 +246,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// This function hides the player controls when a different node or agent is selected
+        /// </summary>
         private void hideControls()
         {
             NodeInfo.Visibility = Visibility.Collapsed;
@@ -240,6 +260,10 @@ namespace Conquerors.Pages
             HoldingUpgrade.Visibility = Visibility.Collapsed;
             ArmyInfo.Visibility = Visibility.Collapsed;
         }
+
+        /// <summary>
+        /// This function calculates the profits and deficits of the player
+        /// </summary>
         void calculateResourceGain()
         {
             ctrlResources.GoldGain = ctrlResources.FoodGain = ctrlResources.StoneGain = ctrlResources.Morale = 0;
@@ -369,6 +393,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// This function sets the nodes onto the map and connects them to functions that have to be called when a player clicks on them
+        /// </summary>
         void setTheMap()
         {
             map = app.MapProperty;
@@ -384,6 +411,12 @@ namespace Conquerors.Pages
             connectNodes();
         }
 
+        /// <summary>
+        /// Creates a movement path for the agent which the player seeks to move (doesn't actually move the agent, that is done later)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="p">Destination node</param>
         private void moveToNode(object sender, MouseButtonEventArgs e, string p)
         {
             bool wasSelected = false;
@@ -460,6 +493,10 @@ namespace Conquerors.Pages
             routeConnect(selectedAgent);
         }
 
+        /// <summary>
+        /// Graphically shows the movement route for the agent, in two different colors depending on when he will arive there
+        /// </summary>
+        /// <param name="agent"></param>
         void routeConnect(Agent agent)
         {
             routeUnselect();
@@ -488,6 +525,9 @@ namespace Conquerors.Pages
             spriteRefresh();
         }
 
+        /// <summary>
+        /// Removes the movement route after the agent is unselected
+        /// </summary>
         private void routeUnselect()
         {
             foreach (Node node in map.nodeList)
@@ -500,6 +540,12 @@ namespace Conquerors.Pages
             connectNodes();
         }
 
+        /// <summary>
+        /// Selects the node and shows necessary controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="p">Name of the selected node</param>
         private void NodeSelect(object sender, MouseButtonEventArgs e, string p)
         {
             unselect();
@@ -654,9 +700,12 @@ namespace Conquerors.Pages
         private void showStewardControls(Steward selectedSteward)
         {
             //undefined for now, but like with the nodes each agent will have its own set of controls 
-            //that will beshown in the side bar
+            //that will be shown in the side bar
         }
 
+        /// <summary>
+        /// Shows user control for the selected node or agent
+        /// </summary>
         private void showControls()
         {
             hideControls();
@@ -738,6 +787,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Visually connects the nodes
+        /// </summary>
         void connectNodes()
         {
             foreach (Node node1 in map.nodeList)
@@ -785,6 +837,11 @@ namespace Conquerors.Pages
             //holdings that can be upgrades, etc.)
         }
 
+        /// <summary>
+        /// Runs when the player clicks on anything on the canvas (besides the controls). It unselects everything
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cnvMapa_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             unselect();
@@ -999,6 +1056,10 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Sets the position of all sprites on the node. Necessary when there are more sagents located on one
+        /// </summary>
+        /// <param name="nodeName"></param>
         private void setSpritePositionsOnANode(string nodeName)
         {
             Node node = new Node();
@@ -1201,6 +1262,11 @@ namespace Conquerors.Pages
             frmDialogue.Navigate(new Uri("/Pages/RecruitmentInterface.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Ends the turn. First, it adds the resource gains and then calls the function which saves the game data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEndTurn_Click(object sender, RoutedEventArgs e)
         {
             ActivePlayer.Gold += ctrlResources.GoldGain;

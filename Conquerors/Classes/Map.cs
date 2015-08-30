@@ -14,6 +14,7 @@ namespace Conquerors
 {
     public class Map
     {
+        /*This class serves to save the information about the nodes in order to make handling them simpler*/
         public int NodeCount = 0;
         public List<Node> nodeList;
 

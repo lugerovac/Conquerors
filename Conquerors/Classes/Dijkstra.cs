@@ -14,6 +14,9 @@ namespace Conquerors
 {
     public static class Dijkstra
     {
+        /*This class implements the Improved Dijkstra algorhitm with several of my own modifications. It searches for the
+         shoertest, and safest, route from one node to another*/
+
         private class DijkstraNode
         {
             public Node nodeElement;

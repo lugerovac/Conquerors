@@ -42,6 +42,10 @@ namespace Conquerors
             inBattle = false;
         }
 
+        /// <summary>
+        /// Adds one unit to the army
+        /// </summary>
+        /// <param name="unit">Type of the unit that is being added</param>
         public void addUnit(enmUnitType unit)
         {
             switch (unit)
@@ -67,6 +71,10 @@ namespace Conquerors
             }
         }
 
+        /// <summary>
+        /// Removes a unit from the army
+        /// </summary>
+        /// <param name="unit">Type of the unit that is being removed</param>
         public void removeUnit(enmUnitType unit)
         {
             switch(unit)

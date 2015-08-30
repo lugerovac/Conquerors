@@ -16,7 +16,7 @@ namespace Conquerors
     public abstract class Agent
     {
         /*This is an abstract class from which all Agents inherit and defines the Agent's Sprite, upkeep costs,
-         location, owner and the ID*/
+         location, owner, ID and other attributes shared by all agent types*/
 
         public AgentControl sprite;
         public int goldUpkeepCost;

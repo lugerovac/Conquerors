@@ -28,6 +28,10 @@ namespace Conquerors
             blocked = false;
         }
 
+        /// <summary>
+        /// Checks if the agent is upgrading a holding
+        /// </summary>
+        /// <returns></returns>
         public bool Works()
         {
             if (working == 0) return false;

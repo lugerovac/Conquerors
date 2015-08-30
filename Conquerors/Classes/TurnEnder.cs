@@ -15,6 +15,9 @@ namespace Conquerors
 {
     public class TurnEnder
     {
+        /*This class is called by the game when the player ends his turn. It saves all the necessary information into a file
+         which would then, once all players have finished their turns, be used to progress the game*/
+
         Player player;
         int turn;
 

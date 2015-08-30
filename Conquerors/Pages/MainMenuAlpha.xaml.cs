@@ -58,7 +58,7 @@ namespace Conquerors.Pages
             loadMap(enmPlayers.Red);
         }
 
-        /*The following function loads up a file and stores the necessary data intp app.xaml module, from which the next
+        /*The following function loads up a file and stores the necessary data intp app module, from which the next
          page (Game.xaml) will read the data*/
         private void loadMap(enmPlayers activePlayer)
         {
@@ -286,6 +286,10 @@ namespace Conquerors.Pages
             loadMap(enmPlayers.Purple);
         }
 
+        /// <summary>
+        /// Uploads the game file
+        /// </summary>
+        /// <returns>True or False, depending on if there were errors or not</returns>
         private bool saveMergeMapUpload()
         {
             try
@@ -337,6 +341,11 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Uploads a player's save file
+        /// </summary>
+        /// <param name="playerColor">The player whose file is being uploaded</param>
+        /// <returns>True or False, depending of there were errors or not</returns>
         private bool saveMergeSaveUpload(enmPlayers playerColor)
         {
             try
@@ -579,6 +588,10 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Handles save merging by calling all the necessary functions
+        /// </summary>
+        /// <returns>True or False, depending on if there weer errors or not</returns>
         private bool mergeSaves()
         {
             try 
@@ -596,6 +609,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Since the movement attricute is being used by other functions, this resets them to their earlier state once all is done
+        /// </summary>
         private void resetMovements()
         {
             foreach(Player player in app.players)
@@ -651,6 +667,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Removes the agents marked as killed
+        /// </summary>
         private void killAgents()
         {
             if (app.KilledAgents.Count == 0) return;
@@ -668,6 +687,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Creates the map file from the game file, save files and the actions done during the save merging
+        /// </summary>
         private void createMapFile()
         {
             Player blue = app.getPlayer(enmPlayers.Blue);
@@ -798,6 +820,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Moves the agents to new nodes and handles their collissions
+        /// </summary>
         private void moveAgents()
         {
             OccupationHandler occupations = new OccupationHandler();
@@ -920,6 +945,10 @@ namespace Conquerors.Pages
             if (movesRemain) moveAgents();
         }  //private void moveAgents()
         
+        /// <summary>
+        /// Blocks the Steward from upgrading a holding in case his holding came under siege
+        /// </summary>
+        /// <param name="name"></param>
         private void blockSteward(string name)
         {
             foreach(Player player in app.players)
@@ -935,6 +964,10 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Handles what happens when two hostile agents meet one another
+        /// </summary>
+        /// <param name="occupations">Current state of agent positions</param>
         private void handleCollissions(OccupationHandler occupations)
         {
             CollissionHandler agent1 = new CollissionHandler();
@@ -1075,6 +1108,11 @@ namespace Conquerors.Pages
             if (occupations.collissionsOccurred != 0) handleCollissions(occupations);
         }
 
+        /// <summary>
+        /// Commences a battle between two hosatile commanders
+        /// </summary>
+        /// <param name="name1">Name of one of the commanders</param>
+        /// <param name="name2">Name of the other commander</param>
         private void commenceBattle(string name1, string name2)
         {
             string battlefield = "";
@@ -1105,6 +1143,10 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Properly upgrades a holding if all the requirements have been met (Steward not being blocked and him staying at
+        /// a node long enough)
+        /// </summary>
         private void progressHoldingUpgrades()
         {
             List<string> nodesToBeupgraded = new List<string>();
@@ -1130,6 +1172,9 @@ namespace Conquerors.Pages
             }
         }
 
+        /// <summary>
+        /// Clears all the data from the app module
+        /// </summary>
         private void resetMerging()
         {
             app.clearData();

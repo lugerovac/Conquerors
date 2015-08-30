@@ -72,6 +72,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AttachAssassinToFriendlyArmy.xaml.cs">
+      <DependentUpon>AttachAssassinToFriendlyArmy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ArmyInfo.xaml.cs">
       <DependentUpon>ArmyInfo.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\AttachAssassinToFriendlyArmy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ArmyInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

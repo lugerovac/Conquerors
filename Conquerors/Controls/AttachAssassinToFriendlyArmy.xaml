@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Conquerors.AttachAssassinToFriendlyArmy"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50" d:DesignWidth="80">
+
+    <Grid x:Name="ControlRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="50" Stroke="Beige"/>
+        <Image Source="Agents/SpriteCommanderBlue.png" Margin="0,0,54,0"/>
+        <Image Source="Agents/SpriteAssassinBlue.png" Margin="54,0,0,0"/>
+        <TextBlock Margin="17,18,10,0" Foreground="#FFF18E49" Text=" Protect"/>
+    </Grid>
+</UserControl>

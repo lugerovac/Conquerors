@@ -13,6 +13,8 @@ namespace Conquerors
 {
     public class CollissionHandler
     {
+        /*This class handles collissions, aka it serves to store data necessary for agent collission detections*/
+
         public enmPlayers owner;
         public string location;
         public string agentName;

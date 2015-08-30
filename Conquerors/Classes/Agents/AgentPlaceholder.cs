@@ -13,6 +13,8 @@ namespace Conquerors
 {
     public class AgentPlaceholder : Agent
     {
+        /*The class does not serve any other use but being a placeholder*/
+
         public override void inheritedSetUp()
         {
         }
