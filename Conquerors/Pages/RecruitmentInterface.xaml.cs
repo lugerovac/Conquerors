@@ -438,6 +438,23 @@ namespace Conquerors.Pages{
                 ctrlResources.FoodGain -= (Constants.FoodUpkeepMusketeer * army.Musketeers);
             }
 
+            foreach (Commander c in ActivePlayer.Commanders)
+            {
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepBowmen * c.army.Archers);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryHeavy * c.army.HeavyCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryLight * c.army.LightCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryHeavy * c.army.HeavyInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryLight * c.army.LightInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepMusketeer * c.army.Musketeers);
+
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepBowmen * c.army.Archers);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryHeavy * c.army.HeavyCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryLight * c.army.LightCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryHeavy * c.army.HeavyInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryLight * c.army.LightInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepMusketeer * c.army.Musketeers);
+            }
+
             ctrlResources.GoldGain -= (ActivePlayer.Commanders.Count * Constants.commanderGoldUpkeep);
             ctrlResources.GoldGain -= (ActivePlayer.Stewards.Count * Constants.stewardGoldUpkeep);
             ctrlResources.GoldGain -= (ActivePlayer.Assassins.Count * Constants.assassinGoldUpkeep);

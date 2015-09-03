@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors", "Conquerors\Conquerors.csproj", "{E35678EC-8FD6-41C4-A382-3A7A1AC29118}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors.Web", "Conquerors.Web\Conquerors.Web.csproj", "{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors_Test", "..\Conquerors_Test\Conquerors_Test\Conquerors_Test.csproj", "{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

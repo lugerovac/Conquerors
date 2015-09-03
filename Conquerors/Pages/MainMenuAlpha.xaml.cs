@@ -19,7 +19,8 @@ namespace Conquerors.Pages
         /*
          * New save and Load elements to implement:
          * - Commanders battling states
-         * - Blocking Stewards
+         * - Commander blocked from moving
+         * - Stewards blocked from moving
          */
 
         enum enmMergeState
@@ -672,18 +673,25 @@ namespace Conquerors.Pages
         /// </summary>
         private void killAgents()
         {
+            List<Steward> stewardsToRemove = new List<Steward>();
             if (app.KilledAgents.Count == 0) return;
             foreach(Player player in app.players)
             {
+                stewardsToRemove.Clear();
                 foreach(Steward a in player.Stewards)
                 {
                     if(app.KilledAgents.Contains(a.ID))
                     {
+                        stewardsToRemove.Add(a);
                         app.KilledAgents.Remove(a.ID);
-                        player.Stewards.Remove(a);
                     }
-                    if (app.KilledAgents.Count == 0) return;
                 }
+                foreach(Steward a in stewardsToRemove)
+                {
+                    player.Stewards.Remove(a);
+                    app.KilledAgents.Remove(a.ID);
+                }
+                if (app.KilledAgents.Count == 0) return;
             }
         }
 

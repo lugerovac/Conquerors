@@ -44,6 +44,7 @@ namespace Conquerors.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             /*Set up the interface for the player when the page loads*/
+            app = (App)Application.Current;
             setPlayer();
             setTheMap();
             setPlayerFOW();
@@ -303,6 +304,23 @@ namespace Conquerors.Pages
                 ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryHeavy * army.HeavyInfantry);
                 ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryLight * army.LightInfantry);
                 ctrlResources.FoodGain -= (Constants.FoodUpkeepMusketeer * army.Musketeers);
+            }
+
+            foreach(Commander c in ActivePlayer.Commanders)
+            {
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepBowmen * c.army.Archers);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryHeavy * c.army.HeavyCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepCavalryLight * c.army.LightCavalry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryHeavy * c.army.HeavyInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepInfantryLight * c.army.LightInfantry);
+                ctrlResources.GoldGain -= (Constants.GoldUpkeepMusketeer * c.army.Musketeers);
+
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepBowmen * c.army.Archers);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryHeavy * c.army.HeavyCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepCavalryLight * c.army.LightCavalry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryHeavy * c.army.HeavyInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepInfantryLight * c.army.LightInfantry);
+                ctrlResources.FoodGain -= (Constants.FoodUpkeepMusketeer * c.army.Musketeers);
             }
 
             ctrlResources.GoldGain -= (ActivePlayer.Commanders.Count * Constants.commanderGoldUpkeep);
