@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="CollectExtraTaxes.CollectExtraTaxesControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="50" Width="80">
+
+    <Grid x:Name="LayoutRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="50" Stroke="Beige"/>
+        <TextBlock Text="Collect Money" Foreground="#FFF18E49"/>
+        <Image Source="Images/Gold.png" Margin="5,5,50,10"/>
+        <TextBlock x:Name="txtGoldGain" Text="+100" Foreground="#FFF18E49" Margin="35,15,-35,-10"/>
+        <Image Source="Images/Morale.png" Margin="5,30,50,0"/>
+        <TextBlock x:Name="txtMoraleEffect" Text="-5" Foreground="#FFF18E49" Margin="35,30,-35,-25"/>
+    </Grid>
+</UserControl>

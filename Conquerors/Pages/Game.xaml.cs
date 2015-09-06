@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.ServiceModel;
+using Conquerors.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,6 +14,9 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Threading;
 using System.Windows.Threading;
+using System.IO;
+using System.Reflection;
+using System.Windows.Resources;
 
 namespace Conquerors.Pages
 {
@@ -23,8 +28,17 @@ namespace Conquerors.Pages
         List<Edge> edgeList = new List<Edge>();
         List<Node> ownedNodes = new List<Node>();
         List<Agent> visibleEnemies = new List<Agent>();
+        List<ArgHandler> listOfArguments = new List<ArgHandler>();
+        List<String> listOfModules = new List<string>();
+        List<ControlInterface> modules = new List<ControlInterface>();
+        string ModuleName;
         Player ActivePlayer;
         int turn = 0;
+        int moraleEffectModifier = 0;
+        int goldGainModifier = 0;
+        int foodGainModifier = 0;
+        int stoneGainModifier = 0;
+        bool FoWSetUp = false;
 
         public Game()
         {
@@ -47,11 +61,108 @@ namespace Conquerors.Pages
             app = (App)Application.Current;
             setPlayer();
             setTheMap();
+            StartLoadingControlPlugins();
             setPlayerFOW();
             showAgents();
             showResources();
             hideControls();
             unselect();
+        }
+
+        /// <summary>
+        /// Loads the control plugins
+        /// </summary>
+        private void StartLoadingControlPlugins()
+        {
+            ControlModuleLoaderClient proxy = new ControlModuleLoaderClient();
+            proxy.GetModuleListCompleted += new EventHandler<GetModuleListCompletedEventArgs>(proxy_GettingModuleListCompleted);
+            proxy.GetModuleListAsync();
+        }
+
+        private void proxy_GettingModuleListCompleted(object sender, GetModuleListCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MessageBox.Show("There was an error while trying to connect to the service!");
+            }
+            else
+            {
+                foreach(string f in e.Result)
+                {
+                    listOfModules.Add(f);
+                }
+                LoadControlPlugins(listOfModules.First());
+            }
+        }
+
+        private void LoadControlPlugins(string moduleToLoad)
+        {
+            ModuleName = moduleToLoad.Replace("C:/Users/lugerovac/Documents/visual studio 2013/Projects/Conquerors/Conquerors.Web/ClientBin/", string.Empty);
+            ModuleName = ModuleName.Replace(".xap", string.Empty);
+
+            WebClient _webClient = null;
+            if (null == _webClient)
+            {//initialize the downloader
+                _webClient = new WebClient();
+                _webClient.OpenReadCompleted += new OpenReadCompletedEventHandler(onOpenReadCompleted);
+            }
+
+            if (_webClient.IsBusy)
+            {//needs to cancel the previous loading
+                _webClient.CancelAsync();
+                return;
+            }
+
+            Uri xapUrl = new Uri(moduleToLoad, UriKind.RelativeOrAbsolute);
+            _webClient.OpenReadAsync(xapUrl);
+        }
+
+        private void onOpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
+        {
+            if (null != e.Error)
+            {
+                MessageBox.Show("There was an error while trying to load the module! " + e.Error.Message);
+                return;
+            }
+
+            if (e.Cancelled)
+            {
+                MessageBox.Show("Module loading was cancelled!");
+                return;
+            }
+
+            Assembly aDLL = GetAssemblyFromPackage(ModuleName + ".dll", e.Result);
+            if (null == aDLL)
+            {
+                MessageBox.Show("Module downloaded but failed to extract the assembly.");
+                return;
+            }
+
+            ControlInterface content = aDLL.CreateInstance(ModuleName + "." + ModuleName) as ControlInterface;
+            modules.Add(content);
+
+            listOfModules.Remove(listOfModules.First());
+            if (listOfModules.Count != 0) 
+                LoadControlPlugins(listOfModules.First());
+        }
+
+        private Assembly GetAssemblyFromPackage(string assemblyName, Stream xapStream)
+        {
+            Assembly aDLL = null;
+
+            Uri assemblyUri = new Uri(assemblyName, UriKind.Relative);
+            StreamResourceInfo resPackage = new StreamResourceInfo(xapStream, null);
+            if (null == resPackage)
+                return aDLL;
+
+            StreamResourceInfo resAssembly = Application.GetResourceStream(resPackage, assemblyUri);
+            if (null == resAssembly)
+                return aDLL;
+
+            AssemblyPart part = new AssemblyPart();
+            aDLL = part.Load(resAssembly.Stream);
+
+            return aDLL;
         }
 
         /// <summary>
@@ -104,7 +215,7 @@ namespace Conquerors.Pages
             {
                 foreach(Commander a in player.Commanders)
                 {
-                    if (player.color != ActivePlayer.color)
+                    if (player.color != ActivePlayer.color && !a.visible)
                     {
                         if (!surveiledNodes.Contains(a.location)) continue;
                         double x = 0, y = 0;
@@ -128,7 +239,7 @@ namespace Conquerors.Pages
                         if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
                         visibleEnemies.Add(a);
                     }
-                    else
+                    else if(!a.visible)
                     {
                         double x = 0, y = 0;
                         foreach (Node node in map.nodeList)
@@ -154,89 +265,96 @@ namespace Conquerors.Pages
 
                 foreach (Steward a in player.Stewards)
                 {
-                    if (player.color != ActivePlayer.color)
+                    if (player.color != ActivePlayer.color && !a.visible)
                     {
                         //for now don't show enemy stewards
                         continue;
                     }
-                    double x = 0, y = 0;
-                    foreach (Node node in map.nodeList)
+                    else if (!a.visible)
                     {
-                        if (string.Equals(a.location, node.Name))
+                        double x = 0, y = 0;
+                        foreach (Node node in map.nodeList)
                         {
-                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                            Point offset = getPosition.Transform(new Point(0, 0));
-                            x = offset.X;
-                            y = offset.Y;
-                            break;
+                            if (string.Equals(a.location, node.Name))
+                            {
+                                GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                                Point offset = getPosition.Transform(new Point(0, 0));
+                                x = offset.X;
+                                y = offset.Y;
+                                break;
+                            }
                         }
-                    }
 
-                    a.visible = true;
-                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
-                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                    cnvMapa.Children.Add(a.sprite);
-                    if (a.Works() || a.moving)
-                        a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                        a.visible = true;
+                        a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => StewardSelect(sender, e, a.ID));
+                        a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                        a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                        cnvMapa.Children.Add(a.sprite);
+                        if (a.Works() || a.moving)
+                            a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    }
                 }  //Stewards
 
                 foreach (Assassin a in player.Assassins)
                 {
-                    if (player.color != ActivePlayer.color)
+                    if (player.color != ActivePlayer.color && !a.visible)
                     {
                         //for now don't show enemy assassins
                         continue;
                     }
-
-                    double x = 0, y = 0;
-                    foreach (Node node in map.nodeList)
+                    else if (!a.visible)
                     {
-                        if (string.Equals(a.location, node.Name))
+                        double x = 0, y = 0;
+                        foreach (Node node in map.nodeList)
                         {
-                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                            Point offset = getPosition.Transform(new Point(0, 0));
-                            x = offset.X;
-                            y = offset.Y;
-                            break;
+                            if (string.Equals(a.location, node.Name))
+                            {
+                                GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                                Point offset = getPosition.Transform(new Point(0, 0));
+                                x = offset.X;
+                                y = offset.Y;
+                                break;
+                            }
                         }
-                    }
 
-                    a.visible = true;
-                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
-                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                    cnvMapa.Children.Add(a.sprite);
-                    if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                        a.visible = true;
+                        a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => AssassinSelect(sender, e, a.ID));
+                        a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                        a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                        cnvMapa.Children.Add(a.sprite);
+                        if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    }
                 }  //Assassins
 
                 foreach (Scout a in ActivePlayer.Scouts)
                 {
-                    if (player.color != ActivePlayer.color)
+                    if (player.color != ActivePlayer.color && !a.visible)
                     {
                         //for now don't show enemy assassins
                         continue;
                     }
-
-                    double x = 0, y = 0;
-                    foreach (Node node in map.nodeList)
+                    else if (!a.visible)
                     {
-                        if (string.Equals(a.location, node.Name))
+                        double x = 0, y = 0;
+                        foreach (Node node in map.nodeList)
                         {
-                            GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
-                            Point offset = getPosition.Transform(new Point(0, 0));
-                            x = offset.X;
-                            y = offset.Y;
-                            break;
+                            if (string.Equals(a.location, node.Name))
+                            {
+                                GeneralTransform getPosition = node.nodeControl.TransformToVisual(Application.Current.RootVisual as UIElement);
+                                Point offset = getPosition.Transform(new Point(0, 0));
+                                x = offset.X;
+                                y = offset.Y;
+                                break;
+                            }
                         }
-                    }
 
-                    a.visible = true;
-                    a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
-                    a.sprite.SetValue(Canvas.LeftProperty, x - 70);
-                    a.sprite.SetValue(Canvas.TopProperty, y + 10);
-                    cnvMapa.Children.Add(a.sprite);
-                    if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                        a.visible = true;
+                        a.sprite.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ScoutSelect(sender, e, a.ID));
+                        a.sprite.SetValue(Canvas.LeftProperty, x - 70);
+                        a.sprite.SetValue(Canvas.TopProperty, y + 10);
+                        cnvMapa.Children.Add(a.sprite);
+                        if (a.moving) a.sprite.Opacity = Constants.darkenedSpriteOpacity;
+                    }
                 }  //Scouts
             }
 
@@ -252,14 +370,9 @@ namespace Conquerors.Pages
         /// </summary>
         private void hideControls()
         {
-            NodeInfo.Visibility = Visibility.Collapsed;
-            HireArmy.Visibility = Visibility.Collapsed;
-            HireCommander.Visibility = Visibility.Collapsed;
-            HireSteward.Visibility = Visibility.Collapsed;
-            HireAssassin.Visibility = Visibility.Collapsed;
-            HireScout.Visibility = Visibility.Collapsed;
-            HoldingUpgrade.Visibility = Visibility.Collapsed;
-            ArmyInfo.Visibility = Visibility.Collapsed;
+            foreach (UserControl uc in stpPlayerControls.Children)
+                uc.Visibility = Visibility.Collapsed;
+            ctrlResources.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -332,6 +445,11 @@ namespace Conquerors.Pages
             ctrlResources.FoodGain -= (ActivePlayer.Stewards.Count * Constants.stewardFoodUpkeep);
             ctrlResources.FoodGain -= (ActivePlayer.Assassins.Count * Constants.assassinFoodUpkeep);
             ctrlResources.FoodGain -= (ActivePlayer.Scouts.Count * Constants.scoutFoodUpkeep);
+
+            ctrlResources.GoldGain += goldGainModifier;
+            ctrlResources.FoodGain += foodGainModifier;
+            ctrlResources.StoneGain += stoneGainModifier;
+            ActivePlayer.Morale += moraleEffectModifier;
         }
 
         void showResources()
@@ -354,6 +472,13 @@ namespace Conquerors.Pages
          That is, enemy armies will only be shown in light-colored nodes*/
         private void setPlayerFOW()
         {
+            if (FoWSetUp)
+            {
+                foreach (Node node in map.nodeList)
+                    node.lighten();
+            }
+
+            FoWSetUp = true;
             List<string> visitedNodes = new List<string>();
             List<string> scoutingNodes = new List<string>();
             foreach (Commander a in ActivePlayer.Commanders)
@@ -406,7 +531,6 @@ namespace Conquerors.Pages
                 if (z)
                 {
                     node.darken();
-                    node.Owner = enmPlayers.None;
                 }
             }
         }
@@ -713,6 +837,53 @@ namespace Conquerors.Pages
                     }
                 }
             }
+
+            ShowModularControls(selectedNode);
+        }
+
+        private void ShowModularControls(Node selectedNode)
+        {
+            foreach (ControlInterface control in modules)
+            {
+                control.Map = map;
+                control.Players = app.players;
+                control.ActivePlayer = ActivePlayer;
+                control.SelectedNode = selectedNode;
+                control.ListOfArguments = listOfArguments;
+                if (control.CheckAvailiability())
+                {
+                    if (control.instanced)
+                    {
+                        control.userControl.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        UserControl newControl = control.userControl;
+                        if (newControl.Width == 80 && newControl.Height > 25 && newControl.Height < 100)
+                        {
+                            stpPlayerControls.Children.Add(control.userControl);
+                            control.userControl.MouseLeftButtonUp += new MouseButtonEventHandler((sender, e) => ControlActivated(control));
+                            control.instanced = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ControlActivated(ControlInterface control)
+        {
+            moraleEffectModifier += control.MoraleGainModifier;
+            goldGainModifier += control.GoldGainModifier;
+            foodGainModifier += control.FoodGainModifier;
+            stoneGainModifier += control.StoneGainModifier;
+
+            control.ResetState();
+            showResources();
+            showAgents();
+            setPlayerFOW();
+            routeUnselect();
+            showAgents();
+            showControls();
         }
 
         private void showStewardControls(Steward selectedSteward)
@@ -1290,7 +1461,7 @@ namespace Conquerors.Pages
             ActivePlayer.Gold += ctrlResources.GoldGain;
             ActivePlayer.Food += ctrlResources.FoodGain;
             ActivePlayer.Stone += ctrlResources.StoneGain;
-            TurnEnder TE = new TurnEnder(ActivePlayer, turn);
+            TurnEnder TE = new TurnEnder(ActivePlayer, turn, listOfArguments);
             bool commited = TE.Commit();
 
             if (commited)

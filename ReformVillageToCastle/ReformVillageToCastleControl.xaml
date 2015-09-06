@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ReformVillageToCastle.ReformVillageToCastleControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="70" Width="80">
+
+    <Grid x:Name="LayoutRoot" Background="#FFA86767">
+        <Rectangle Width="80" Height="70" Stroke="Beige"/>
+        <Image Source="Images/Castle.png" Margin="0,0,0,23"/>
+        <TextBlock Text="Build Castle" Foreground="#FFF18E49" Margin="8,38,-10,-38"/>
+        <Image Source="Images/Gold.png" Margin="0,52,48,0"/>
+        <TextBlock x:Name="txtGoldCost" Text="300" Foreground="#FFF18E49" Margin="10,52,-12,-52"/>
+        <Image Source="Images/Stone.png" Margin="48,52,0,0" Height="18" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtStoneCost" Text="150" Foreground="#FFF18E49" Margin="57,52,-59,-52"/>
+    </Grid>
+</UserControl>

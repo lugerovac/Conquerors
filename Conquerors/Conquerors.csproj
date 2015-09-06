@@ -61,6 +61,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core">
@@ -78,29 +80,9 @@
     <Compile Include="Controls\ArmyInfo.xaml.cs">
       <DependentUpon>ArmyInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Battle Modes\BattleTerrain.cs" />
-    <Compile Include="Classes\Battle.cs" />
-    <Compile Include="Classes\BattleReport.cs" />
-    <Compile Include="Classes\Army.cs" />
-    <Compile Include="Classes\Agents\AgentPlaceholder.cs" />
-    <Compile Include="Classes\Agents\Commander.cs" />
-    <Compile Include="Classes\Constants.cs" />
-    <Compile Include="Classes\CollissionHandler.cs" />
-    <Compile Include="Controls\AgentControl.xaml.cs">
-      <DependentUpon>AgentControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\Agents\Assassin.cs" />
-    <Compile Include="Classes\Agents\Agent.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Enumerations.cs" />
-    <Compile Include="Classes\Map.cs" />
-    <Compile Include="Classes\Node.cs" />
-    <Compile Include="Controls\NodeControl.xaml.cs">
-      <DependentUpon>NodeControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\Edge.cs" />
     <Compile Include="Controls\EditorResourceBar.xaml.cs">
       <DependentUpon>EditorResourceBar.xaml</DependentUpon>
     </Compile>
@@ -119,7 +101,6 @@
     <Compile Include="Controls\HoldingUpgrade.xaml.cs">
       <DependentUpon>HoldingUpgrade.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Dijkstra.cs" />
     <Compile Include="Controls\HireArmy.xaml.cs">
       <DependentUpon>HireArmy.xaml</DependentUpon>
     </Compile>
@@ -132,7 +113,6 @@
     <Compile Include="Controls\NodeLevel.xaml.cs">
       <DependentUpon>NodeLevel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\OccupationHandler.cs" />
     <Compile Include="Pages\Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -145,7 +125,6 @@
     <Compile Include="Pages\MainMenuAlpha.xaml.cs">
       <DependentUpon>MainMenuAlpha.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Player.cs" />
     <Compile Include="Pages\RecruitmentInterface.xaml.cs">
       <DependentUpon>RecruitmentInterface.xaml</DependentUpon>
     </Compile>
@@ -156,11 +135,13 @@
     <Compile Include="Controls\ResourceBar.xaml.cs">
       <DependentUpon>ResourceBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Agents\Scout.cs" />
-    <Compile Include="Classes\Agents\Steward.cs" />
-    <Compile Include="Classes\TurnEnder.cs" />
     <Compile Include="Controls\UnitSlot.xaml.cs">
       <DependentUpon>UnitSlot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -173,14 +154,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ArmyInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\AgentControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\NodeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,35 +232,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Controls\Agents\SpriteAssassinBlue.png" />
-    <Resource Include="Controls\Agents\SpriteAssassinGreen.png" />
-    <Resource Include="Controls\Agents\SpriteAssassinPurple.png" />
-    <Resource Include="Controls\Agents\SpriteAssassinRed.png" />
-    <Resource Include="Controls\Agents\SpriteCommanderBlue.png" />
-    <Resource Include="Controls\Agents\SpriteCommanderGreen.png" />
-    <Resource Include="Controls\Agents\SpriteCommanderPurple.png" />
-    <Resource Include="Controls\Agents\SpriteCommanderRed.png" />
-    <Resource Include="Controls\Agents\SpriteScoutBlue.png" />
-    <Resource Include="Controls\Agents\SpriteScoutGreen.png" />
-    <Resource Include="Controls\Agents\SpriteScoutPurple.png" />
-    <Resource Include="Controls\Agents\SpriteScoutRed.png" />
-    <Resource Include="Controls\Agents\SpriteStewardBlue.png" />
-    <Resource Include="Controls\Agents\SpriteStewardGreen.png" />
-    <Resource Include="Controls\Agents\SpriteStewardPurple.png" />
-    <Resource Include="Controls\Agents\SpriteStewardRed.png" />
-    <Resource Include="Controls\NodeIcons\Castle.png" />
-    <Resource Include="Controls\NodeIcons\Church.png" />
-    <Resource Include="Controls\NodeIcons\City.png" />
-    <Resource Include="Controls\NodeIcons\Forest.png" />
-    <Resource Include="Controls\NodeIcons\Metropolis.png" />
-    <Resource Include="Controls\NodeIcons\Mine.png" />
-    <Resource Include="Controls\NodeIcons\Mountains.png" />
-    <Resource Include="Controls\NodeIcons\Mountain_Pass.png" />
-    <Resource Include="Controls\NodeIcons\Plain.png" />
-    <Resource Include="Controls\NodeIcons\Riverside.png" />
-    <Resource Include="Controls\NodeIcons\Village.png" />
+    <None Include="Service References\ServiceReference1\ControlModuleLoader.wsdl" />
+    <None Include="Service References\ServiceReference1\ControlModuleLoader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ControlModuleLoader1.wsdl" />
+    <None Include="Service References\ServiceReference1\ControlModuleLoader1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ControlModuleLoader2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Controls\Resources\Food.png" />
@@ -300,18 +256,6 @@
     <Resource Include="Controls\ButtonStyles\btnPlayerGreen.png" />
     <Resource Include="Controls\ButtonStyles\btnPlayerPurple.png" />
     <Resource Include="Controls\ButtonStyles\btnPlayerRed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Controls\Agents\SpriteScout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Controls\Agents\SpriteAssassin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Controls\Agents\SpriteSteward.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Controls\Agents\SpriteCommander.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Controls\Resources\Hourglass.png" />
@@ -337,6 +281,93 @@
   <ItemGroup>
     <Resource Include="Controls\Misc\Down.png" />
     <Resource Include="Controls\Misc\Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConquerorsClassLibrary\ConquerorsClassLibrary.csproj">
+      <Project>{008ae63a-3530-483b-8298-773bcb8ae3ca}</Project>
+      <Name>ConquerorsClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteSteward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\ControlModuleLoader.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

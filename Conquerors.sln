@@ -4,10 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors", "Conquerors\Conquerors.csproj", "{E35678EC-8FD6-41C4-A382-3A7A1AC29118}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611} = {DF64C9D8-26BE-4AE4-8F3C-E79F10901611}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors.Web", "Conquerors.Web\Conquerors.Web.csproj", "{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conquerors_Test", "..\Conquerors_Test\Conquerors_Test\Conquerors_Test.csproj", "{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquerorsClassLibrary", "ConquerorsClassLibrary\ConquerorsClassLibrary.csproj", "{008AE63A-3530-483B-8298-773BCB8AE3CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectExtraTaxes", "CollectExtraTaxes\CollectExtraTaxes.csproj", "{6F87B9E6-5CB6-41F7-AB96-BBFFF5FA6487}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReformVillageToCastle", "ReformVillageToCastle\ReformVillageToCastle.csproj", "{81188870-A8D0-434B-96DC-373F9608C9D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCrusade", "CallCrusade\CallCrusade.csproj", "{84862083-9AAB-450E-851C-7725D22A6ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +32,22 @@ Global
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF64C9D8-26BE-4AE4-8F3C-E79F10901611}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84AF4C0A-33CE-49BF-AE2E-E64CC76E941D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008AE63A-3530-483B-8298-773BCB8AE3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008AE63A-3530-483B-8298-773BCB8AE3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008AE63A-3530-483B-8298-773BCB8AE3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008AE63A-3530-483B-8298-773BCB8AE3CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F87B9E6-5CB6-41F7-AB96-BBFFF5FA6487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F87B9E6-5CB6-41F7-AB96-BBFFF5FA6487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F87B9E6-5CB6-41F7-AB96-BBFFF5FA6487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F87B9E6-5CB6-41F7-AB96-BBFFF5FA6487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81188870-A8D0-434B-96DC-373F9608C9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81188870-A8D0-434B-96DC-373F9608C9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81188870-A8D0-434B-96DC-373F9608C9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81188870-A8D0-434B-96DC-373F9608C9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84862083-9AAB-450E-851C-7725D22A6ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84862083-9AAB-450E-851C-7725D22A6ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84862083-9AAB-450E-851C-7725D22A6ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84862083-9AAB-450E-851C-7725D22A6ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

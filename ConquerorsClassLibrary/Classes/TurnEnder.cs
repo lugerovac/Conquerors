@@ -20,11 +20,13 @@ namespace Conquerors
 
         Player player;
         int turn;
+        List<ArgHandler> ListOfArguments;
 
-        public TurnEnder(Player _player, int _turn)
+        public TurnEnder(Player _player, int _turn, List<ArgHandler> _arguments)
         {
             player = _player;
             turn = _turn;
+            ListOfArguments = _arguments;
         }
 
         public bool Commit()
@@ -125,6 +127,13 @@ namespace Conquerors
                             sw.WriteLine(army.Musketeers);
                         }
                         sw.WriteLine("/armies");
+
+                        foreach(ArgHandler arg in ListOfArguments)
+                        {
+                            sw.WriteLine(arg.ArgumentName);
+                            sw.WriteLine(arg.Argument);
+                        }
+                        sw.WriteLine("/arguments");
                     }
                     return true;
                 }

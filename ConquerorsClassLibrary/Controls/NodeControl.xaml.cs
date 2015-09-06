@@ -39,23 +39,23 @@ namespace Conquerors
                 switch (Owner)
                 {
                     case enmPlayers.None:
-                        //elpNode.Stroke = new SolidColorBrush(Colors.White);
+                        elpNode.Stroke = new SolidColorBrush(Colors.White);
                         elpNode.Fill = new SolidColorBrush(Colors.White);
                         break;
                     case enmPlayers.Blue:
-                        //elpNode.Stroke = new SolidColorBrush(Colors.Blue);
+                        elpNode.Stroke = new SolidColorBrush(Colors.Blue);
                         elpNode.Fill = new SolidColorBrush(Colors.Blue);
                         break;
                     case enmPlayers.Red:
-                        //elpNode.Stroke = new SolidColorBrush(Colors.Red);
+                        elpNode.Stroke = new SolidColorBrush(Colors.Red);
                         elpNode.Fill = new SolidColorBrush(Colors.Red);
                         break;
                     case enmPlayers.Green:
-                        //elpNode.Stroke = new SolidColorBrush(Colors.Green);
+                        elpNode.Stroke = new SolidColorBrush(Colors.Green);
                         elpNode.Fill = new SolidColorBrush(Colors.Green);
                         break;
                     case enmPlayers.Purple:
-                        //elpNode.Stroke = new SolidColorBrush(Colors.Purple);
+                        elpNode.Stroke = new SolidColorBrush(Colors.Purple);
                         elpNode.Fill = new SolidColorBrush(Colors.Purple);
                         break;
                 }
@@ -81,6 +81,32 @@ namespace Conquerors
             elpNode.Fill = new SolidColorBrush(Colors.LightGray);
             if (Owner == enmPlayers.None) elpNode.Stroke = new SolidColorBrush(Colors.LightGray);
             this.Opacity = Constants.darkenedNodeOpacity;
+        }
+
+        public void lighten()
+        {
+            darkened = false;
+            elpNode.Fill = new SolidColorBrush(Colors.White);
+            if (Owner == enmPlayers.None) elpNode.Stroke = new SolidColorBrush(Colors.White);
+            else
+            {
+                switch(Owner)
+                {
+                    case enmPlayers.Red:
+                        elpNode.Fill = new SolidColorBrush(Colors.Red);
+                        break;
+                    case enmPlayers.Blue:
+                        elpNode.Fill = new SolidColorBrush(Colors.Blue);
+                        break;
+                    case enmPlayers.Green:
+                        elpNode.Fill = new SolidColorBrush(Colors.Green);
+                        break;
+                    case enmPlayers.Purple:
+                        elpNode.Fill = new SolidColorBrush(Colors.Purple);
+                        break;
+                }
+            }
+            this.Opacity = 1;
         }
 
         public void routeSelect(bool farAway)

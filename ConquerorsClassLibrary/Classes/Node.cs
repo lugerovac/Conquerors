@@ -207,6 +207,11 @@ namespace Conquerors
             nodeControl.darken();
         }
 
+        public void lighten()
+        {
+            nodeControl.lighten();
+        }
+
         public void routeSelect(bool farAway)
         {
             nodeControl.routeSelect(farAway);

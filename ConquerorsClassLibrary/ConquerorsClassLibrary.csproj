@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{008AE63A-3530-483B-8298-773BCB8AE3CA}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConquerorsClassLibrary</RootNamespace>
+    <AssemblyName>ConquerorsClassLibrary</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Agents\Agent.cs" />
+    <Compile Include="Classes\Agents\AgentPlaceholder.cs" />
+    <Compile Include="Classes\Agents\Assassin.cs" />
+    <Compile Include="Classes\Agents\Commander.cs" />
+    <Compile Include="Classes\Agents\Scout.cs" />
+    <Compile Include="Classes\Agents\Steward.cs" />
+    <Compile Include="Classes\ArgHandler.cs" />
+    <Compile Include="Classes\Army.cs" />
+    <Compile Include="Classes\Battle Modes\BattleTerrain.cs" />
+    <Compile Include="Classes\Battle.cs" />
+    <Compile Include="Classes\BattleReport.cs" />
+    <Compile Include="Classes\CollissionHandler.cs" />
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\Dijkstra.cs" />
+    <Compile Include="Classes\Edge.cs" />
+    <Compile Include="Classes\Enumerations.cs" />
+    <Compile Include="Classes\Map.cs" />
+    <Compile Include="Classes\Node.cs" />
+    <Compile Include="Classes\OccupationHandler.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\TurnEnder.cs" />
+    <Compile Include="Controls\AgentControl.xaml.cs">
+      <DependentUpon>AgentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NodeControl.xaml.cs">
+      <DependentUpon>NodeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ControlInterface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\AgentControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NodeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteAssassinRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteCommanderRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteScoutRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteSteward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Agents\SpriteStewardRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Castle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Church.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\City.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Forest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Metropolis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Mountain_Pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Mountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Plain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Riverside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\NodeIcons\Village.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
